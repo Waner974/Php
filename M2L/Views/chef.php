@@ -41,7 +41,7 @@
         <td>'.$value['nom'].'</td>
         <td>'.$value['prenom'].'</td>
         <td>'.$value['mail'].'</td>
-      	<td><a href="" class="glyphicon glyphicon-list"></a></td>
+      	<td><a href="'.BASE_URL.'/formationUser?id='.$value['id_s'].'" class="glyphicon glyphicon-list"></a></td>
         </tr>
         </tbody>';
 }
