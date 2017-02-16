@@ -1,7 +1,7 @@
 <div class="col-md-6 col-md-offset-4">
     <form action="<?= BASE_URL; ?>/gestionFormation" method="post">
-        <div class="col-sm-6 col-md-6">
-            <h3>Ajouter une formation</h3>
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Ajouter une formation</h3><hr>
             <div class="form-group">
                 <label for="libelle">Nom de la formation:</label>
                 <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libelle"/>

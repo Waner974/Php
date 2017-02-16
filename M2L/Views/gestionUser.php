@@ -14,7 +14,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" id="mail" name="mail" class="form-control" placeholder="Email"/>
+                <input type="mail" id="mail" name="mail" class="form-control" placeholder="Email"/>
             </div>
 
             <div class="form-group">
@@ -34,15 +34,20 @@
             <div class="form-group">
                 <hr>
                 <label>Nombre de jours</label>
-                <input type="number" id="" name="NbJour" class="form-control" placeholder="Nombre de jours"/>
+                <input type="number" id="" name="NbJour" class="form-control" placeholder="Nombre de jours" value="0" min="0" max="15"/>
                 <hr>
-                <label>Niveau</label>
-                <input type="number" id="level" name="level" class="form-control"/>
-                <p>(1 = administrateur, 2 = chef, 3 = utilisateur)</p>
+                <?php 
+                if($_SESSION["auth"]["level"] == 1)
+                {
+                    echo '<label>Niveau</label>
+                    <input type="number" id="level" name="level" class="form-control"/>
+                    <p>(1 = administrateur, 2 = chef, 3 = utilisateur)</p>
+                    ';
+                }
+                ?>
                 <button type="submit" name="submit" class="btn btn-primary">Valider</button>
             </div>
         </div>
-
     </form>
     <div class="clearfix"></div>
 </div>

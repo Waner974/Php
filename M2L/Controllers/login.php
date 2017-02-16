@@ -51,7 +51,7 @@ if(isset($_POST['submit']))
      }
      else
      {
-         echo "Mauvais identifiants";
+         echo'<div class="alert alert-warning">Mauvais identifiants !</div>';
      }
 }
 

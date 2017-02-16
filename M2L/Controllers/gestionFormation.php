@@ -1,12 +1,12 @@
 <?php
 
-    if($_SESSION['auth']['level']== 1)
+    if($_SESSION['auth']['level']== 1 ||$_SESSION['auth']['level']== 2 )
     {
         require "Models/gestionFormation.php";
         if(isset($_POST['submit']))
         {
             addFormation();
-            echo ('ajouté');
+            echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';    
         }
         $_GET['p'] = 'admin';
         require "Views/gestionFormation.php";

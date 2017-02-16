@@ -1,48 +1,96 @@
-  <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-    <title>Formation M2L</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <!-- 
-    Authentic Template
-    http://www.templatemo.com/tm-412-authentic
-    -->
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/templatemo_main.css">
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/login.css">
-    <!-- templatemo 412 authentic -->
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
 
-            <!--[if lt IE 7]>
-                <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a rel="nofollow" href="http://browsehappy.com">upgrade your browser</a> or <a rel="nofollow" href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-                <![endif]-->
-                <div class="col-lg-12">
-                        <h3>·M2L-Formations·</h3><hr>
-                        </div>
-                        <div class="col-lg-6 col-lg-offset-3">
-                         <div class="row">
-                        <form action="#" method="post">
-                            <div class="col-lg-5 col-lg-offset-4">
-                            <div class="form-group">
-                                <!--<label for="contact_email">Email:</label>-->
-                                <input type="text" id="mail" name="mail" class="form-control" placeholder="Email" />
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/form-elements.css">
+        <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/loginStyle.css">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+       <body>
+
+        <!-- Top content -->
+        <div class="top-content">
+            
+            <div class="inner-bg">
+                <div class="container">
+                    
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>M2L</strong>Formation </h1>
+                            <div class="description">
+                                <p>
+                                </p>
                             </div>
-                            <div class="form-group">
-                                <!--<label for="contact_subject">Subject:</label>-->
-                                <input type="password" id="mdp" name="mdp" class="form-control" placeholder="************" />
-                            </div><input type="checkbox" name="remember"><label>Se souvenir de moi</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            
+                            <div class="form-box">
+                                <div class="form-top">
+                                    <div class="form-top-left">
+                                        <h3>Se connecter</h3>
+                                        <p>Entrer votre email et votre mot de passe pour vous connecter:</p>
+                                    </div>
+                                    <div class="form-top-right">
+                                        <i class="fa fa-lock"></i>
+                                    </div>
+                                </div>
+                                <div class="form-bottom">
+                                    <form role="form" action="#" method="post" class="login-form">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="form-username">Username</label>
+                                            <input type="mail" name="mail" placeholder="Email" class="form-username form-control" id="form-username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="form-password">Password</label>
+                                            <input type="password" name="mdp" placeholder="************" class="form-password form-control" id="form-password">
+                                            <input type="checkbox"name="remember">Se souvenir de moi
+                                        </div>
+                                        <button type="submit" name="submit" class="btn">Connexion</button>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        </div>
+                </div>
+            </div>
+            
+        </div>
 
-                            <button type="submit" name="submit" class="btn btn-warning pull-right">Valider</button>
-                        </form>
-                        </div>
-                        </div>
-</body>
+       
+
+        <!-- Javascript -->
+        <script src="<?= BASE_URL; ?>/Views/js/jquery.min.js"></script>
+        <script src="<?= BASE_URL; ?>/Views/js/bootstrap.min.js"></script>
+        <script src="<?= BASE_URL; ?>/Views/js/jquery.backstretch.min.js"></script>
+        <script src="<?= BASE_URL; ?>/Views/js/loginScripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
 </html>
-

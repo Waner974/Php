@@ -40,19 +40,19 @@
 				<li class="ts-label">Menu</li>
 				<?php
 				if($_SESSION['auth']['level']== 1){
-					echo('<li class="open"><a href="'.BASE_URL.'"/admin"><i class="fa fa-dashboard"></i>Dashboard ADMIN</a></li>
+					echo('<li class="open"><a href="'.BASE_URL.'/admin"><i class="fa fa-dashboard"></i>Dashboard ADMIN</a></li>
 				}
-				<li><a href="'.BASE_URL.'"/gestionUser"><i class="glyphicon glyphicon-user"></i>Gestion Utilisateur</a></li>
-				<li><a href="'.BASE_URL.'"/gestionFormation"><i class="glyphicon glyphicon-user"></i>Gestion Formation</a></li><hr>
+				<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i>Gestion Utilisateur</a></li>
+				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i>Gestion Formation</a></li><hr>
 				<li class="ts-account">
-				<a href="'.BASE_URL.'"/disconnect"><img src="<?= BASE_URL; ?>Views/images/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
+				<a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
 			    </li>');}
 			    elseif ($_SESSION['auth']['level'] == 2){
-			    	echo('<li class="open"><a href="'.BASE_URL.'"/admin"><i class="fa fa-dashboard"></i>Dashboard CHEF</a></li>
-				<li><a href="'.BASE_URL.'"/gestionUser"><i class="glyphicon glyphicon-user"></i>Liste Utilisateur</a></li>
-				<li><a href="'.BASE_URL.'"/gestionFormation"><i class="glyphicon glyphicon-plus-sign"></i>Ajout Formation</a></li><hr>
+			    	echo('<li class="open"><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i>Dashboard CHEF</a></li>
+				<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i>Gestion Utilisateur</a></li>
+				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-plus-sign"></i>Ajout Formation</a></li><hr>
 				<li class="ts-account">
-				<a href="'.BASE_URL.'"/disconnect"><img src="<?= BASE_URL; ?>Views/images/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
+				<a href="'.BASE_URL.'/disconnect"><img src="<?= BASE_URL; ?>Views/images/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
 			    </li>');
 			    }
 				?>
