@@ -6,6 +6,8 @@ if($_SESSION['auth']['level']== 2)
 
     $id = $_GET['id'];
     $listeFormation = getFormationsUser($id);
+    
+    $_GET['p'] = 'chef';
 
     require "Views/formationUser.php";
 }

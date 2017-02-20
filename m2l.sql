@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 20 Février 2017 à 19:52
+-- Généré le :  Lun 20 Février 2017 à 22:26
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -62,7 +62,9 @@ INSERT INTO `adresse` (`id_a`, `rue`, `commune`, `code_postale`, `numero`) VALUE
 (21, 'test', 'Testeur', '75000', 11),
 (22, 'test', 'Testeur', '75000', 11),
 (23, 'Presta1', 'Presta1', '75000', 11),
-(24, 'Presta2', 'Presta2', '75000', 11);
+(24, 'Presta2', 'Presta2', '75000', 11),
+(25, 'presta3', 'presta3', '56789', 43),
+(26, 'presta4', 'presta4', '45678', 543);
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,9 @@ CREATE TABLE `prestataire` (
 
 INSERT INTO `prestataire` (`id_p`, `raison_s`, `id_a`) VALUES
 (1, 'Presta1', 23),
-(2, 'Presta2', 24);
+(2, 'Presta2', 24),
+(3, 'presta3', 25),
+(4, 'presta4', 26);
 
 -- --------------------------------------------------------
 
@@ -135,7 +139,7 @@ CREATE TABLE `salarie` (
 INSERT INTO `salarie` (`id_s`, `nom`, `prenom`, `mail`, `password`, `NbJour`, `level`, `id_a`, `id_s_1`) VALUES
 (1, 'admin', 'admin', 'admin@admin.fr', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 1, NULL, NULL),
 (2, 'chef', 'chef', 'chef@chef.fr', 'd5f2e5c77054c44c2c72a1b017deca06fc637c99', 1, 2, NULL, NULL),
-(3, 'user', 'user', 'user@user.fr', '12dea96fec20593566ab75692c9949596833adc9', 1, 3, NULL, NULL),
+(3, 'user', 'user', 'user@user.fr', '12dea96fec20593566ab75692c9949596833adc9', 1, 3, NULL, 2),
 (4, 'admin', 'admin', 'admin2@admin.fr', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 1, NULL, NULL),
 (5, 'admin', 'admin', 'admin3@admin.fr', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, 1, NULL, NULL),
 (6, 'chef', 'chef', 'chef2@chef.fr', 'd5f2e5c77054c44c2c72a1b017deca06fc637c99', 1, 2, NULL, NULL),
@@ -184,7 +188,9 @@ CREATE TABLE `suivre` (
 --
 
 INSERT INTO `suivre` (`etat`, `id_s`, `id_f`) VALUES
-('user', 3, 1),
+('En attente', 3, 1),
+('Validé', 3, 2),
+('Refusé', 3, 3),
 ('user', 7, 3);
 
 -- --------------------------------------------------------
@@ -260,7 +266,7 @@ ALTER TABLE `type_formation`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `id_a` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_a` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT pour la table `formation`
 --
@@ -270,7 +276,7 @@ ALTER TABLE `formation`
 -- AUTO_INCREMENT pour la table `prestataire`
 --
 ALTER TABLE `prestataire`
-  MODIFY `id_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `salarie`
 --
