@@ -2,32 +2,39 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-2">
             <div class="row">
-                <h2>Liste des formation</h2>            
-                  
-                    <?php foreach($listeFormation as $key => $value)
-                        {
-                            echo '<table class="table table-hover">
+                <h2>Liste des formation </h2><hr><br>               
+                <div class="col-md-7 col-md-offset-2">
+                <form>
+                  <table class="table table-default">
                                     <thead>
                                       <tr>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>Formation</th>
+                                        <th>Formation(s)</th>
                                         <th>Etat</th>
                                       </tr>
-                                    </thead>
+                                    </thead><i></i>
+                     <?php   
+                     echo ('<h4><i class="glyphicon glyphicon-user"></i>'." ".$listeFormation[0]['nom']." ".$listeFormation[0]['prenom'].'</h4><hr>');
+                     if(sizeof($listeFormation) > 0)
+                     foreach($listeFormation as $key => $value)
+                        {
+                            echo '
                                     <tbody>
                                       <tr>
-                                        <td>'.$_GET["salarie.nom"].'</td>
-                                        <td>'.$_GET["salarie.prenom"].'</td>
-                                        <td>'.$_GET["formation.libelle"].'</td>
-                                        <td>'.$_GET["formation.etat"].'</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>';
+                                        <td>'.$value["libelle"].'</td>
+                                        <td>
+                                        <select class="form-control">
+                                        <option selected="selected">'.$value['etat'].'</option>
+                                        <option >Validé</option>
+                                        <option >Refusé</option>
+                                        <option >En attente</option>
+                                        </select></td></tr></tbody>';            
                         }
                     ?>
-                
+                </table>
+                <input type="submit" class="btn pull-right">
+            </form>
             </div>
         </div>
     </div>
+</div>
 </div>

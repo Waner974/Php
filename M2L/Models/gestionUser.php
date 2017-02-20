@@ -42,7 +42,7 @@
         $lvl = 3;
         $pass=sha1($_POST['mdp']);
         $id_a = $bdd->lastInsertId();
-        $sql = "INSERT INTO salarie (nom, prenom, mail,password, NbJour, level, id_a,id_s_1) VALUES (:nom,:prenom,:mail,:password,:level,:NbJour, :id_a,:id_s_1)";
+        $sql = "INSERT INTO salarie (nom, prenom, mail,password, NbJour, level, id_a,id_s_1) VALUES (:nom,:prenom,:mail,:password,:NbJour,:level, :id_a,:id_s_1)";
         $requete = $bdd->prepare($sql);
         $requete->bindParam(':nom', $_POST['nom']);
         $requete->bindParam(':prenom', $_POST['prenom']);

@@ -4,8 +4,8 @@
     {
         require "Models/accueil.php";        
         $_GET['p'] = 'accueil';
-        require "Views/accueil.php";
         $Formations = getFormations();
+        require "Views/accueil.php";
     }
     else
     {

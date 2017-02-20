@@ -30,7 +30,16 @@ else
     ob_end_clean();
     
     
-    if($_GET['p'] == "admin" || $_GET['p'] == "chef" )
+    /*if($_GET['p'] == "admin" || $_GET['p'] == "chef" )
+    {
+        require "Views/layout2.php";
+    }
+    else
+    {
+        require "Views/layout.php";
+    }*/
+
+    if($_SESSION['auth']['level'] == 1 || $_SESSION['auth']['level'] == 2  )
     {
         require "Views/layout2.php";
     }
@@ -38,5 +47,6 @@ else
     {
         require "Views/layout.php";
     }
+   
 }
 ?>

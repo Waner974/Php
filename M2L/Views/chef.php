@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="row">
-				<h2 class="page-title"> Liste des utilisateurs</h2>
+				<h2 class="page-title"> Liste des utilisateurs</h2><br>
 				<table class="table">
     				<thead>
       <tr>
