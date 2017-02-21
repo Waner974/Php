@@ -4,7 +4,6 @@
             <div class="row">
                 <h2>Liste des formations</h2><hr><br>               
                 <div class="col-md-7 col-md-offset-2">
-                <form>
                   <table class="table table-default">
                                     <thead>
                                       <tr>
@@ -23,31 +22,29 @@
                             {
                                 if($value['etat'] == "Validé")
                                  {
-                                     $classEtat = "success";
+                                     $value['etat'] = '<span class="label label-success"><i class="glyphicon glyphicon-ok"></i> Validé</span>'; 
                                  }
                                  elseif($value['etat'] == "Refusé")
                                  {
-                                     $classEtat = "danger";
+                                    $value['etat'] = '<span class="label label-danger"><i class="glyphicon glyphicon-remove"></i> Refusé</span>';
                                  }
                                  else
-                                 {
-                                     $classEtat = "warning";
+                                 {   
+                                    $value['etat'] = '<span class="label label-warning"><i class="glyphicon glyphicon-time"></i> En attente</span>';
                                  }
-                                
                                 echo '
                                         <tbody>
                                             <tr>
                                                 <td>'.$value["libelle"].'</td>
                                                 <td>
-                                                    <option selected="selected" class="label label-'.$classEtat.'">'.$value['etat'].'</option>
+                                                '.$value['etat'].'
                                                 </td>
                                                 <td>
-                                                    <select class="form-control">
-                                                        <option>Aucune</option>
-                                                        <option>Validé</option>
-                                                        <option>Refusé</option>
-                                                        <option>En attente</option>
-                                                    </select>
+                                                <form method="post">
+                                            <button type="submit" class="btn btn-success" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
+                                            <button type="submit" class="btn btn-danger" name="Refuse" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
+                                            <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
+                                                </form>
                                                 </td>
                                             </tr>
                                         </tbody>';            
@@ -61,8 +58,6 @@
                       }
                     ?>
                 </table>
-                <input type="submit" class="btn pull-right">
-            </form>
             </div>
         </div>
     </div>

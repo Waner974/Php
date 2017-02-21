@@ -3,7 +3,7 @@
 function getFormationsUser($id)
 {
 		global $bdd;
-       	$reponse = $bdd->prepare('select salarie.id_s, salarie.nom, salarie.prenom, formation.libelle, suivre.etat 
+       	$reponse = $bdd->prepare('SELECT formation.id_f ,salarie.id_s, salarie.nom, salarie.prenom, formation.libelle, suivre.etat 
 			from suivre, salarie, formation 
 			where salarie.id_s = suivre.id_s 
 			and formation.id_f = suivre.id_f 
@@ -14,6 +14,19 @@ function getFormationsUser($id)
         {
             return $data;
         }
-}                              
+}
 
+function valide($id_f)
+{
+    global $bdd;
+    $req = $bdd->prepare('UPDATE suivre SET etat="Validé" where id_f= "'.$id_f.'"');
+    $req->execute();
+}
+
+function refuse($id_f)
+{
+    global $bdd;
+    $req = $bdd->prepare('UPDATE suivre SET etat="Refusé" where id_f= "'.$id_f.'"');
+    $req->execute();
+}
 ?>
