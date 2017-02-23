@@ -34,7 +34,7 @@ h3 {
 img { max-width: 100%; }
 
 ::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
-::selection { color: #fff; text-shadow: none; }
+::selection { background-color: #f0ad4e; text-shadow: none; }
 
 .btn-link-1 {
 	display: inline-block;
