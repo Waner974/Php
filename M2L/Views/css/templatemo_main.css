@@ -35,7 +35,14 @@ body {
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
 }
+thead{
+    font-size:1.5em; 
+    color: white;
+}
 
+tbody{
+    color: white;
+}
 h1, h2, h3, h4, h5, h6, span, p, li { font-family: 'Open Sans', sans-serif; }
 h3 { color: #FF6; padding: 10px 0 0 0; font-size: 16px; font-weight: bold; }
 
@@ -154,6 +161,9 @@ img {  vertical-align: middle; }
     overflow: hidden;
 }
 
+.modal-title{color: black;}
+.modalContent{color: black;}
+/*.templatemo-content .modal-body h4{ color: black; };*/
 .templatemo-content section {
     font-family: 'Open Sans', sans-serif;
     position: relative; 

@@ -1,66 +1,62 @@
 <section id="templatemo-page1-text" class="active">
     <div class="col-sm-12 col-md-12 col-lg-12">
-        <h2>Image Gallery</h2>
-        
-        <div id="slider" class="flexslider">
-            <ul class="slides">
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/slide1.jpg" alt="Slide 1"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/slide2.jpg" alt="Slide 2"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/slide3.jpg" alt="Slide 3"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/slide4.jpg" alt="Slide 4"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/slide5.jpg" alt="Slide 5"/>
-                </li>
-            </ul>
-        </div>
-        <div id="carousel" class="flexslider">
-            <ul class="slides">
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/thumb1.jpg" alt="Thumbnail 1"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/thumb2.jpg" alt="Thumbnail 2"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/thumb3.jpg" alt="Thumbnail 3"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/thumb4.jpg" alt="Thumbnail 4"/>
-                </li>
-                <li>
-                    <img src="<?= BASE_URL; ?>/Views/images/slider/thumb5.jpg" alt="Thumbnail 5"/>
-                </li>
-            </ul>
-        </div>
-
-
         <div class="row">
             <div id="detailForm">
-
-
-                <h2 class="col-lg-12 ">Liste des Formations à venir </h2>
+                <h2 class="col-lg-12 ">Liste des formations proposé</h2>
+                <table class="table table-default">
+                                    <thead>
+                                      <tr>
+                                        <th>Formations</th>
+                                        <th>Date</th>
+                                        <th>Durée</th>
+                                        <th>Plus d'info</th>
+                                        <th>Suivre</th>
+                                      </tr>
+                                    </thead><i></i>
                 <?php
                 foreach ($Formations as $key => $value) {
-                echo('<div class="col-lg-12"><div class="panel panel-warning">
-                    <div class="panel-heading"><h4>'.$value['libelle'].'</h4></div>
-                    <div class="panel-body"><h5>Date formation:'.$value['date_f'].'</h5>
-                    <h5>Durée: '.$value['NbJour'].' jour(s)</h5><hr><div class="caption">
-                    <p>
-                    <a href="#'.$value['libelle'].'" class="btn btn-warning pull-right" role="button" value-toggle="collapse">+</a>
-                    </p>
-                    <div id="'.$value['libelle'].'" class="collapse">'.$value['contenu'].'</div></div></div></div></div>');
+                echo('
+                    <tbody>
+                        <tr>
+                           <td>'.$value["libelle"].'</td>
+                           <td>'.$value['date_f'].'</td>
+                           <td>'.$value['NbJour'].'</td>
+                           <td>
+                            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
+                            <div class="modal fade" id='.$value['id_f'].' role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">'.$value['libelle'].'</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
+                                            <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
+                                            <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</5></h4>
+                                            <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                           </td>
+                            <td>
+                                <form method="post">
+                                    <button type="submit" class="btn" name="Suivre" >
+                                        <span>Suivre</span>
+                                    </button>  
+                                    <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>');
 } 
+
+
                 ?>
-            </div>
+                </table>
         </div>
+
     </div>
     </div>
 
