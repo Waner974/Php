@@ -13,7 +13,7 @@
                             	 ?>
                                 </div>
                                 <div class="stat-panel-title text-uppercase"><span
-                                  class="glyphicon glyphicon-user"></span>Utilisateur(s) affecté(s)
+                                  class="glyphicon glyphicon-user"></span> Utilisateur(s) affecté(s)
                                 </div>
                             </div>
                         </div>

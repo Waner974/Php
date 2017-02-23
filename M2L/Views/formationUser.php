@@ -20,9 +20,11 @@
                      echo ('<h4><i class="glyphicon glyphicon-user"></i>'." ".$listeFormation[0]['nom']." ".$listeFormation[0]['prenom'].'</h4><hr>');
                          foreach($listeFormation as $key => $value)
                             {
+                                $form = "";
+                                
                                 if($value['etat'] == "Validé")
                                  {
-                                     $value['etat'] = '<span class="label label-success"><i class="glyphicon glyphicon-ok"></i> Validé</span>'; 
+                                     $value['etat'] = '<span class="label label-success"><i class="glyphicon glyphicon-ok"></i> Validé</span>';
                                  }
                                  elseif($value['etat'] == "Refusé")
                                  {
@@ -31,6 +33,12 @@
                                  else
                                  {   
                                     $value['etat'] = '<span class="label label-warning"><i class="glyphicon glyphicon-time"></i> En attente</span>';
+                                    
+                                    $form = '<form method="post">
+                                            <button type="submit" class="btn btn-success" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
+                                            <button type="submit" class="btn btn-danger" name="Refuse" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
+                                            <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
+                                                </form>';
                                  }
                                 echo '
                                         <tbody>
@@ -40,11 +48,7 @@
                                                 '.$value['etat'].'
                                                 </td>
                                                 <td>
-                                                <form method="post">
-                                            <button type="submit" class="btn btn-success" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
-                                            <button type="submit" class="btn btn-danger" name="Refuse" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
-                                            <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
-                                                </form>
+                                                '.$form.'
                                                 </td>
                                             </tr>
                                         </tbody>';            
