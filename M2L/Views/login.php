@@ -59,13 +59,16 @@
                                     <form role="form" action="#" method="post" class="login-form">
                                         <div class="form-group">
                                             <label class="sr-only" for="form-username">Username</label>
-                                            <input type="mail" name="mail" placeholder="Email" class="form-username form-control" id="form-username">
+                                            <input type="email" name="mail" placeholder="Email" class="form-username form-control" id="form-username">
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Password</label>
                                             <input type="password" name="mdp" placeholder="************" class="form-password form-control" id="form-password">
-                                            <input type="checkbox"name="remember">Se souvenir de moi
                                         </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" name="remember"> Se souvenir de moi
+                                        </div>
+
                                         <button type="submit" name="submit" class="btn">Connexion</button>
                                         <br>
                                     </form>

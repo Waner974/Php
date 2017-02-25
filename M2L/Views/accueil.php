@@ -33,7 +33,7 @@
                                         <div class="modal-body">
                                             <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
                                             <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
-                                            <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</5></h4>
+                                            <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
                                             <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
                                         </div>
                                     </div> 

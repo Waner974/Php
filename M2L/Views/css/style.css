@@ -297,6 +297,7 @@ a:hover {
 }
 .block-anchor {
   display: block;
+  text-align: center;
 }
 /****************************
 *       Content Typography         *

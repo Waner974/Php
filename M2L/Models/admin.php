@@ -35,4 +35,13 @@ function get_nbChef()
 		}
     }
 
+function get_nbPresta()
+{
+    global $bdd;
+    $reponse = $bdd->query('SELECT count(*) as nbPresta FROM prestataire');
+    while ($data = $reponse->fetch()){
+        return $data['nbPresta'];
+    }
+}
+
 ?>
