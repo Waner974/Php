@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 20 Février 2017 à 22:26
+-- Généré le :  Sam 25 Février 2017 à 19:45
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -64,7 +64,9 @@ INSERT INTO `adresse` (`id_a`, `rue`, `commune`, `code_postale`, `numero`) VALUE
 (23, 'Presta1', 'Presta1', '75000', 11),
 (24, 'Presta2', 'Presta2', '75000', 11),
 (25, 'presta3', 'presta3', '56789', 43),
-(26, 'presta4', 'presta4', '45678', 543);
+(26, 'presta4', 'presta4', '45678', 543),
+(27, 'ESport', 'ESport', '75004', 20),
+(28, 'AllSport', 'AllSport', '75006', 22);
 
 -- --------------------------------------------------------
 
@@ -75,22 +77,25 @@ INSERT INTO `adresse` (`id_a`, `rue`, `commune`, `code_postale`, `numero`) VALUE
 CREATE TABLE `formation` (
   `id_f` int(11) NOT NULL,
   `libelle` varchar(25) DEFAULT NULL,
-  `contenu` varchar(25) DEFAULT NULL,
+  `contenu` varchar(255) DEFAULT NULL,
   `date_f` date DEFAULT NULL,
-  `NbJour` int(11) DEFAULT NULL,
-  `id_p` int(11) DEFAULT NULL
+  `NbJour` int(2) DEFAULT NULL,
+  `id_p` int(11) DEFAULT NULL,
+  `id_a` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `formation`
 --
 
-INSERT INTO `formation` (`id_f`, `libelle`, `contenu`, `date_f`, `NbJour`, `id_p`) VALUES
-(1, 'test1', 'blablabla', '2017-11-11', 2, NULL),
-(2, 'test2', 'blablabla', '2017-11-11', 2, NULL),
-(3, 'test3', 'blablabla', '2017-11-11', 2, NULL),
-(4, 'test4', 'blablabla', '2017-11-11', 2, NULL),
-(5, 'test5', 'blablabla', '2017-11-11', 2, NULL);
+INSERT INTO `formation` (`id_f`, `libelle`, `contenu`, `date_f`, `NbJour`, `id_p`, `id_a`) VALUES
+(1, 'test1', 'blablabla', '2017-11-11', 2, NULL, 0),
+(2, 'test2', 'blablabla', '2017-11-11', 2, NULL, 0),
+(3, 'test3', 'blablabla', '2017-11-11', 2, NULL, 0),
+(4, 'test4', 'blablabla', '2017-11-11', 2, NULL, 0),
+(5, 'test5', 'blablabla', '2017-11-11', 2, NULL, 0),
+(6, 'ESport', 'ESport', '2017-10-02', 14, 2, 27),
+(7, 'AllSport', 'AllSport', '2017-11-03', 5, 2, 28);
 
 -- --------------------------------------------------------
 
@@ -112,7 +117,8 @@ INSERT INTO `prestataire` (`id_p`, `raison_s`, `id_a`) VALUES
 (1, 'Presta1', 23),
 (2, 'Presta2', 24),
 (3, 'presta3', 25),
-(4, 'presta4', 26);
+(4, 'presta4', 26),
+(5, 'presta5', 26);
 
 -- --------------------------------------------------------
 
@@ -171,6 +177,14 @@ CREATE TABLE `situer` (
   `id_a` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `situer`
+--
+
+INSERT INTO `situer` (`id_f`, `id_a`) VALUES
+(6, 27),
+(7, 28);
+
 -- --------------------------------------------------------
 
 --
@@ -189,9 +203,9 @@ CREATE TABLE `suivre` (
 
 INSERT INTO `suivre` (`etat`, `id_s`, `id_f`) VALUES
 ('En attente', 3, 1),
-('Validé', 3, 2),
-('Refusé', 3, 3),
-('user', 7, 3);
+('En attente', 3, 2),
+('Validé', 3, 3),
+('Validé', 7, 3);
 
 -- --------------------------------------------------------
 
@@ -204,6 +218,14 @@ CREATE TABLE `type_formation` (
   `nom_type` varchar(25) DEFAULT NULL,
   `id_f` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `type_formation`
+--
+
+INSERT INTO `type_formation` (`id_t`, `nom_type`, `id_f`) VALUES
+(1, 'Alternance', 6),
+(2, 'Initiale', 7);
 
 --
 -- Index pour les tables exportées
@@ -220,7 +242,8 @@ ALTER TABLE `adresse`
 --
 ALTER TABLE `formation`
   ADD PRIMARY KEY (`id_f`),
-  ADD KEY `FK_formation_id_p` (`id_p`);
+  ADD KEY `FK_formation_id_p` (`id_p`),
+  ADD KEY `FK_formation_id_a` (`id_a`);
 
 --
 -- Index pour la table `prestataire`
@@ -266,17 +289,17 @@ ALTER TABLE `type_formation`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `id_a` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_a` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT pour la table `formation`
 --
 ALTER TABLE `formation`
-  MODIFY `id_f` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_f` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `prestataire`
 --
 ALTER TABLE `prestataire`
-  MODIFY `id_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `salarie`
 --
@@ -286,7 +309,7 @@ ALTER TABLE `salarie`
 -- AUTO_INCREMENT pour la table `type_formation`
 --
 ALTER TABLE `type_formation`
-  MODIFY `id_t` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_t` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Contraintes pour les tables exportées
 --

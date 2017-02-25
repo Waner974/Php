@@ -2,10 +2,12 @@
 
 function getPresta()
 {
-    global $bdd;
-        
+    global $bdd;       
     $requete = $bdd->query("SELECT id_p, raison_s, id_a FROM prestataire");
-    return $requete->fetchAll();
+    while ($data = $reponse->fetchAll())
+    {
+        return $data;
+    }
 }
 
 function addPresta()
