@@ -2,22 +2,20 @@
 
 class statsAdmin
 {
-    public static function stats ($color, $nb, $title)
+    public static function stats ($color, $nb, $title, $icon)
     {
-        $stats = '<div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body bk-'.$color.' text-light">
-                            <div class="stat-panel text-center">
-                                <div class="stat-panel-number h1 ">
-                                    '.$nb.'
-                                </div>
-                                <div class="stat-panel-title text-uppercase">'.$title.'
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="block-anchor panel-footer">Voir tous <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>';
+        $stats = '<div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-'.$color.'">
+            <div class="inner">
+              <h3>'.$nb.'</h3>
+              <p>'.$title.'</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-'.$icon.'"></i>
+            </div>
+            <a href="#" class="small-box-footer">Voir tous <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>';
 
         return $stats;
     }
