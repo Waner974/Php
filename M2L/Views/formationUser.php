@@ -20,40 +20,41 @@
                             echo('<h4><i class="glyphicon glyphicon-user"></i> ' . " " . $listeFormation[0]['nom'] . " " . $listeFormation[0]['prenom'] . '</h4><hr>');
                             foreach ($listeFormation as $key => $value) {
                                 $form = "";
-
-                                if ($value['etat'] == "Validé")
-                                {
-                                    $value['etat'] = '<span class="label label-success"><i class="glyphicon glyphicon-ok"></i> Validé</span>';
-                                }
-                                elseif ($value['etat'] == "Refusé")
-                                {
-                                    $value['etat'] = '<span class="label label-danger"><i class="glyphicon glyphicon-remove"></i> Refusé</span>';
-                                }
-                                else
-                                {
-                                    $value['etat'] = '<span class="label label-warning"><i class="glyphicon glyphicon-time"></i> En attente</span>';
-
+                                
+                                if($value['etat'] == "Validé")
+                                 {
+                                     $etat = '<span class="label label-success">'.$value['etat'].' <i class="glyphicon glyphicon-ok"></i></span>';
+                                 }
+                                 elseif($value['etat'] == "Refusé")
+                                 {
+                                    $etat = '<span class="label label-danger">'.$value['etat'].' <i class="glyphicon glyphicon-remove"></i></span>';
+                                 }
+                                 else
+                                 {
+                                    $etat = '<span class="label label-warning">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span>';
+                                    
                                     $form = '<form method="post">
                                             <button type="submit" class="btn btn-success" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
                                             <button type="submit" class="btn btn-danger" name="Refuse" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
-                                            <input name="idForm" type="hidden" value="' . $value['id_f'] . '" >
+                                            <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                                 </form>';
-                                }
+                                 }
                                 echo '
                                         <tbody>
                                             <tr>
-                                                <td>' . $value["libelle"] . '</td>
+                                                <td>'.$value["libelle"].'</td>
                                                 <td>
-                                                ' . $value['etat'] . '
+                                                '.$etat.'
                                                 </td>
                                                 <td>
-                                                ' . $form . '
+                                                '.$form.'
                                                 </td>
                                             </tr>
-                                        </tbody>';
+                                        </tbody>';            
                             }
-                        } else {
-                            echo '
+                      }
+                      else{
+                        echo '
                                         <tbody>
                                             <tr>
                                                 <td>Aucune formation</td></tr></tbody>';

@@ -19,7 +19,18 @@ function suivreForm($id_s,$id_f)
 		 $req->bindParam(':id_s', $id_s);
 		 $req->bindParam(':id_f', $id_f);
     	 $req->execute();
-}                           
+}
+
+function getFormSuivi()
+{
+    global $bdd;
+       	$reponse = $bdd->prepare('SELECT * FROM suivre');
+        $reponse->execute();
+        while($data = $reponse->fetchAll())
+        {
+            return $data;
+        }
+}
 
 
 ?>

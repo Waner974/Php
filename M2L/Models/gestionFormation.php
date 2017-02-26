@@ -1,4 +1,15 @@
 <?php
+
+function getPresta()
+{
+    global $bdd;
+    $reponse = $bdd->query('SELECT id_p, raison_s FROM prestataire');
+    while ($data = $reponse->fetchAll())
+    {
+        return $data;
+    }
+}
+
 function addFormation()
 {
     global $bdd;
@@ -18,18 +29,22 @@ function addFormation()
     $requete->bindParam(':libelle', $_POST['libelle']);
     $requete->bindParam(':contenu', $_POST['contenu']);
     $requete->bindParam(':date_f', $_POST['date_f']);
-    $requete->bindParam(':NbJour', $_POST['NbJour']);
+    $requete->bindParam(':NbJour', $_POST['nbJour']);
     $requete->bindParam(':id_p', $_POST['presta']);
     $requete->bindParam(':id_a', $id_a);
     $requete->execute();
-}
-
-function getPresta()
-{
-    global $bdd;
-    $reponse = $bdd->query('SELECT id_p, raison_s FROM prestataire');
-    while ($data = $reponse->fetchAll())
-    {
-        return $data;
-    }
+    
+    $id_f = $bdd->lastInsertId();
+    
+    $sql = "INSERT INTO situer (id_f, id_a) VALUES (:id_f,:id_a)";
+    $requete = $bdd->prepare($sql);
+    $requete->bindParam(':id_f', $id_f);
+    $requete->bindParam(':id_a', $id_a);
+    $requete->execute();
+    
+    $sql = "INSERT INTO type_formation (nom_type,id_f) VALUES (:nom_type,:id_f)";
+    $requete = $bdd->prepare($sql);
+    $requete->bindParam(':nom_type', $_POST['type']);
+    $requete->bindParam(':id_f', $id_f);
+    $requete->execute();
 }
