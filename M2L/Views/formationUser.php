@@ -24,15 +24,15 @@
                                 
                                 if($value['etat'] == "Validé")
                                  {
-                                     $value['etat'] = '<span class="label label-success"><i class="glyphicon glyphicon-ok"></i> Validé</span>';
+                                     $etat = '<span class="label label-success">'.$value['etat'].' <i class="glyphicon glyphicon-ok"></i></span>';
                                  }
                                  elseif($value['etat'] == "Refusé")
                                  {
-                                    $value['etat'] = '<span class="label label-danger"><i class="glyphicon glyphicon-remove"></i> Refusé</span>';
+                                    $etat = '<span class="label label-danger">'.$value['etat'].' <i class="glyphicon glyphicon-remove"></i></span>';
                                  }
                                  else
                                  {   
-                                    $value['etat'] = '<span class="label label-warning"><i class="glyphicon glyphicon-time"></i> En attente</span>';
+                                    $etat = '<span class="label label-warning">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span>';
                                     
                                     $form = '<form method="post">
                                             <button type="submit" class="btn btn-success" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
@@ -45,7 +45,7 @@
                                             <tr>
                                                 <td>'.$value["libelle"].'</td>
                                                 <td>
-                                                '.$value['etat'].'
+                                                '.$etat.'
                                                 </td>
                                                 <td>
                                                 '.$form.'
