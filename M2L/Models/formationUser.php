@@ -16,17 +16,22 @@ function getFormationsUser($id)
         }
 }
 
-function valide($id_f)
+function valide($id_f,$id_s)
 {
     global $bdd;
-    $req = $bdd->prepare('UPDATE suivre SET etat="Validé" where id_f= "'.$id_f.'"');
-    $req->execute();
+    $req = $bdd->prepare('UPDATE suivre SET etat="Validé" where id_f= :id_f and id_s= :id_s');
+     $req->bindParam(':id_s', $id_s);
+     $req->bindParam(':id_f', $id_f);
+     $req->execute();
+
 }
 
-function refuse($id_f)
+function refuse($id_f,$id_s)
 {
     global $bdd;
-    $req = $bdd->prepare('UPDATE suivre SET etat="Refusé" where id_f= "'.$id_f.'"');
+    $req = $bdd->prepare('UPDATE suivre SET etat="Refusé" where id_f= :id_f and id_s= :id_s');
+    $req->bindParam(':id_s', $id_s);
+    $req->bindParam(':id_f', $id_f);
     $req->execute();
 }
 ?>

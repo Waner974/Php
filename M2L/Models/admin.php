@@ -1,31 +1,80 @@
 <?php
-function get_nbAdmin()
+function getNombre($type)
     {
         global $bdd;
-       	$reponse = $bdd->query('SELECT count(*) as nbAdmin FROM salarie WHERE level= 1');
-		while ($data = $reponse->fetch()){
-			return $data['nbAdmin'];
-		}
+        $sql = ('SELECT count(*) as nb FROM salarie WHERE level= :type');
+        $rep = $bdd->prepare('SELECT count(*) as nb FROM salarie WHERE level= :type');
+        $rep->bindParam(':type', $type, PDO::PARAM_INT);
+        $rep->execute();
+        while ($data = $rep->fetch()){
+            return $data['nb'];
+        }
     }
 
-function get_nbChef()
+function getList($type)
+{
+        //Pas réussi à faire fonctionné --'
+        global $bdd;
+        $sql = ('SELECT * FROM salarie WHERE level= :type');
+        $rep = $bdd->prepare('SELECT count(*) as nb FROM salarie WHERE level= :type');
+        $rep->bindParam(':type', $type, PDO::PARAM_INT);
+        $rep->execute();
+        while ($data = $rep->fetchAll()){
+            return $data;
+        }
+}
+
+function listAdmin()
+{
+    global $bdd;
+    $reponse = $bdd->query('select * from salarie where level =1');
+            while ($data = $reponse->fetchAll()){
+                
+                return $data;
+        }
+}
+
+function listChef()
+{
+    global $bdd;
+    $reponse = $bdd->query('select * from salarie where level =2');
+            while ($data = $reponse->fetchAll()){
+                
+                return $data;
+        }
+}
+
+function listUser()
+{
+    global $bdd;
+    $reponse = $bdd->query('select * from salarie where level =3');
+            while ($data = $reponse->fetchAll()){
+                
+                return $data;
+        }
+}
+
+function listPresta()
+{
+    global $bdd;
+    $reponse = $bdd->query('select  distinct p.raison_s,a.numero,a.rue,a.commune,a.code_postale
+from prestataire p , adresse a
+where p.id_a =a.id_a');
+            while ($data = $reponse->fetchAll()){
+                
+                return $data;
+        }
+}
+
+ function listForm()
     {
         global $bdd;
-       	$reponse = $bdd->query('SELECT count(*) as nbChef FROM salarie WHERE level= 2');
-		while ($data = $reponse->fetch()){
-			return $data['nbChef'];
-		}
+        $reponse = $bdd->query('select * from formation where DATE_FORMAT(CURRENT_DATE(),"%Y-%m-%d") < date_f;');
+            while ($data = $reponse->fetchAll()){
+                
+                return $data;
+        }
     }
-
- function get_nbUser()
-    {
-        global $bdd;
-       	$reponse = $bdd->query('SELECT count(*) as nbUser FROM salarie WHERE level= 3');
-		while ($data = $reponse->fetch()){
-			return $data['nbUser'];
-		}
-    }
-
  function get_nbForm()
     {
         global $bdd;

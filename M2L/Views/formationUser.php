@@ -10,7 +10,7 @@
                     <table class="table table-hover">
                         <tr>
                             <th>Formation(s)</th>
-                            <th>Statut</th>
+                            <th>Date</th>
                             <th>Action</th>
                         </tr>
                         <?php

@@ -1,15 +1,18 @@
 <?php
 if($_SESSION['auth']['level']== 1)
 {
-    include 'Core/statsAdmin.class.php';
     require "Models/admin.php";
-
-    $nbAdmin = get_nbAdmin();
-    $nbChef = get_nbChef();
-    $nbUser = get_nbUser();
+    require 'Core/statsAdmin.class.php';
+    $nbAdmin = getNombre(1);
+    $nbChef = getNombre(2);
+    $nbUser = getNombre(3);
     $nbForm = get_nbForm();
     $nbPresta = get_nbPresta();
-
+    $listAdmin = listAdmin();
+    $listChef = listChef();
+    $listUser = listUSer();
+    $listForm = listForm();
+    $listPresta = listPresta();
     require "Views/admin.php";
 }
 else

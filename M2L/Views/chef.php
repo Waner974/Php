@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="row">
-            <?= statsAdmin::stats("blue", "$nbUser", "Utilisateur(s) affecté(s)","person-add") ?>
+            <?= statsAdmin::stats("blue", "$nbUser", "Utilisateur(s) affecté(s)","person-add","user") ?>
         </div>
         <div class="row">
             <div class="col-xs-12">
