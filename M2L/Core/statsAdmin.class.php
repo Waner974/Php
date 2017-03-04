@@ -4,7 +4,7 @@ class statsAdmin
 {
     public static function stats ($color, $nb, $title, $icon,$type)
     {
-        $stats = '<div class="col-lg-3 col-xs-6">
+        $stats = '<div class="col-lg-3 col-md-4 col-sm-4">
           <div class="small-box bg-'.$color.'">
             <div class="inner">
               <h3>'.$nb.'</h3>
