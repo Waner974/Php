@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jvectormap -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- fullCalendar 2.2.5-->
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/plugins/fullcalendar/fullcalendar.print.css" media="print">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/AdminLTE.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/skins/_all-skins.min.css">
@@ -53,6 +56,9 @@
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </a>
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
@@ -123,18 +129,19 @@
                     <?php
                     if($_SESSION['auth']['level']== 1)
                     {
-                        echo('<li><a href="'.BASE_URL.'/admin"><i class="fa fa-dashboard"></i>Accueil ADMIN</a></li>');
+                        echo('<li><a href="'.BASE_URL.'/admin"><i class="fa fa-dashboard"></i><span>Accueil ADMIN</span></a></li>');
                     }
                     elseif ($_SESSION['auth']['level'] == 2)
                     {
-                        echo('<li><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i>Accueil CHEF</a></li>');
+                        echo('<li><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i><span>Accueil CHEF</span></a></li>');
                     }
-                    echo ('<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i>Ajouter Utilisateur</a></li>
-                <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i>Ajouter Prestataire</a></li><hr>
+                    echo ('<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter Utilisateur</span></a></li>
+                <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter Prestataire</span></a></li>
 				<li class="ts-account">
-				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i>Ajouter Formation</a></li><hr>
+				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter Formation</span></a></li>
+				<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li><hr>
 				<li class="ts-account">
-				<a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
+				<a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a>
 			    </li>');
                     ?>
                 </li>
@@ -194,11 +201,13 @@
 <script src="<?= BASE_URL; ?>/Views/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="<?= BASE_URL; ?>/Views/plugins/chartjs/Chart.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- /.content --><!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= BASE_URL; ?>/Views/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= BASE_URL; ?>/Views/dist/js/demo.js"></script>
-<script src="<?= BASE_URL; ?>/Views/js/jquery.min.js"></script>
 <script>
     $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
 </script>
