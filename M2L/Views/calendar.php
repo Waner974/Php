@@ -3,19 +3,19 @@
         <div class="col-md-3">
             <div class="box box-solid">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Draggable Events</h4>
+                    <h4 class="box-title">Formations à venir</h4>
                 </div>
                 <div class="box-body">
                     <!-- the events -->
                     <div id="external-events">
-                        <div class="external-event bg-green">Lunch</div>
-                        <div class="external-event bg-yellow">Go home</div>
-                        <div class="external-event bg-aqua">Do homework</div>
-                        <div class="external-event bg-light-blue">Work on UI design</div>
-                        <div class="external-event bg-red">Sleep tight</div>
+                        <?php foreach ($listFormation as $key => $value)
+                        {
+                        echo '<div class="external-event bg-green">'.$value['libelle'].'</div>';
+                        }
+                        ?>
                         <div class="checkbox">
                             <label for="drop-remove">
-                                <input type="checkbox" id="drop-remove">
+                                <input type="checkbox" id="drop-remove" checked="checked">
                                 remove after drop
                             </label>
                         </div>
@@ -96,53 +96,10 @@
                 week: 'week',
                 day: 'day'
             },
-            //Random default events
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1),
-                    backgroundColor: "#f56954", //red
-                    borderColor: "#f56954" //red
-                },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d - 5),
-                    end: new Date(y, m, d - 2),
-                    backgroundColor: "#f39c12", //yellow
-                    borderColor: "#f39c12" //yellow
-                },
-                {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false,
-                    backgroundColor: "#0073b7", //Blue
-                    borderColor: "#0073b7" //Blue
-                },
-                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false,
-                    backgroundColor: "#00c0ef", //Info (aqua)
-                    borderColor: "#00c0ef" //Info (aqua)
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    allDay: false,
-                    backgroundColor: "#00a65a", //Success (green)
-                    borderColor: "#00a65a" //Success (green)
-                },
-                {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://google.com/',
-                    backgroundColor: "#3c8dbc", //Primary (light-blue)
-                    borderColor: "#3c8dbc" //Primary (light-blue)
-                }
-            ],
+            //Chargement des Formations a partir de la page events //Thomas Evano // http://jamelbaz.com/tutos/integration-de-fullcalendar-avec-php-mysql // http://www.yriase.fr/1218-fullcalendar-chargement-et-mise-a-jour-des-evenements-dans-une-base-de-donnees.html
+//            eventSources: ['Views/events.php?action=get'],
+            eventSources: ['Controllers/events.php'],
+
             editable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped

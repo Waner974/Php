@@ -88,17 +88,17 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<!--                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-<!--                            <span class="hidden-xs">--><?//= $_SESSION['prenom'], $_SESSION['nom'] ?><!--</span>-->
+                            <img src="<?= BASE_URL; ?>/Views/dist/img/boxed-bg.png" class="user-image" alt="User Image">
+                            <span class="hidden-xs"><?= $_SESSION['auth']['mail'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="<?= BASE_URL; ?>/Views/dist/img/boxed-bg.png" class="img-circle" alt="User Image">
 
                                 <p>
                                     Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <small><?= $_SESSION['auth']['mail'] ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -124,7 +124,7 @@
 
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header">MENU PRINCIPAL</li>
                 <li>
                     <?php
                     if($_SESSION['auth']['level']== 1)
@@ -135,14 +135,12 @@
                     {
                         echo('<li><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i><span>Accueil CHEF</span></a></li>');
                     }
-                    echo ('<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter Utilisateur</span></a></li>
-                <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter Prestataire</span></a></li>
-				<li class="ts-account">
-				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter Formation</span></a></li>
-				<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li><hr>
-				<li class="ts-account">
-				<a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a>
-			    </li>');
+                    echo ('<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
+                <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
+				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>
+				<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
+				<li class="header">GESTION DU COMPTE</li>
+                <li><a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a></li>');
                     ?>
                 </li>
             </ul>
