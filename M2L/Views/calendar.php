@@ -1,18 +1,17 @@
 <section class="content">
     <div class="row">
-        <div class="col-md-3">
+        <!--<div class="col-md-3">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h4 class="box-title">Formations à venir</h4>
                 </div>
                 <div class="box-body">
-                    <!-- the events -->
                     <div id="external-events">
-                        <?php foreach ($listFormation as $key => $value)
+                        <?php /*foreach ($listFormation as $key => $value)
                         {
                         echo '<div class="external-event bg-green">'.$value['libelle'].'</div>';
                         }
-                        ?>
+                        */?>
                         <div class="checkbox">
                             <label for="drop-remove">
                                 <input type="checkbox" id="drop-remove" checked="checked">
@@ -21,11 +20,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /. box -->
-        </div>
-        <!-- /.col -->
+        </div>-->
         <div class="col-md-9">
             <div class="box box-primary">
                 <div class="box-body no-padding">
@@ -49,116 +45,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
 <script>
-    $(function () {
 
-        /* initialize the external events
-         -----------------------------------------------------------------*/
-        function ini_events(ele) {
-            ele.each(function () {
 
-                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-                // it doesn't need to have a start or end
-                var eventObject = {
-                    title: $.trim($(this).text()) // use the element's text as the event title
-                };
+    $(document).ready(function() {
 
-                // store the Event Object in the DOM element so we can get to it later
-                $(this).data('eventObject', eventObject);
-
-                // make the event draggable using jQuery UI
-                $(this).draggable({
-                    zIndex: 1070,
-                    revert: true, // will cause the event to go back to its
-                    revertDuration: 0  //  original position after the drag
-                });
-
+        function updateEvent(event,dayDelta,minuteDelta,allDay)
+        {
+            $.ajax({ 'url': 'Controllers/events.php?action=update', 'type': 'POST',
+                'data': {'id':event.id, 'dayDelta': dayDelta, 'minuteDelta': minuteDelta, 'allDay': allDay},
+                success: function(data) {
+                    if(data.error)
+                        alert(data.error);
+                },
+                error: function(data) {
+                    alert('Une erreur est survenue.');
+                }
             });
         }
 
-        ini_events($('#external-events div.external-event'));
-
-        /* initialize the calendar
-         -----------------------------------------------------------------*/
-        //Date for the calendar events (dummy data)
-        var date = new Date();
-        var d = date.getDate(),
-            m = date.getMonth(),
-            y = date.getFullYear();
         $('#calendar').fullCalendar({
             header: {
                 left: 'prev,next today',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            buttonText: {
-                today: 'today',
-                month: 'month',
-                week: 'week',
-                day: 'day'
-            },
-            //Chargement des Formations a partir de la page events //Thomas Evano // http://jamelbaz.com/tutos/integration-de-fullcalendar-avec-php-mysql // http://www.yriase.fr/1218-fullcalendar-chargement-et-mise-a-jour-des-evenements-dans-une-base-de-donnees.html
-//            eventSources: ['Views/events.php?action=get'],
-            eventSources: ['Controllers/events.php'],
-
             editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
+            eventSources: ['Controllers/events.php?action=get'],
 
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = $(this).data('eventObject');
-
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
-
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
-                copiedEventObject.backgroundColor = $(this).css("background-color");
-                copiedEventObject.borderColor = $(this).css("border-color");
-
-                // render the event on the calendar
-                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
+            eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+                if (!confirm("Valider la modification ?")) {
+                    revertFunc();
+                } else {
+                    updateEvent(event,dayDelta,minuteDelta,allDay);
                 }
-
+            },
+            eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
+                if (!confirm("Valider la modification ?")) {
+                    revertFunc();
+                } else {
+                    updateEvent(event,dayDelta,minuteDelta,0);
+                }
             }
         });
 
-        /* ADDING EVENTS */
-        var currColor = "#3c8dbc"; //Red by default
-        //Color chooser button
-        var colorChooser = $("#color-chooser-btn");
-        $("#color-chooser > li > a").click(function (e) {
-            e.preventDefault();
-            //Save color
-            currColor = $(this).css("color");
-            //Add color effect to button
-            $('#add-new-event').css({"background-color": currColor, "border-color": currColor});
-        });
-        $("#add-new-event").click(function (e) {
-            e.preventDefault();
-            //Get value and make sure it is not null
-            var val = $("#new-event").val();
-            if (val.length == 0) {
-                return;
-            }
-
-            //Create events
-            var event = $("<div />");
-            event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("external-event");
-            event.html(val);
-            $('#external-events').prepend(event);
-
-            //Add draggable funtionality
-            ini_events(event);
-
-            //Remove event from text input
-            $("#new-event").val("");
-        });
     });
+
 </script>
