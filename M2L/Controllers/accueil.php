@@ -4,10 +4,10 @@
     {
         require "Models/accueil.php";        
         $_GET['p'] = 'accueil';
-        $Formations = getFormations();
         $id_s = $_SESSION['auth']['id_s'];
-        
-        $FormSuivi = getFormSuivi();
+        $Form = getForm($id_s);
+        $FormAtt = getFormAtt($id_s);
+        $FormHisto = getHisto($id_s);
 
         if(isset($_POST['Suivre']))
         {

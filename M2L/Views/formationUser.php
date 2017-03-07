@@ -11,7 +11,7 @@
                         <tr>
                             <th>Formation(s)</th>
                             <th>Date</th>
-                            <th>Action</th>
+                            <th><i class="glyphicon glyphicon-cog"></th>
                         </tr>
                         <?php
 
