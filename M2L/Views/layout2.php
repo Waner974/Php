@@ -180,12 +180,16 @@
      immediately after the control sidebar -->
 <div class="control-sidebar-bg"></div>
 
-
 <!-- ./wrapper -->
+
 <!-- jQuery 2.2.3 -->
 <script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?= BASE_URL; ?>/Views/js/bootstrap.min.js"></script>
+<!-- Momentjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <!-- FastClick -->
 <script src="<?= BASE_URL; ?>/Views/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -199,10 +203,7 @@
 <script src="<?= BASE_URL; ?>/Views/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="<?= BASE_URL; ?>/Views/plugins/chartjs/Chart.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- /.content --><!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= BASE_URL; ?>/Views/dist/js/pages/dashboard2.js"></script>

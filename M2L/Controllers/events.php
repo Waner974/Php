@@ -1,7 +1,5 @@
 <?php
 
-
-
 function pluralize($string)
 {
     preg_match("|^([0-9]+)(.*)|",$string,$matched);
@@ -36,118 +34,59 @@ $dsn = 'mysql:dbname=m2l;host=localhost';
 $user = 'root';
 $password = '';
 
-/*if(isset($_GET['action']))
-{
-    switch($_GET['action'])
-    {
-        case 'get':
-            try {
-                $db = new PDO($dsn, $user, $password);
-
-                $sql = 'SELECT id_f AS id, libelle AS title, date_d AS start, date_f AS end FROM formation';
-                $events = array();
-
-                foreach ($db->query($sql) as $row) {
-                    $events [] = $row;
-                }
-
-                echo json_encode($events);
-
-            } catch (PDOException $e) {
-                echo json_encode(array('error' => 'Connection failed: ' . $e->getMessage()));
-            }
-            break;
-
-        case 'update':
-            try {
-                $db = new PDO($dsn, $user, $password);
-
-                $query = $db->query('SELECT id_f AS id, libelle AS title, date_d AS start, date_f AS end FROM formation WHERE id = ' . $_POST['id']);
-                $event = $query->fetch(PDO::FETCH_ASSOC);
-
-                // Mise a jour de la date
-                $diff = calculateDiff($_POST['dayDelta']);
-
-                $newStart = DateTime::createFromFormat('Y-m-d', $event['start']);
-                $newStart->modify($diff);
-
-                $newEnd = DateTime::createFromFormat('Y-m-d ', $event['end']);
-                $newEnd->modify($diff);
-
-                $sql = 'UPDATE formation SET start = "'.$newStart->format('Y-m-d').'",end = "'.$newEnd->format('Y-m-d').'",WHERE id = ' . $_POST['id'];
-                $row = $db->query($sql);
-
-                echo json_encode(array('updated' => true));
-
-            } catch (PDOException $e) {
-                echo json_encode(array('error' => 'Db error : ' . $e->getMessage()));
-            } catch (Exception $e) {
-                echo json_encode(array('error' => $e->getMessage()));
-            }
-            break;
-
-        default:
-            break;
-    }
-}*/
-
 if(isset($_GET['action']))
 {
-    switch($_GET['action'])
-    {
-        case 'get':
-            try {
-                $db = new PDO($dsn, $user, $password);
+switch($_GET['action'])
+{
+    case 'get':
+        try {
+            $db = new PDO($dsn, $user, $password);
 
-                $sql = 'SELECT * FROM event';
-                $events = array();
+            $sql = 'SELECT id_f AS id, libelle AS title, date_d AS start, date_f AS end FROM formation';
+            $events = array();
 
-                foreach ($db->query($sql) as $row) {
-                    $events[] = $row;
-                }
-
-                echo json_encode($events);
-
-            } catch (PDOException $e) {
-                echo json_encode(array('error' => 'Connection failed: ' . $e->getMessage()));
+            foreach ($db->query($sql) as $row) {
+                $events [] = $row;
             }
-            break;
 
-        case 'update':
-            try {
-                $db = new PDO($dsn, $user, $password);
+            echo json_encode($events);
 
-                $query = $db->query('SELECT * FROM event WHERE id = ' . $_POST['id']);
-                $event = $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo json_encode(array('error' => 'Connection failed: ' . $e->getMessage()));
+        }
+        break;
 
-                // Mise a jour de la date
-                $diff = calculateDiff($_POST['dayDelta'], $_POST['minuteDelta']);
+    case 'update':
+        try {
+            $db = new PDO($dsn, $user, $password);
 
-                $newStart = DateTime::createFromFormat('Y-m-d H:i:s', $event['start']);
-                $newStart->modify($diff);
+            $query = $db->query('SELECT id_f AS id, libelle AS title, date_d AS start, date_f AS end FROM formation WHERE id = ' . $_POST['id']);
+            $event = $query->fetch(PDO::FETCH_ASSOC);
 
-                $newEnd = DateTime::createFromFormat('Y-m-d H:i:s', $event['end']);
-                $newEnd->modify($diff);
+            // Mise a jour de la date
+            $diff = calculateDiff($_POST['dayDelta']);
 
-                $sql = 'UPDATE event SET start = "'.$newStart->format('Y-m-d H:i:s').'",
-    end = "'.$newEnd->format('Y-m-d H:i:s').'",
-    allDay = "'.$_POST['allDay'].'"
-    WHERE id = ' . $_POST['id'];
-                $row = $db->query($sql);
+            $newStart = DateTime::createFromFormat('Y-m-d', $event['start']);
+            $newStart->modify($diff);
 
-                echo json_encode(array('updated' => true));
+            $newEnd = DateTime::createFromFormat('Y-m-d ', $event['end']);
+            $newEnd->modify($diff);
 
-            } catch (PDOException $e) {
-                echo json_encode(array('error' => 'Db error : ' . $e->getMessage()));
-            } catch (Exception $e) {
-                echo json_encode(array('error' => $e->getMessage()));
-            }
-            break;
+            $sql = 'UPDATE formation SET start = "'.$newStart->format('Y-m-d').'",end = "'.$newEnd->format('Y-m-d').'",WHERE id = ' . $_POST['id'];
+            $row = $db->query($sql);
 
+            echo json_encode(array('updated' => true));
 
-        default:
-            break;
-    }
+        } catch (PDOException $e) {
+            echo json_encode(array('error' => 'Db error : ' . $e->getMessage()));
+        } catch (Exception $e) {
+            echo json_encode(array('error' => $e->getMessage()));
+        }
+        break;
+
+    default:
+        break;
+}
 }
 
 ?>

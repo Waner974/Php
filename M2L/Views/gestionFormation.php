@@ -9,8 +9,8 @@
                     <div class="box-body">
                         <per> <?php //if(isset($_POST)) { var_dump($_POST); }?> </per>
                         <div class="form-group">
-                            <label for="libelle">Prestataire : </label>
-                            <select class="form-control" name="presta">
+                            <label for="libelle">Prestataire *: </label>
+                            <select class="form-control" name="presta" required>
                                 <?php
                                 if (sizeof($presta) > 0) {
                                     foreach ($presta as $key => $value) {
@@ -25,8 +25,8 @@
                         <div class="form-group">
 
                             <div class="form-group">
-                                <label for="libelle">Nom de la formation : </label>
-                                <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libelle"/>
+                                <label for="libelle">Nom de la formation *: </label>
+                                <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libelle" required/>
                             </div>
 
                             <div class="form-group">
@@ -38,39 +38,48 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="contenu">Contenu de la formation : </label>
-                                <textarea id="contenu" name="contenu" class="form-control" rows="5" placeholder="Contenu"></textarea>
+                                <label for="contenu">Contenu de la formation *: </label>
+                                <textarea id="contenu" name="contenu" class="form-control" rows="5" placeholder="Contenu" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="date_f">Date de fin : </label>
+                                <label for="date_d">Date de début *: </label>
                                 <div class="input-group date">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" id="date_f" name="date_f" class="form-control"/>
+                                    <input type="date" id="date_d" name="date_d" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="nbJour">Durée : </label>
-                                <input type="number" id="nbJour" name="nbJour" class="form-control" placeholder="Durée"/>
-                            </div>
-                            <label>Adresse</label>
-                            <div class="form-group">
-                                <input type="number" id="numero" name="numero" class="form-control" placeholder="N°"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="rue" name="rue" class="form-control" placeholder="Rue"/>
+                                <label for="date_f">Date de fin *: </label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="date" id="date_f" name="date_f" class="form-control" required/>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="commune" name="commune" class="form-control" placeholder="Ville"/>
+                                <label for="nbJour">Durée *: </label>
+                                <input type="number" id="nbJour" name="nbJour" class="form-control" placeholder="Durée" required/>
+                            </div>
+                            <label>Adresse *:</label>
+                            <div class="form-group">
+                                <input type="number" id="numero" name="numero" class="form-control" placeholder="N°" required/>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="code postale" name="code postale" class="form-control" placeholder="Code Postale"/>
+                                <input type="text" id="rue" name="rue" class="form-control" placeholder="Rue" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="commune" name="commune" class="form-control" placeholder="Ville" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="code postale" name="code postale" class="form-control" placeholder="Code Postale" required/>
                             </div>
 
                             <div class="form-group">
-                                <label for="raison_s">Raison sociale</label>
-                                <input type="text" id="raison_s" name="raison_s" class="form-control" placeholder="Raison sociale"/>
+                                <label for="raison_s">Raison sociale :</label>
+                                <input type="text" id="raison_s" name="raison_s" class="form-control" placeholder="Raison sociale" required/>
                             </div>
 
                             <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>
