@@ -39,7 +39,8 @@ else
         require "Views/layout.php";
     }*/
 
-    if($_SESSION['auth']['level'] == 1 || $_SESSION['auth']['level'] == 2  )
+//    if($_SESSION['auth']['level'] == 1 || $_SESSION['auth']['level'] == 2  )
+    if($_SESSION['auth'])
     {
         require "Views/layout2.php";
     }

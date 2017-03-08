@@ -17,7 +17,7 @@
 
 
                         if (sizeof($listeFormation) > 0) {
-                            echo('<h4><i class="glyphicon glyphicon-user"></i> ' . " " . $listeFormation[0]['nom'] . " " . $listeFormation[0]['prenom'] . '</h4><hr>');
+                            echo('<h4><i class="glyphicon glyphicon-user"></i> ' . " " . $listeFormation[0]['nom'] . " " . $listeFormation[0]['prenom'] . '</h4>');
                             foreach ($listeFormation as $key => $value) {
                                 $form = "";
                                 

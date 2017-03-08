@@ -23,21 +23,22 @@
                                       </tr>
                                     </thead>
                             <?php
-                               foreach ($Form as $key => $value) 
+                            if (isset($Form)){
+                               foreach ($Form as $key => $value)
                 {
-                    
+
                             $Suivre = '<form method="post">
                                     <button type="submit" class="btn" name="Suivre" >
                                         <span>Suivre</span>
                                     </button>  
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
-                                </form>';    
+                                </form>';
                         echo('
                             <tbody>
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
-                                   <td>'.$value['date_f'].'</td>
-                                   <td>'.$value['NbJour'].'</td>
+                                   <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                   <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -48,10 +49,10 @@
                                                     <h4 class="modal-title">'.$value['libelle'].'</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
-                                                    <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
-                                                    <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
-                                                    <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                                    <h4 class="modalContent">Date : ' . $value['date_d'] . ' - ' . $value['date_f'] . '</h4>
+                                                    <h4 class="modalContent">Durée : ' . $value['NbJour'] . ' Jour(s)</h4>
+                                                    <h4 class="modalContent">Adresse : todo</h4>
+                                                    <h4 class="modalContent">Description: <h5>' . $value['contenu'] . '</h5></h4>
                                                 </div>
                                             </div> 
                                         </div>
@@ -60,7 +61,12 @@
                                     <td>'.$Suivre.'</td>
                                 </tr>
                             </tbody>');
-                } 
+                }
+                            }
+                            else{
+                                echo('<tbody><tr><td>Aucune formation</td></tr></tbody>');
+
+                            }
                             ?>
                         </table>
                     </div>
@@ -86,15 +92,15 @@
                                     </thead>
                             <?php
                             if (isset($FormAtt)){
-                               foreach ($FormAtt as $key => $value) 
+                               foreach ($FormAtt as $key => $value)
                                 {
-                    
+
                             echo('
                             <tbody>
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
-                                   <td>'.$value['date_f'].'</td>
-                                   <td>'.$value['NbJour'].'</td>
+                                   <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                   <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -105,10 +111,10 @@
                                                     <h4 class="modal-title">'.$value['libelle'].'</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
-                                                    <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
-                                                    <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
-                                                    <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                                    <h4 class="modalContent">Du : ' . $value['date_f'] . ' au :' . $value['date_f'] . '</h4>
+                                                    <h4 class="modalContent">Durée : ' . $value['NbJour'] . ' Jour(s)</h4>
+                                                    <h4 class="modalContent">Adresse : <h5 class="modalContent">todo</h5></h4>
+                                                    <h5 class="modalContent">Description: ' . $value['contenu'] . '</h5>
                                                 </div>
                                             </div> 
                                         </div>
@@ -145,46 +151,49 @@
                                       </tr>
                                     </thead>
                             <?php
-                               foreach ($FormHisto as $key => $value) 
-                {
-                    if($value['etat'] == "Validé")
-                                 {
-                                     $etat = '<span class="label label-success">'.$value['etat'].' <i class="glyphicon glyphicon-ok"></i></span>';
-                                 }
-                                 elseif($value['etat'] == "Refusé")
-                                 {
-                                    $etat = '<span class="label label-danger">'.$value['etat'].' <i class="glyphicon glyphicon-remove"></i></span>';
-                                 }
-                        echo('
+                            if (isset($FormHisto)) {
+                                foreach ($FormHisto as $key => $value) {
+                                    if ($value['etat'] == "Validé") {
+                                        $etat = '<span class="label label-success">' . $value['etat'] . ' <i class="glyphicon glyphicon-ok"></i></span>';
+                                    } elseif ($value['etat'] == "Refusé") {
+                                        $etat = '<span class="label label-danger">' . $value['etat'] . ' <i class="glyphicon glyphicon-remove"></i></span>';
+                                    }
+                                    echo('
                             <tbody>
                                 <tr>
-                                   <td>'.$value["libelle"].'</td>
-                                   <td>'.$value['date_f'].'</td>
-                                   <td>'.$value['NbJour'].'</td>
+                                   <td>' . $value["libelle"] . '</td>
+                                   <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                   <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>
-                                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
-                                    <div class="modal fade" id='.$value['id_f'].' role="dialog">
+                                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#' . $value['id_f'] . '">+</button>
+                                    <div class="modal fade" id=' . $value['id_f'] . ' role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">'.$value['libelle'].'</h4>
+                                                    <h4 class="modal-title">' . $value['libelle'] . '</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
-                                                    <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
-                                                    <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
-                                                    <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                                    <h4 class="modalContent">Du : ' . $value['date_f'] . ' au :' . $value['date_f'] . '</h4>
+                                                    <h4 class="modalContent">Durée : ' . $value['NbJour'] . ' Jour(s)</h4>
+                                                    <h4 class="modalContent">Adresse : <h5 class="modalContent">todo</h5></h4>
+                                                    <h5 class="modalContent">Description: ' . $value['contenu'] . '</h5>
                                                 </div>
                                             </div> 
                                         </div>
                                     </div>
                                    </td>
-                                    <td>'.$etat.'</td>
+                                    <td>' . $etat . '</td>
                                 </tr>
                             </tbody>');
 
-                    }
+                                }
+                            }
+
+                            else{
+                                echo('<tbody><tr><td>Aucune formation antérieure</td></tr></tbody>');
+
+                            }
                 ?>
                         </table>
                     </div>
@@ -193,7 +202,7 @@
                 <!-- /.box -->
             </div>
 
-       
+
         <div class="modal" id="user">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -231,8 +240,8 @@
                         </table>
                     </div>
                     <!-- /.box-body -->
-                </div> 
-              <div class="modal-footer">    
+                </div>
+              <div class="modal-footer">
               </div>
             </div>
             <!-- /.modal-content -->
@@ -284,8 +293,8 @@
                         </table>
                     </div>
                     <!-- /.box-body -->
-                </div> 
-              <div class="modal-footer">    
+                </div>
+              <div class="modal-footer">
               </div>
             </div>
             <!-- /.modal-content -->

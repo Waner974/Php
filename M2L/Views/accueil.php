@@ -1,10 +1,12 @@
-<section id="templatemo-page1-text" class="active">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+ <div class="container">
         <div class="row">
-            <div id="detailForm">
-
-                <h2 class="col-lg-12 ">Liste des formations proposées </h2>
-                <table class="table table-default">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des formations proposées</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
                                     <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -29,8 +31,8 @@
                             <tbody>
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
-                                   <td>'.$value['date_f'].'</td>
-                                   <td>'.$value['NbJour'].'</td>
+                                   <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                   <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -57,10 +59,18 @@
 
 
                 ?>
-                </table>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
 
-                <h2 class="col-lg-12 ">Liste des en attente de validation</h2>
-                <table class="table table-default">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Liste des formations en attente de formation</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
                                     <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -71,16 +81,16 @@
                                       </tr>
                                     </thead><i></i>
                 <?php
-                    
-                
+
+                if (isset($FormAtt)) {
                     foreach ($FormAtt as $key => $value) 
                 {
                         echo('
                             <tbody>
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
-                                   <td>'.$value['date_f'].'</td>
-                                   <td>'.$value['NbJour'].'</td>
+                                   <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                   <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -105,10 +115,25 @@
                             </tbody>');
 
                     }
+                }
+
+                else{
+                    echo('<tbody><tr><td>Aucune formation en attente</td></tr></tbody>');
+
+                }
                 ?>
                 </table>
-        <h2 class="col-lg-12 ">Historique</h2>
-                <table class="table table-default">
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Historique des formations</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
                                     <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -119,8 +144,8 @@
                                       </tr>
                                     </thead><i></i>
                 <?php
-                    
-                
+
+                if (isset($FormHisto)) {
                     foreach ($FormHisto as $key => $value) 
                 {
                     if($value['etat'] == "Validé")
@@ -135,8 +160,8 @@
                             <tbody>
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
-                                   <td>'.$value['date_f'].'</td>
-                                   <td>'.$value['NbJour'].'</td>
+                                   <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                   <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -159,10 +184,18 @@
                                     <td>'.$etat.'</td>
                                 </tr>
                             </tbody>');
-
                     }
+                }
+
+                else{
+                    echo('<tbody><tr><td>Aucune formation antérieure</td></tr></tbody>');
+
+                }
                 ?>
                 </table>
+ </div>
+ <!-- /.box-body -->
+ </div>
                 
         </div>
 
@@ -170,5 +203,4 @@
     </div>
 
 <div class="clearfix"></div>
-</section>
 

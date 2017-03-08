@@ -47,6 +47,10 @@
             {
                 echo('<span class="logo-lg"><b>CHEF</b>M2L</span>');
             }
+            else
+            {
+                echo('<span class="logo-lg"><b>UTILISATEUR</b>M2L</span>');
+            }
             echo('<span class="logo-mini">M2L</span>');
             ?>
         </a>
@@ -88,16 +92,16 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?= BASE_URL; ?>/Views/dist/img/boxed-bg.png" class="user-image" alt="User Image">
+                            <img src="http://globalgreensolutions.co.uk/images/Member.png" class="user-image" alt="User Image">
                             <span class="hidden-xs"><?= $_SESSION['auth']['mail'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="<?= BASE_URL; ?>/Views/dist/img/boxed-bg.png" class="img-circle" alt="User Image">
+                                <img src="http://globalgreensolutions.co.uk/images/Member.png" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    Web Developer
                                     <small><?= $_SESSION['auth']['mail'] ?></small>
                                 </p>
                             </li>
@@ -129,18 +133,26 @@
                     <?php
                     if($_SESSION['auth']['level']== 1)
                     {
-                        echo('<li><a href="'.BASE_URL.'/admin"><i class="fa fa-dashboard"></i><span>Accueil ADMIN</span></a></li>');
+                        echo('<li><a href="'.BASE_URL.'/admin"><i class="fa fa-dashboard"></i><span>Accueil ADMIN</span></a></li>
+                        <li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
+                        <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
+				        <li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>');
                     }
                     elseif ($_SESSION['auth']['level'] == 2)
                     {
-                        echo('<li><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i><span>Accueil CHEF</span></a></li>');
+                        echo('<li><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i><span>Accueil CHEF</span></a></li>
+                        <li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
+                        <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
+				        <li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>');
                     }
-                    echo ('<li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
-                <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
-				<li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>
-				<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
-				<li class="header">GESTION DU COMPTE</li>
-                <li><a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a></li>');
+                    else
+                    {
+                        echo('<li><a href="'.BASE_URL.'/accueil"><i class="fa fa-dashboard"></i><span>Accueil UTILISATEUR</span></a></li>');
+                    }
+                    echo ('
+                    <li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
+                    <li class="header">GESTION DU COMPTE</li>
+                    <li><a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a></li>');
                     ?>
                 </li>
             </ul>
