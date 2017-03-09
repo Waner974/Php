@@ -1,5 +1,6 @@
  <div class="container">
         <div class="row">
+            <div class="col-md-10">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Liste des formations proposées</h3>
@@ -196,11 +197,9 @@
  </div>
  <!-- /.box-body -->
  </div>
-                
+            </div>
         </div>
-
+     <div class="clearfix"></div>
     </div>
-    </div>
 
-<div class="clearfix"></div>
 

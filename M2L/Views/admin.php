@@ -1,11 +1,12 @@
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
                 <?= statsAdmin::stats("red","$nbAdmin","Administrateurs","person-add","admin") ?>
                 <?= statsAdmin::stats("green","$nbChef","Chefs de formations","person-add","chef") ?>
                 <?= statsAdmin::stats("orange","$nbUser","Utilisateurs","person-add","user") ?>
                 <?= statsAdmin::stats("purple","$nbPresta","Prestataires","person-add","presta") ?>
                 <?= statsAdmin::stats("blue","$nbForm","Formations","stats-bars","form") ?>
-
+        </div>
 
     <div class="example-modal">
         <div class="modal" id="admin">

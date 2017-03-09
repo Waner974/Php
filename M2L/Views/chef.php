@@ -1,11 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="row">
+
             <?= statsAdmin::stats("blue", "$nbUser", "Utilisateur(s) affecté(s)","person-add","user") ?>
             <?= statsAdmin::stats("orange", "$nbDmd", "Demande(s)en attente(s)","android-time","dmd") ?>
-        </div>
-<div class="row">
-            <div class="col-xs-12">
+
+            <div class="col-md-10">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title"> Liste des formations</h3>
@@ -302,6 +301,4 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-
-    </div>
 </div>

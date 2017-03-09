@@ -67,28 +67,6 @@
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
-                    </li>
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 10 notifications</li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -99,7 +77,6 @@
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="http://globalgreensolutions.co.uk/images/Member.png" class="img-circle" alt="User Image">
-
                                 <p>
                                     Web Developer
                                     <small><?= $_SESSION['auth']['mail'] ?></small>
@@ -108,10 +85,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="#" class="btn btn-default btn-flat">Profil</a>
                                 </div>
                             </li>
                         </ul>
@@ -131,27 +105,26 @@
                 <li class="header">MENU PRINCIPAL</li>
                 <li>
                     <?php
-                    if($_SESSION['auth']['level']== 1)
+                    if($_SESSION['auth']['level']== 1 || $_SESSION['auth']['level']== 2)
                     {
-                        echo('<li><a href="'.BASE_URL.'/admin"><i class="fa fa-dashboard"></i><span>Accueil ADMIN</span></a></li>
-                        <li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
-                        <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
-				        <li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>');
-                    }
-                    elseif ($_SESSION['auth']['level'] == 2)
-                    {
-                        echo('<li><a href="'.BASE_URL.'/chef"><i class="fa fa-dashboard"></i><span>Accueil CHEF</span></a></li>
-                        <li><a href="'.BASE_URL.'/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
-                        <li><a href="'.BASE_URL.'/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
-				        <li><a href="'.BASE_URL.'/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>');
+                        if ($_SESSION['auth']['level'] == 1)
+                        {
+                            echo('<li><a href="' . BASE_URL . '/admin"><i class="fa fa-dashboard"></i><span>Accueil</span></a></li>');
+                        }
+                        elseif ($_SESSION['auth']['level'] == 2)
+                        {
+                            echo('<li><a href="' . BASE_URL . '/chef"><i class="fa fa-dashboard"></i><span>Accueil</span></a></li>');
+                        }
+                        echo('<li><a href="' . BASE_URL . '/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
+                        <li><a href="' . BASE_URL . '/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
+				        <li><a href="' . BASE_URL . '/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>');
                     }
                     else
                     {
-                        echo('<li><a href="'.BASE_URL.'/accueil"><i class="fa fa-dashboard"></i><span>Accueil UTILISATEUR</span></a></li>');
+                        echo('<li><a href="'.BASE_URL.'/accueil"><i class="fa fa-dashboard"></i><span>Accueil</span></a></li>');
                     }
-                    echo ('
-                    <li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
-                    <li class="header">GESTION DU COMPTE</li>
+                    echo ('<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
+                    <li class="header">GESTION DU COMPTE</li>   
                     <li><a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a></li>');
                     ?>
                 </li>
