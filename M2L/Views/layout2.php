@@ -80,6 +80,7 @@
                                 <p>
                                     Web Developer
                                     <small><?= $_SESSION['auth']['mail'] ?></small>
+                                    <small><?= $_SESSION['auth']['NbJour'] ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->

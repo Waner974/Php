@@ -1,12 +1,19 @@
 <?php
-//if($_SESSION['auth']['level']== 1 || $_SESSION['auth']['level']== 2)
+
 if($_SESSION['auth'])
 {
-    require "Models/calendar.php";
 
-    $listFormation = getFormations();
+    $id_s = $_SESSION['auth'];
 
-    require "Views/calendar.php";
+    if($_SESSION['auth']['level']== 1 || $_SESSION['auth']['level']== 2)
+    {
+        require "Views/calendaradmin.php";
+    }
+    else
+    {
+        require "Views/calendar.php";
+    }
+
 }
 
 else

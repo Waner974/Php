@@ -1,3 +1,5 @@
-<div>
-    Erreur 404	
-</div>
+<?php
+
+require "Views/404.php";
+
+?>

@@ -1,27 +1,19 @@
 <section class="content">
     <div class="row">
-        <!--<div class="col-md-3">
+        <div class="col-md-3">
             <div class="box box-solid">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Formations à venir</h4>
+                    <h4 class="box-title">Légende</h4>
                 </div>
                 <div class="box-body">
-                    <div id="external-events">
-                        <?php /*foreach ($listFormation as $key => $value)
-                        {
-                        echo '<div class="external-event bg-green">'.$value['libelle'].'</div>';
-                        }
-                        */?>
-                        <div class="checkbox">
-                            <label for="drop-remove">
-                                <input type="checkbox" id="drop-remove" checked="checked">
-                                remove after drop
-                            </label>
-                        </div>
-                    </div>
+                    <ul>
+                        <li><span class="text-green"><i class="fa fa-square"></i></span> Formation Validé</li>
+                        <li><span class="text-orange"><i class="fa fa-square"></i></span> Formation En attente</li>
+                        <li><span class="text-red"><i class="fa fa-square"></i></span> Formation Refusé</li>
+                    </ul>
                 </div>
             </div>
-        </div>-->
+        </div>
         <div class="col-md-9">
             <div class="box box-primary">
                 <div class="box-body no-padding">
@@ -46,48 +38,56 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
 <script>
 
-
     $(document).ready(function() {
 
-        function updateEvent(event,dayDelta,minuteDelta,allDay)
-        {
-            $.ajax({ 'url': 'Controllers/events.php?action=update', 'type': 'POST',
-                'data': {'id':event.id, 'dayDelta': dayDelta, 'minuteDelta': minuteDelta, 'allDay': allDay},
-                success: function(data) {
-                    if(data.error)
-                        alert(data.error);
-                },
-                error: function(data) {
-                    alert('Une erreur est survenue.');
-                }
-            });
-        }
+        var zone = "05:30";  //Change this to your timezone
+//        var id_s = $id_s;
+
+        $.ajax({
+            url: 'Models/calendar.php',
+            type: 'POST', // Send post data
+//            data: 'type=fetchuser&id='+id_s,
+            data: 'type=fetchuser',
+            async: false,
+            success: function(s){
+                json_events = s;
+            }
+        });
+
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
 
         $('#calendar').fullCalendar({
+            events: JSON.parse(json_events),
+            //events: [{"id":"14","title":"New Event","start":"2015-01-24T16:00:00+04:00","allDay":false}],
+
+            utc: true,
             header: {
                 left: 'prev,next today',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            editable: true,
-            eventSources: ['Controllers/events.php?action=get'],
+            slotDuration: '00:30:00',
 
-            eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
-                if (!confirm("Valider la modification ?")) {
-                    revertFunc();
-                } else {
-                    updateEvent(event,dayDelta,minuteDelta,allDay);
+            eventRender: function(event, element)
+            {
+                if (event.etat == "Validé")
+                {
+                    element.css('background-color', 'green');
+                    element.css('borderColor', 'green');
                 }
-            },
-            eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
-                if (!confirm("Valider la modification ?")) {
-                    revertFunc();
-                } else {
-                    updateEvent(event,dayDelta,minuteDelta,0);
+                else if (event.etat == "En attente")
+                {
+                    element.css('background-color', 'orange');
+                    element.css('borderColor', 'orange');
+                }
+                else if (event.etat == "Refusé")
+                {
+                    element.css('background-color', 'red');
+                    element.css('borderColor', 'red');
                 }
             }
         });
-
     });
 
 </script>
