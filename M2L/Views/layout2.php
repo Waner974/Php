@@ -79,8 +79,13 @@
                                 <img src="http://globalgreensolutions.co.uk/images/Member.png" class="img-circle" alt="User Image">
                                 <p>
                                     Web Developer
-                                    <small><?= $_SESSION['auth']['mail'] ?></small>
-                                    <small><?= $_SESSION['auth']['NbJour'] ?></small>
+                                    <small>ID SESSION: <?= $_SESSION['auth']['id_s'] ?></small>
+<!--                                    <small>NOM SESSION: --><?//= $_SESSION['auth']['nom'] ?><!--</small>-->
+<!--                                    <small>PRENOM SESSION: --><?//= $_SESSION['auth']['prenom'] ?><!--</small>-->
+                                    <small>MAIL SESSION: <?= $_SESSION['auth']['mail'] ?></small>
+<!--                                    <small>NBJOUR SESSION: --><?//= $_SESSION['auth']['NbJour'] ?><!--</small>-->
+<!--                                    <small>CREDITS SESSION: --><?//= $_SESSION['auth']['credits'] ?><!--</small>-->
+                                    <small>LEVEL SESSION: <?= $_SESSION['auth']['level'] ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->

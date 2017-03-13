@@ -13,6 +13,7 @@
                                         <th>Formations</th>
                                         <th>Date</th>
                                         <th>Durée</th>
+                                        <th>Coût</th>
                                         <th>Plus d'info</th>
                                         <th>Suivre</th>
                                       </tr>
@@ -34,6 +35,7 @@
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>
+                                   <td>'.$value['credits'].' credit(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -44,8 +46,9 @@
                                                     <h4 class="modal-title">'.$value['libelle'].'</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
-                                                    <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
+                                                    <h4 class="modalContent">Le : '.$value['date_d'].' - '.$value['date_f'].'</h4>
+                                                    <h4 class="modalContent">Durée : '.$value['NbJour'].' Jour(s)</h4>
+                                                    <h4 class="modalContent">Coût : '.$value['credits'].' Crédit(s)</h4>
                                                     <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
                                                     <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
                                                 </div>
@@ -77,6 +80,7 @@
                                         <th>Formations</th>
                                         <th>Date</th>
                                         <th>Durée</th>
+                                        <th>Coût</th>
                                         <th>Plus d'info</th>
                                         <th>Etat</th>
                                       </tr>
@@ -92,6 +96,7 @@
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>
+                                   <td>'.$value['credits'].' Crédit(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -102,8 +107,9 @@
                                                     <h4 class="modal-title">'.$value['libelle'].'</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
-                                                    <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
+                                                    <h4 class="modalContent">Le : '.$value['date_d'].' - '.$value['date_f'].'</h4>
+                                                    <h4 class="modalContent">Durée : '.$value['NbJour'].' Jour(s)</h4>
+                                                    <h4 class="modalContent">Coût : '.$value['credits'].' Crédit(s)</h4>
                                                     <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
                                                     <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
                                                 </div>
@@ -140,6 +146,7 @@
                                         <th>Formations</th>
                                         <th>Date</th>
                                         <th>Durée</th>
+                                        <th>Coût</th>
                                         <th>Plus d'info</th>
                                         <th>Etat</th>
                                       </tr>
@@ -163,6 +170,7 @@
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>
+                                   <td>'.$value['credits'].' credit(s)</td>
                                    <td>
                                     <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
@@ -173,8 +181,9 @@
                                                     <h4 class="modal-title">'.$value['libelle'].'</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h4 class="modalContent">Le :'.$value['date_f'].'</h4>
-                                                    <h4 class="modalContent">Durée :'.$value['NbJour'].'</h4>
+                                                    <h4 class="modalContent">Le : '.$value['date_d'].' - '.$value['date_f'].'</h4>
+                                                    <h4 class="modalContent">Durée : '.$value['NbJour'].' Jour(s)</h4>
+                                                    <h4 class="modalContent">Coût : '.$value['credits'].' Crédit(s)</h4>
                                                     <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
                                                     <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
                                                 </div>

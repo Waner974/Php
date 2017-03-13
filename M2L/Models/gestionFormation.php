@@ -24,13 +24,14 @@ function addFormation()
     
     $id_a = $bdd->lastInsertId();
 
-    $sql = "INSERT INTO formation (libelle, contenu, date_d, date_f, NbJour, id_p, id_a) VALUES (:libelle,:contenu, :date_d, :date_f,:NbJour,:id_p,:id_a)";
+    $sql = "INSERT INTO formation (libelle, contenu, date_d, date_f, NbJour, credits, id_p, id_a) VALUES (:libelle,:contenu, :date_d, :date_f,:NbJour,:credits,:id_p,:id_a)";
     $requete = $bdd->prepare($sql);
     $requete->bindParam(':libelle', $_POST['libelle']);
     $requete->bindParam(':contenu', $_POST['contenu']);
     $requete->bindParam(':date_d', $_POST['date_d']);
     $requete->bindParam(':date_f', $_POST['date_f']);
     $requete->bindParam(':NbJour', $_POST['nbJour']);
+    $requete->bindParam(':credits', $_POST['credits']);
     $requete->bindParam(':id_p', $_POST['presta']);
     $requete->bindParam(':id_a', $id_a);
     $requete->execute();

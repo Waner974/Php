@@ -41,8 +41,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="NbJour">Nombre de jours de formation</label>
-                            <input type="number" id="" name="NbJour" class="form-control" placeholder="Nombre de jours" value="0" min="0" max="15"/>
+                            <label for="NbJour">Jours de formation</label>
+                            <input type="number" id="NbJour" name="NbJour" class="form-control" value="0" min="0" max="15"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="credits">Crédits de formation</label>
+                            <input type="number" id="credits" name="credits" class="form-control" value="0" min="0" max="999"/>
                         </div>
                         <div class="form-group">
                             <?php

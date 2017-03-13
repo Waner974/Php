@@ -60,8 +60,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="nbJour">Durée *: </label>
-                                <input type="number" id="nbJour" name="nbJour" class="form-control" placeholder="Durée" required/>
+                                <label for="nbJour">Durée de la formation *: </label>
+                                <input type="number" id="nbJour" name="nbJour" class="form-control" value="0" min="0" max="15" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="credits">Coût de la formation *: </label>
+                                <input type="number" id="credits" name="credits" class="form-control" value="0" min="0" max="999" required/>
                             </div>
                             <label>Adresse *:</label>
                             <div class="form-group">
@@ -79,7 +83,7 @@
 
                             <div class="form-group">
                                 <label for="raison_s">Raison sociale :</label>
-                                <input type="text" id="raison_s" name="raison_s" class="form-control" placeholder="Raison sociale" required/>
+                                <input type="text" id="raison_s" name="raison_s" class="form-control" placeholder="Raison sociale"/>
                             </div>
 
                             <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>

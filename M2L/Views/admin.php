@@ -25,6 +25,7 @@
                  <th>Prénom</th>
                  <th>Mail</th>
                  <th>Nb Jour</th>
+                 <th>Crédits</th>
                  </tr>
                  </thead>
                  <?php 
@@ -35,6 +36,7 @@
                                          <td>'.$value['prenom'].'</td>
                                          <td>'.$value['mail'].'</td>
                                          <td>'.$value['NbJour'].'</td>
+                                         <td>'.$value['credits'].'</td>
                                     </tr>
                                </tbody>';
                                                	}
@@ -71,6 +73,7 @@
                  <th>Prénom</th>
                  <th>Mail</th>
                  <th>Nb Jour</th>
+                 <th>Crédits</th>
                  </tr>
                  </thead>
                  <?php 
@@ -81,6 +84,7 @@
                                          <td>'.$value['prenom'].'</td>
                                          <td>'.$value['mail'].'</td>
                                          <td>'.$value['NbJour'].'</td>
+                                         <td>'.$value['credits'].'</td>
                                     </tr>
                                </tbody>';
                                                 }
@@ -116,7 +120,8 @@
                  <th>Nom</th>
                  <th>Prénom</th>
                  <th>Mail</th>
-                 <th>Nb Jour</th>
+                 <th>Nb Jours</th>
+                 <th>Crédits</th>
                  </tr>
                  </thead>
                  <?php 
@@ -127,6 +132,7 @@
                                          <td>'.$value['prenom'].'</td>
                                          <td>'.$value['mail'].'</td>
                                          <td>'.$value['NbJour'].'</td>
+                                         <td>'.$value['credits'].'</td>
                                     </tr>
                                </tbody>';
                                                 }
@@ -204,6 +210,8 @@
                  <th>Libelle</th>
                  <th>Date</th>
                  <th>Contenu</th>
+                 <th>Durée</th>
+                 <th>Coût</th>
                  </tr>
                  </thead>
                  <?php 
@@ -211,8 +219,10 @@
                         echo '<tbody>
                                     <tr>
                                          <td>'.$value['libelle'].'</td>
-                                         <td>'.$value['date_f'].'</td>
+                                         <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                          <td>'.$value['contenu'].'</td>
+                                         <td>'.$value['NbJour'].'</td>
+                                         <td>'.$value['credits'].'</td>
                                     </tr>
                                </tbody>';
                                                 }

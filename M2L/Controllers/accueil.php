@@ -1,26 +1,30 @@
 <?php 
 
-    if($_SESSION['auth']['level'] == 3)
+if($_SESSION['auth']['level'] == 3)
+{
+    require "Models/accueil.php";
+
+    $_GET['p'] = 'accueil';
+    $id_s = $_SESSION['auth']['id_s'];
+
+    $Form = getForm($id_s);
+    $FormAtt = getFormAtt($id_s);
+    $FormHisto = getHisto($id_s);
+
+    if(isset($_POST['Suivre']))
     {
-        require "Models/accueil.php";        
-        $_GET['p'] = 'accueil';
-        $id_s = $_SESSION['auth']['id_s'];
-        $Form = getForm($id_s);
-        $FormAtt = getFormAtt($id_s);
-        $FormHisto = getHisto($id_s);
+        $id_f = $_POST['idForm'];
 
-        if(isset($_POST['Suivre']))
-        {
-            $id_f = $_POST['idForm'];
-            suivreForm($id_s,$id_f);
-            header("Location:".BASE_URL."/accueil");   
-        }
+        suivreForm($id_s,$id_f);
 
-        require "Views/accueil.php";
-
+        header("Location:".BASE_URL."/accueil");
     }
-    else
-    {
-       header("Location:".BASE_URL."/disconnect");
-    }
+
+    require "Views/accueil.php";
+}
+else
+{
+   header("Location:".BASE_URL."/disconnect");
+}
+
 ?>
