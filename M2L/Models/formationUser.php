@@ -3,7 +3,7 @@
 function getFormationsUser($id)
 {
 		global $bdd;
-       	$reponse = $bdd->prepare('SELECT formation.id_f ,salarie.id_s, salarie.nom, salarie.prenom, formation.libelle, suivre.etat 
+       	$reponse = $bdd->prepare('SELECT formation.id_f, formation.date_d, formation.date_f, formation.NbJour, formation.credits ,salarie.id_s, salarie.nom, salarie.prenom, formation.libelle, suivre.etat 
 			from suivre, salarie, formation 
 			where salarie.id_s = suivre.id_s 
 			and formation.id_f = suivre.id_f 

@@ -11,6 +11,9 @@
                         <tr>
                             <th>Formation(s)</th>
                             <th>Date</th>
+                            <th>Etat</th>
+                            <th>Durée</th>
+                            <th>Coût</th>
                             <th><i class="glyphicon glyphicon-cog"></th>
                         </tr>
                         <?php
@@ -43,12 +46,11 @@
                                         <tbody>
                                             <tr>
                                                 <td>'.$value["libelle"].'</td>
-                                                <td>
-                                                '.$etat.'
-                                                </td>
-                                                <td>
-                                                '.$form.'
-                                                </td>
+                                                <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
+                                                <td>'.$etat.'</td>
+                                                <td>'.$value['NbJour'].' Jour(s)</td>
+                                                <td>'.$value['credits'].' Credit(s)</td>
+                                                <td>'.$form.'</td>
                                             </tr>
                                         </tbody>';            
                             }
