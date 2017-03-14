@@ -13,7 +13,7 @@
     {
         global $bdd;
         
-        $user = $bdd->prepare("SELECT id_s, mail, password,level FROM salarie WHERE mail=:mail AND password=:mdp");
+        $user = $bdd->prepare("SELECT * FROM salarie WHERE mail=:mail AND password=:mdp");
         $user->bindValue(':mail', $params['mail'],PDO::PARAM_STR);
         $user->bindValue(':mdp', sha1($params['mdp']),PDO::PARAM_STR); // mdp a cryter dans la bdd
         $user->execute();

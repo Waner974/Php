@@ -67,25 +67,38 @@
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-btc"></i>
+                            <span class="label label-success"><?= $_SESSION['auth']['credits'] ?></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Vous disposez de <?= $_SESSION['auth']['credits'] ?> Crédits</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-calendar"></i>
+                            <span class="label label-danger"><?= $_SESSION['auth']['NbJour'] ?></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li class="header">Vous disposez de <?= $_SESSION['auth']['NbJour'] ?> Jours de formation</li>
+                        </ul>
+                    </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="http://globalgreensolutions.co.uk/images/Member.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs"><?= $_SESSION['auth']['mail'] ?></span>
+                            <span class="hidden-xs"><?= $_SESSION['auth']['nom'] ,' ', $_SESSION['auth']['prenom'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="http://globalgreensolutions.co.uk/images/Member.png" class="img-circle" alt="User Image">
                                 <p>
-                                    Web Developer
-                                    <small>ID SESSION: <?= $_SESSION['auth']['id_s'] ?></small>
-<!--                                    <small>NOM SESSION: --><?//= $_SESSION['auth']['nom'] ?><!--</small>-->
-<!--                                    <small>PRENOM SESSION: --><?//= $_SESSION['auth']['prenom'] ?><!--</small>-->
-                                    <small>MAIL SESSION: <?= $_SESSION['auth']['mail'] ?></small>
-<!--                                    <small>NBJOUR SESSION: --><?//= $_SESSION['auth']['NbJour'] ?><!--</small>-->
-<!--                                    <small>CREDITS SESSION: --><?//= $_SESSION['auth']['credits'] ?><!--</small>-->
-                                    <small>LEVEL SESSION: <?= $_SESSION['auth']['level'] ?></small>
+                                    <?= $_SESSION['auth']['nom'] ,' ', $_SESSION['auth']['prenom'] ?>
+                                    <small><?= $_SESSION['auth']['mail'] ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->

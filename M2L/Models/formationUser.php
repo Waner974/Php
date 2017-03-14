@@ -19,10 +19,41 @@ function getFormationsUser($id)
 function valide($id_f,$id_s)
 {
     global $bdd;
-    $req = $bdd->prepare('UPDATE suivre SET etat="Validé" where id_f= :id_f and id_s= :id_s');
-     $req->bindParam(':id_s', $id_s);
-     $req->bindParam(':id_f', $id_f);
-     $req->execute();
+
+    $requete = $bdd->prepare('SELECT NbJour,credits FROM formation WHERE id_f = :id_f ');
+    $requete->bindParam(':id_f', $id_f);
+    $requete->execute();
+    while ($data = $requete->fetch())
+    {
+        $nbjourformation = $data['NbJour'];
+        $creditsformation = $data['credits'];
+    }
+
+    $requete = $bdd->prepare('SELECT NbJour,credits FROM salarie WHERE id_s = :id_s ');
+    $requete->bindParam(':id_s', $id_s);
+    $requete->execute();
+    while ($data = $requete->fetch())
+    {
+        $nbjoursalarie = $data['NbJour'];
+        $creditssalarie = $data['credits'];
+    }
+
+    if ( ($nbjoursalarie >= $nbjourformation) && ($creditssalarie >= $creditsformation))
+    {
+
+        $req = $bdd->prepare('UPDATE suivre SET etat="Validé" where id_f= :id_f and id_s= :id_s');
+        $req->bindParam(':id_s', $id_s);
+        $req->bindParam(':id_f', $id_f);
+        $req->execute();
+
+        $req1 = $bdd->prepare("UPDATE salarie SET NbJour = NbJour - '$nbjourformation', credits = credits - '$creditsformation' WHERE id_s = :id_s");
+        $req1->bindParam(':id_s', $id_s);
+        $req1->execute();
+    }
+    else
+    {
+
+    }
 
 }
 
