@@ -1,12 +1,20 @@
  <div class="container">
         <div class="row">
-            <div class="col-md-10">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Liste des formations proposées</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body table-responsive no-padding">
+            <div class="col-md-11">
+
+          <div class="box box-primary collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Formations proposées</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                    <div class="table-responsive no-padding">
                         <table class="table table-hover">
                                     <thead>
                                       <tr>
@@ -24,8 +32,8 @@
                 {
                     
                             $Suivre = '<form method="post">
-                                    <button type="submit" class="btn" name="Suivre" >
-                                        <span>Suivre</span>
+                                    <button type="submit" class="btn btn-xs" name="Suivre" >
+                                        <span><i class="fa fa-mail-forward"></i></span>
                                     </button>  
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                 </form>';    
@@ -37,7 +45,7 @@
                                    <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>'.$value['credits'].' credit(s)</td>
                                    <td>
-                                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
+                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#'.$value['id_f'].'"><i class="fa fa-plus"></i></button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -65,15 +73,23 @@
                 ?>
                         </table>
                     </div>
-                    <!-- /.box-body -->
-                </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
 
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Liste des formations en attente de formation</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body table-responsive no-padding">
+                    <div class="box box-warning collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Formations en attentes</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                                       <div class="table-responsive no-padding">
                             <table class="table table-hover">
                                     <thead>
                                       <tr>
@@ -98,7 +114,7 @@
                                    <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>'.$value['credits'].' Crédit(s)</td>
                                    <td>
-                                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
+                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#'.$value['id_f'].'"><i class="fa fa-plus"></i></button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -117,7 +133,7 @@
                                         </div>
                                     </div>
                                    </td>
-                                    <td><span class="label label-warning">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span></td>
+                                    <td><span class="label label-warning label-xs">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span></td>
                                 </tr>
                             </tbody>');
 
@@ -130,16 +146,23 @@
                 }
                 ?>
                 </table>
+            </div>  
             </div>
             <!-- /.box-body -->
-        </div>
+          </div>
+        <div class="box box-success collapsed-box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Historique</h3>
 
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Historique des formations</h3>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body table-responsive no-padding">
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                    <div class="table-responsive no-padding">
                                 <table class="table table-hover">
                                     <thead>
                                       <tr>
@@ -172,7 +195,7 @@
                                    <td>'.$value['NbJour'].' Jour(s)</td>
                                    <td>'.$value['credits'].' credit(s)</td>
                                    <td>
-                                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#'.$value['id_f'].'">+</button>
+                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#'.$value['id_f'].'"><i class="fa fa-plus"></i></button>
                                     <div class="modal fade" id='.$value['id_f'].' role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -204,8 +227,9 @@
                 ?>
                 </table>
  </div>
- <!-- /.box-body -->
- </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
             </div>
         </div>
      <div class="clearfix"></div>

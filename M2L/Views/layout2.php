@@ -128,11 +128,11 @@
                     {
                         if ($_SESSION['auth']['level'] == 1)
                         {
-                            echo('<li><a href="' . BASE_URL . '/admin"><i class="fa fa-dashboard"></i><span>Accueil</span></a></li>');
+                            echo('<li><a href="' . BASE_URL . '/admin"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
                         }
                         elseif ($_SESSION['auth']['level'] == 2)
                         {
-                            echo('<li><a href="' . BASE_URL . '/chef"><i class="fa fa-dashboard"></i><span>Accueil</span></a></li>');
+                            echo('<li><a href="' . BASE_URL . '/chef"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
                         }
                         echo('<li><a href="' . BASE_URL . '/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
                         <li><a href="' . BASE_URL . '/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
@@ -140,7 +140,7 @@
                     }
                     else
                     {
-                        echo('<li><a href="'.BASE_URL.'/accueil"><i class="fa fa-dashboard"></i><span>Accueil</span></a></li>');
+                        echo('<li><a href="'.BASE_URL.'/accueil"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
                     }
                     echo ('<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
                     <li class="header">GESTION DU COMPTE</li>   

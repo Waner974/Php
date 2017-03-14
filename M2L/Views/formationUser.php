@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-11">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title"> Liste des formations de: </h3>
@@ -37,8 +37,8 @@
                                     $etat = '<span class="label label-warning">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span>';
                                     
                                     $form = '<form method="post">
-                                            <button type="submit" class="btn btn-success" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
-                                            <button type="submit" class="btn btn-danger" name="Refuse" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
+                                            <button type="submit" class="btn btn-success btn-xs" name="Valide" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
+                                            <button type="submit" class="btn btn-danger btn-xs" name="Refuse" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button> 
                                             <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                                 </form>';
                                  }
