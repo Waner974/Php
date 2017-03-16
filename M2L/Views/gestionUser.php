@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="credits">Crédits de formation</label>
-                            <input type="number" id="credits" name="credits" class="form-control" value="0" min="0" max="999"/>
+                            <input type="number" id="credits" name="credits" class="form-control" value="0" min="0" max="5000"/>
                         </div>
                         <div class="form-group">
                             <?php

@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="credits">Coût de la formation *: </label>
-                                <input type="number" id="credits" name="credits" class="form-control" value="0" min="0" max="999" required/>
+                                <input type="number" id="credits" name="credits" class="form-control" value="0" min="0" max="5000" required/>
                             </div>
                             <label>Adresse *:</label>
                             <div class="form-group">
