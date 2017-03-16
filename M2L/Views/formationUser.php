@@ -14,6 +14,7 @@
                             <th>Etat</th>
                             <th>Durée</th>
                             <th>Coût</th>
+                            <th>Adresse</th>
                             <th><i class="glyphicon glyphicon-cog"></th>
                         </tr>
                         <?php
@@ -50,6 +51,7 @@
                                                 <td>'.$etat.'</td>
                                                 <td>'.$value['NbJour'].' Jour(s)</td>
                                                 <td>'.$value['credits'].' Credit(s)</td>
+                                                <td>'.$value['numero'].' '.$value['rue'].' '.$value['commune'].' '.$value['code_postale'].'</td>
                                                 <td>'.$form.'</td>
                                             </tr>
                                         </tbody>';            

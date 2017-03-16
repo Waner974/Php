@@ -57,8 +57,8 @@
                                                     <h4 class="modalContent">Le : '.$value['date_d'].' - '.$value['date_f'].'</h4>
                                                     <h4 class="modalContent">Durée : '.$value['NbJour'].' Jour(s)</h4>
                                                     <h4 class="modalContent">Coût : '.$value['credits'].' Crédit(s)</h4>
-                                                    <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
-                                                    <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                                    <h4 class="modalContent">Adresse : '.$value['numero'].' '.$value['rue'].' '.$value['commune'].' '.$value['code_postale'].'</h4>
+                                                    <h4 class="modalContent">Description:'.$value['contenu'].'</h4>
                                                 </div>
                                             </div> 
                                         </div>
@@ -126,8 +126,8 @@
                                                     <h4 class="modalContent">Le : '.$value['date_d'].' - '.$value['date_f'].'</h4>
                                                     <h4 class="modalContent">Durée : '.$value['NbJour'].' Jour(s)</h4>
                                                     <h4 class="modalContent">Coût : '.$value['credits'].' Crédit(s)</h4>
-                                                    <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
-                                                    <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                                    <h4 class="modalContent">Adresse : '.$value['numero'].' '.$value['rue'].' '.$value['commune'].' '.$value['code_postale'].'</h4>
+                                                    <h4 class="modalContent">Description:'.$value['contenu'].'</h4>  
                                                 </div>
                                             </div> 
                                         </div>
@@ -207,8 +207,8 @@
                                                     <h4 class="modalContent">Le : '.$value['date_d'].' - '.$value['date_f'].'</h4>
                                                     <h4 class="modalContent">Durée : '.$value['NbJour'].' Jour(s)</h4>
                                                     <h4 class="modalContent">Coût : '.$value['credits'].' Crédit(s)</h4>
-                                                    <h4 class="modalContent">Adresse :<h5 class="modalContent">todo</h5></h4>
-                                                    <h5 class="modalContent">Description:'.$value['contenu'].'</h5>  
+                                                    <h4 class="modalContent">Adresse : '.$value['numero'].' '.$value['rue'].' '.$value['commune'].' '.$value['code_postale'].'</h4>
+                                                    <h4 class="modalContent">Description:'.$value['contenu'].'</h4>  
                                                 </div>
                                             </div> 
                                         </div>

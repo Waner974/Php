@@ -212,6 +212,7 @@
                  <th>Contenu</th>
                  <th>Durée</th>
                  <th>Coût</th>
+                 <th>Adresse</th>
                  </tr>
                  </thead>
                  <?php 
@@ -223,6 +224,7 @@
                                          <td>'.$value['contenu'].'</td>
                                          <td>'.$value['NbJour'].'</td>
                                          <td>'.$value['credits'].'</td>
+                                         <td>'.$value['numero'].' '.$value['rue'].' '.$value['commune'].' '.$value['code_postale'].'</td>
                                     </tr>
                                </tbody>';
                                                 }

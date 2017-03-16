@@ -69,7 +69,7 @@ where p.id_a =a.id_a');
  function listForm()
     {
         global $bdd;
-        $reponse = $bdd->query('select * from formation where DATE_FORMAT(CURRENT_DATE(),"%Y-%m-%d") < date_f;');
+        $reponse = $bdd->query('select * from formation, adresse where DATE_FORMAT(CURRENT_DATE(),"%Y-%m-%d") < date_f AND formation.id_a = adresse.id_a');
             while ($data = $reponse->fetchAll()){
                 
                 return $data;

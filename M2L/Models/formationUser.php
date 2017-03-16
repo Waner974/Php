@@ -3,11 +3,12 @@
 function getFormationsUser($id)
 {
 		global $bdd;
-       	$reponse = $bdd->prepare('SELECT formation.id_f, formation.date_d, formation.date_f, formation.NbJour, formation.credits ,salarie.id_s, salarie.nom, salarie.prenom, formation.libelle, suivre.etat 
-			from suivre, salarie, formation 
+       	$reponse = $bdd->prepare('SELECT formation.id_f, formation.date_d, formation.date_f, formation.NbJour, formation.credits ,salarie.id_s, salarie.nom, salarie.prenom, formation.libelle, suivre.etat, adresse.id_a, adresse.rue, adresse.commune, adresse.code_postale, adresse.numero
+			from suivre, salarie, formation, adresse
 			where salarie.id_s = suivre.id_s 
 			and formation.id_f = suivre.id_f 
-			and salarie.id_s =:id');
+			and salarie.id_s =:id
+			AND formation.id_a = adresse.id_a');
         $reponse->bindValue(':id', $id,PDO::PARAM_STR);
         $reponse->execute();
         while($data = $reponse->fetchAll())
