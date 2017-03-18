@@ -36,7 +36,7 @@
                                         <span><i class="fa fa-mail-forward"></i></span>
                                     </button>  
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
-                                </form>';    
+                                </form>';
                         echo('
                             <tbody>
                                 <tr>
