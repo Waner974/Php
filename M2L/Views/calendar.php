@@ -30,24 +30,18 @@
 </section>
 
 <!-- jQuery 2.2.3 -->
-<script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- /.content --><!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+<script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-3.2.0.js"></script>
+
 <script>
 
     $(document).ready(function() {
 
-        var zone = "05:30";  //Change this to your timezone
-//        var id_s = $id_s;
+        var id_s = <?= $_SESSION['auth']['id_s'] ?>
 
         $.ajax({
             url: 'Models/calendar.php',
             type: 'POST', // Send post data
-//            data: 'type=fetchuser&id='+id_s,
-            data: 'type=fetchuser',
+            data: 'type=fetchuser&id_s='+id_s,
             async: false,
             success: function(s){
                 json_events = s;
@@ -59,11 +53,11 @@
 
         $('#calendar').fullCalendar({
             events: JSON.parse(json_events),
-            //events: [{"id":"14","title":"New Event","start":"2015-01-24T16:00:00+04:00","allDay":false}],
 
+            locale: 'fr',
             utc: true,
             header: {
-                left: 'prev,next today',
+                left: 'prev,next,today',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },

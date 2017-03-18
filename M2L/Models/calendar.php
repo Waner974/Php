@@ -71,14 +71,13 @@ if($type == 'fetch')
 
 if($type == 'fetchuser')
 {
-//    $id = $_POST['id_s'];
-    $id = 3;
+    $id_s = $_POST['id_s'];
     $events = array();
     $query = $bdd->query("SELECT formation.id_f AS id, formation.libelle AS title, formation.date_d AS start, formation.date_f AS end, salarie.id_s, salarie.nom, salarie.prenom, suivre.etat 
 			from suivre, salarie, formation 
 			where salarie.id_s = suivre.id_s 
 			and formation.id_f = suivre.id_f 
-			and salarie.id_s ='$id'");
+			and salarie.id_s ='$id_s'");
 
     foreach($query->fetchAll() as $row)
     {

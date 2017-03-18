@@ -5,41 +5,12 @@
                 <div class="box-header with-border">
                     <h4 class="box-title">Légende</h4>
                 </div>
-                <div class="box-body">
+                <div class="box-body" id="trash">
                     <ul>
                         <li><span class="text-green"><i class="fa fa-square"></i></span> Formation Validé</li>
                         <li><span class="text-orange"><i class="fa fa-square"></i></span> Formation En attente</li>
                         <li><span class="text-red"><i class="fa fa-square"></i></span> Formation Refusé</li>
                     </ul>
-                </div>
-                <div class="box-header with-border">
-                    <h4 class="box-title">Supprimer une Formation</h4>
-                </div>
-                <div class="box-body">
-                    <!--<div id="external-events">
-                        <?php /*foreach ($listFormation as $key => $value)
-                        {
-                        echo '<div class="external-event bg-green">'.$value['title'].'</div>';
-                        }
-                        */?>
-                        <div class="checkbox">
-                            <label for="drop-remove">
-                                <input type="checkbox" id="drop-remove" checked="checked">
-                                remove after drop
-                            </label>
-                        </div>
-                    </div>-->
-                    <div id='wrap'>
-
-                        <div id='external-events'>
-                            <p>
-                                <span class="glyphicon glyphicon-trash" id="trash"></span>
-                            </p>
-                        </div>
-
-                        <span class="tt">x</span>
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -59,12 +30,7 @@
 </section>
 
 <!-- jQuery 2.2.3 -->
-<script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- /.content --><!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+<script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-3.2.0.js"></script>
 <script>
 
     $(document).ready(function() {
@@ -90,27 +56,6 @@
             currentMousePos.x = event.pageX;
             currentMousePos.y = event.pageY;
         });
-
-        /* initialize the external events
-         -----------------------------------------------------------------*/
-
-        $('#external-events .fc-event').each(function() {
-
-            // store data so the calendar knows to render an event upon drop
-            $(this).data('event', {
-                title: $.trim($(this).text()), // use the element's text as the event title
-                stick: true // maintain when user navigates (see docs on the renderEvent method)
-            });
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,      // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
-            });
-
-        });
-
 
         /* initialize the calendar
          -----------------------------------------------------------------*/
