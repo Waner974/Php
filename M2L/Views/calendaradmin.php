@@ -40,6 +40,7 @@
         $.ajax({
             url: 'Models/calendar.php',
             type: 'POST', // Send post data
+//            data: 'type=fetchchef',
             data: 'type=fetch',
             async: false,
             success: function(s){

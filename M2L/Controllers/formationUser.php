@@ -31,7 +31,7 @@ if($_SESSION['auth']['level']== 2)
                 <div class='alert alert-danger alert-dismissible'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                 <h4><i class='icon fa fa-ban'></i> Erreur !</h4>
-                L'utilisateur ne dispose pas d'assez de crédits ou de jours de formation.
+                L'utilisateur ne dispose pas d'assez de crédits ou de jours de formation pour s'inscrire a cette formation.
                 </div>
                 </div>";
         }
