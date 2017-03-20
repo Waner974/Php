@@ -22,13 +22,6 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/skins/_all-skins.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -89,13 +82,13 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="http://globalgreensolutions.co.uk/images/Member.png" class="user-image" alt="User Image">
+                            <img src="http://www.africabeauties.net/img/team/team-member.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs"><?= $_SESSION['auth']['nom'] ,' ', $_SESSION['auth']['prenom'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="http://globalgreensolutions.co.uk/images/Member.png" class="img-circle" alt="User Image">
+                                <img src="http://www.africabeauties.net/img/team/team-member.jpg" class="img-circle" alt="User Image">
                                 <p>
                                     <?= $_SESSION['auth']['nom'] ,' ', $_SESSION['auth']['prenom'] ?>
                                     <small><?= $_SESSION['auth']['mail'] ?></small>
@@ -104,7 +97,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profil</a>
+                                    <a href="<?= BASE_URL; ?>/profil" class="btn btn-default btn-flat">Profil</a>
                                 </div>
                             </li>
                         </ul>
