@@ -31,7 +31,7 @@
         <div class="col-md-7">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Modification de mes informations</h3>
+                    <h3 class="box-title">Modifier mes informations</h3>
                 </div>
                 <form role="form" action="<?= BASE_URL; ?>/profil" method="post">
                     <div class="box-body">
@@ -51,6 +51,16 @@
                             <label for="mdp">Mot de Passe</label>
                             <input type="password" id="mdp" name="mdp" class="form-control" placeholder="*******""/>
                         </div>
+                        <?php if($user['level']== 1 || $user['level']== 2)
+                        echo '<div class="form-group">
+                                <label for="NbJour">Jours de formation</label>
+                                <input type="number" id="NbJour" name="NbJour" class="form-control" value="'.$user['NbJour'].'" min="0" max="15"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="credits">Crédits de formation</label>
+                                <input type="number" id="credits" name="credits" class="form-control" value="'.$user['credits'].'" min="0" max="5000"/>
+                              </div>';
+                        ?>
                     </div>
                     <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-primary">Valider</button>

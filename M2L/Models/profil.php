@@ -60,3 +60,21 @@ function updateprofilpassword($id_s,$password)
     $req->bindParam(':password', sha1($password));
     $req->execute();
 }
+
+function updateprofilnbjour($id_s,$nbjour)
+{
+    global $bdd;
+    $req = $bdd->prepare('UPDATE salarie SET NbJour = :nbjour WHERE id_s = :id_s');
+    $req->bindParam(':id_s', $id_s);
+    $req->bindParam(':nbjour', $nbjour);
+    $req->execute();
+}
+
+function updateprofilcredits($id_s,$credits)
+{
+    global $bdd;
+    $req = $bdd->prepare('UPDATE salarie SET credits = :credits WHERE id_s = :id_s');
+    $req->bindParam(':id_s', $id_s);
+    $req->bindParam(':credits', $credits);
+    $req->execute();
+}
