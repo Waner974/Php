@@ -80,27 +80,11 @@
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="user user-menu">
+                        <a href="<?= BASE_URL; ?>/profil">
                             <img src="http://www.africabeauties.net/img/team/team-member.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs"><?= $_SESSION['auth']['nom'] ,' ', $_SESSION['auth']['prenom'] ?></span>
+                            <span class="hidden-xs">Profil</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="http://www.africabeauties.net/img/team/team-member.jpg" class="img-circle" alt="User Image">
-                                <p>
-                                    <?= $_SESSION['auth']['nom'] ,' ', $_SESSION['auth']['prenom'] ?>
-                                    <small><?= $_SESSION['auth']['mail'] ?></small>
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="<?= BASE_URL; ?>/profil" class="btn btn-default btn-flat">Profil</a>
-                                </div>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -156,23 +140,10 @@
 
     </div>
     <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2016-2017 M2L.</strong> Tous droits réservés.
+    </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-
-
-        </div>
-        <!-- /.tab-pane -->
-    </aside>
-</div>
-<!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
 <div class="control-sidebar-bg"></div>

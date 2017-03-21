@@ -1,31 +1,61 @@
 <section class="content">
 
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="box box-primary">
                 <div class="box-body box-profile">
                     <img class="profile-user-img img-responsive img-circle" src="http://www.africabeauties.net/img/team/team-member.jpg" alt="User profile picture">
 
-                    <h3 class="profile-username text-center"><?= $_SESSION['auth']['nom'],' ', $_SESSION['auth']['prenom'] ?></h3>
+                    <h3 class="profile-username text-center"><?= $user['nom'],' ', $user['prenom'] ?></h3>
 
-                    <p class="text-muted text-center"><?= $_SESSION['auth']['mail'] ?></p>
+                    <p class="text-muted text-center"><?= $user['mail'] ?></p>
 
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <b>Jours de Formations</b> <a class="pull-right"><?= $_SESSION['auth']['NbJour'] ?></a>
+                            <b>Jours de Formations</b> <p class="pull-right"><?= $user['NbJour'] ?></p>
                         </li>
                         <li class="list-group-item">
-                            <b>Crédits</b> <a class="pull-right"><?= $_SESSION['auth']['credits'] ?></a>
+                            <b>Crédits</b> <p class="pull-right"><?= $user['credits'] ?></p>
                         </li>
-                        <?php if($_SESSION['auth']['level']== 3)
+                        <?php if($user['level']== 3)
                         echo "<li class='list-group-item'>
-                            <b>Chef d'équipe</b> <a class='pull-right'>$chef</a>
+                            <b>Chef d'équipe</b> <p class='pull-right'>$chefequipe</p>
                         </li>"
                         ?>
                     </ul>
 
                     <a href="#" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-comment"></i> <span>Message</span></a>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Modification de mes informations</h3>
+                </div>
+                <form role="form" action="<?= BASE_URL; ?>/profil" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom" value="<?= $user['nom'] ?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prenom</label>
+                            <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Prenom" value="<?= $user['prenom'] ?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="mail">Adresse Mail</label>
+                            <input type="email" id="mail" name="mail" class="form-control" placeholder="Email" value="<?= $user['mail'] ?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="mdp">Mot de Passe</label>
+                            <input type="password" id="mdp" name="mdp" class="form-control" placeholder="*******""/>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

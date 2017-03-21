@@ -20,7 +20,7 @@ if(isset($_COOKIE['auth']) && !isset($_SESSION['auth']))
         elseif($user['level'] == 2)
         header("Location:".BASE_URL."/chef");
         else
-        header("Location:".BASE_URL);
+        header("Location:".BASE_URL."/accueil");
     }
     else
     {
@@ -44,8 +44,7 @@ if(isset($_POST['submit']))
     	elseif($user['level'] == 2)
         header("Location:".BASE_URL."/chef");
     	else
-	    header("Location:".BASE_URL);
-
+        header("Location:".BASE_URL."/accueil");
     	
                    
      }
