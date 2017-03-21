@@ -15,7 +15,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                     <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="propose" class="table table-hover">
                                     <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -25,7 +25,7 @@
                                         <th>Plus d'info</th>
                                         <th>Suivre</th>
                                       </tr>
-                                    </thead><i></i>
+                                    </thead>
                 <?php
                     
                 foreach ($Form as $key => $value) 
@@ -38,7 +38,7 @@
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                 </form>';
                         echo('
-                            <tbody>
+                            
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
@@ -66,7 +66,7 @@
                                    </td>
                                     <td>'.$Suivre.'</td>
                                 </tr>
-                            </tbody>');
+                            ');
                 } 
 
 
@@ -90,7 +90,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                                        <div class="table-responsive no-padding">
-                            <table class="table table-hover">
+                            <table id="attente" class="table table-hover">
                                     <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -107,7 +107,7 @@
                     foreach ($FormAtt as $key => $value) 
                 {
                         echo('
-                            <tbody>
+                            
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
@@ -135,7 +135,7 @@
                                    </td>
                                     <td><span class="label label-warning label-xs">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span></td>
                                 </tr>
-                            </tbody>');
+                            ');
 
                     }
                 }
@@ -163,7 +163,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                     <div class="table-responsive no-padding">
-                                <table class="table table-hover">
+                                <table id="histo" class="table table-hover">
                                     <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -188,7 +188,7 @@
                                     $etat = '<span class="label label-danger">'.$value['etat'].' <i class="glyphicon glyphicon-remove"></i></span>';
                                  }
                         echo('
-                            <tbody>
+                        
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
@@ -216,7 +216,7 @@
                                    </td>
                                     <td>'.$etat.'</td>
                                 </tr>
-                            </tbody>');
+                            ');
                     }
                 }
 

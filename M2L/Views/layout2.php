@@ -22,6 +22,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/dataTables.bootstrap.min.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -175,6 +176,23 @@
 <script src="<?= BASE_URL; ?>/Views/plugins/fullcalendar/locale-all.js"></script>
 <script>
     $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
+</script>
+<script src="<?= BASE_URL; ?>/Views/js/jquery.dataTables.min.js"></script>
+<script src="<?= BASE_URL; ?>/Views/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#propose').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#attente').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#histo').DataTable();
+    });
 </script>
 </body>
 </html>
