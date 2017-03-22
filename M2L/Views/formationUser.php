@@ -1,9 +1,9 @@
-<div class="container">
+<?php $title = 'Validation des formations'?>
     <div class="row">
-        <div class="col-xs-11">
+        <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"> Liste des formations de: </h3>
+                    <h3 class="box-title"> Demandes de formation de: </h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -71,4 +71,3 @@
             <!-- /.box -->
         </div>
     </div>
-</div>

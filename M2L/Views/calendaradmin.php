@@ -1,4 +1,4 @@
-<section class="content">
+<?php $title = 'Calendrier'?>
     <div class="row">
         <div class="col-md-3">
             <div class="box box-solid">
@@ -27,9 +27,8 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
-</section>
 
-<!-- jQuery 2.2.3 -->
+<!-- jQuery -->
 <script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-3.2.0.js"></script>
 <script>
 

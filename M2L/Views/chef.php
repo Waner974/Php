@@ -1,10 +1,10 @@
-<div class="container">
+<?php $title = 'Accueil'?>
     <div class="row">
 
             <?= statsAdmin::stats("blue", "$nbUser", "Utilisateur(s) affecté(s)","person-add","user") ?>
             <?= statsAdmin::stats("orange", "$nbDmd", "Demande(s)en attente(s)","android-time","dmd") ?>
 
-            <div class="col-md-11">
+            <div class="col-md-12">
 
         <div class="box box-primary collapsed-box">
             <div class="box-header with-border">
@@ -335,5 +335,3 @@
         </div>
         <!-- /.modal -->
     </div>
-</div>
-

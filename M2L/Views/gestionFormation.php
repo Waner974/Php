@@ -1,6 +1,6 @@
-<section class="content">
+<?php $title = 'Ajouter un Formation'?>
     <div class="row">
-        <div class="col-md-6 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-3">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Ajouter une formation</h3>
@@ -93,5 +93,4 @@
             </div>
         </div>
     </div>
-</section>
 <!--http://formvalidation.io/validators/date/-->

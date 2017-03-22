@@ -1,6 +1,6 @@
 <?php
 
-function getchefequipe($id_s_1)
+function getChefEquipe($id_s_1)
 {
     global $bdd;
     $requete = $bdd->prepare("SELECT nom,prenom,mail FROM salarie WHERE id_s = :id_s_1");
@@ -13,7 +13,7 @@ function getchefequipe($id_s_1)
     }
 }
 
-function getinfouser($id_s)
+function getInfoUser($id_s)
 {
     global $bdd;
     $requeteuser = $bdd->prepare("SELECT * FROM salarie WHERE id_s = :id_s");
@@ -25,7 +25,7 @@ function getinfouser($id_s)
     }
 }
 
-function updateprofilnom($id_s,$nom)
+function updateProfilNom($id_s,$nom)
 {
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET nom = :nom WHERE id_s = :id_s');
@@ -34,7 +34,7 @@ function updateprofilnom($id_s,$nom)
     $req->execute();
 }
 
-function updateprofilprenom($id_s,$prenom)
+function updateProfilPrenom($id_s,$prenom)
 {
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET prenom = :prenom WHERE id_s = :id_s');
@@ -43,7 +43,7 @@ function updateprofilprenom($id_s,$prenom)
     $req->execute();
 }
 
-function updateprofilmail($id_s,$mail)
+function updateProfilMail($id_s,$mail)
 {
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET mail = :mail WHERE id_s = :id_s');
@@ -52,16 +52,16 @@ function updateprofilmail($id_s,$mail)
     $req->execute();
 }
 
-function updateprofilpassword($id_s,$password)
+function updateProfilPassword($id_s,$password)
 {
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET password = :password WHERE id_s = :id_s');
     $req->bindParam(':id_s', $id_s);
-    $req->bindParam(':password', sha1($password));
+    $req->bindParam(':password', $password);
     $req->execute();
 }
 
-function updateprofilnbjour($id_s,$nbjour)
+function updateProfilNbjour($id_s,$nbjour)
 {
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET NbJour = :nbjour WHERE id_s = :id_s');
@@ -70,7 +70,7 @@ function updateprofilnbjour($id_s,$nbjour)
     $req->execute();
 }
 
-function updateprofilcredits($id_s,$credits)
+function updateProfilCredits($id_s,$credits)
 {
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET credits = :credits WHERE id_s = :id_s');

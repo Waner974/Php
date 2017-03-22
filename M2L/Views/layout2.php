@@ -135,10 +135,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
+                <?= $title ?>
             </h1>
         </section>
+        <section class="content">
         <?= $content; ?>
-
+        </section>
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -174,23 +176,15 @@
 <script src="<?= BASE_URL; ?>/Views/plugins/chartjs/Chart.min.js"></script>
 <script src="<?= BASE_URL; ?>/Views/plugins/fullcalendar/fullcalendar.js"></script>
 <script src="<?= BASE_URL; ?>/Views/plugins/fullcalendar/locale-all.js"></script>
+<!-- DataTables -->
+<script src="<?= BASE_URL; ?>/Views/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?= BASE_URL; ?>/Views/plugins/datatables/dataTables.bootstrap.js"></script>
 <script>
     $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
-</script>
-<script src="<?= BASE_URL; ?>/Views/js/jquery.dataTables.min.js"></script>
-<script src="<?= BASE_URL; ?>/Views/js/dataTables.bootstrap.min.js"></script>
-<script>
+
     $(document).ready(function() {
         $('#propose').DataTable();
-    });
-</script>
-<script>
-    $(document).ready(function() {
         $('#attente').DataTable();
-    });
-</script>
-<script>
-    $(document).ready(function() {
         $('#histo').DataTable();
     });
 </script>

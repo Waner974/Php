@@ -1,6 +1,6 @@
-<section class="content">
+<?php $title = 'Ajouter un Prestataire'?>
     <div class="row">
-        <div class="col-md-6 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-3">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Ajouter un prestataire</h3>
@@ -34,4 +34,3 @@
             </div>
         </div>
     </div>
-</section>

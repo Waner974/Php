@@ -1,5 +1,4 @@
-<section class="content">
-
+<?php $title = 'Profil'?>
     <div class="row">
         <div class="col-md-4">
             <div class="box box-primary">
@@ -51,7 +50,11 @@
                             <label for="mdp">Mot de Passe</label>
                             <input type="password" id="mdp" name="mdp" class="form-control" placeholder="*******""/>
                         </div>
-                        <?php if($user['level']== 1 || $user['level']== 2)
+                        <div class="form-group">
+                            <label for="mdpconfirm">Comfirmation Mot de Passe</label>
+                            <input type="password" id="mdpconfirm" name="mdpconfirm" class="form-control" placeholder="*******""/>
+                        </div>
+                        <?php if($user['level']== 1)
                         echo '<div class="form-group">
                                 <label for="NbJour">Jours de formation</label>
                                 <input type="number" id="NbJour" name="NbJour" class="form-control" value="'.$user['NbJour'].'" min="0" max="15"/>
@@ -69,4 +72,3 @@
             </div>
         </div>
     </div>
-</section>
