@@ -183,9 +183,72 @@
     $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
 
     $(document).ready(function() {
-        $('#propose').DataTable();
-        $('#attente').DataTable();
-        $('#histo').DataTable();
+        $('#propose').DataTable({
+            "columnDefs": [
+            {
+                "targets": [4,5],
+                "orderable": false,
+                "searchable": false
+            }],
+            
+            "language": {
+                search: "_INPUT_",
+                searchPlaceholder: "Recherche...",
+                "sLengthMenu": "Afficher _MENU_ lignes",
+                "paginate": {
+                    "previous": "Précédent",
+                    "next": "Suivant"
+                },
+                sInfo: "_TOTAL_ lignes",
+                sInfoFiltered: " affichée(s) sur _MAX_ ligne(s)",
+                sZeroRecords: "Aucuns résultats",
+                sInfoEmpty: "Aucunes lignes"
+            }
+        });
+        $('#attente').DataTable({
+            "columnDefs": [
+            {
+                "targets": [4,5],
+                "orderable": false,
+                "searchable": false
+            }],
+            
+            "language": {
+                search: "_INPUT_",
+                searchPlaceholder: "Recherche...",
+                "sLengthMenu": "Afficher _MENU_ lignes",
+                "paginate": {
+                    "previous": "Précédent",
+                    "next": "Suivant"
+                },
+                sInfo: "_TOTAL_ lignes",
+                sInfoFiltered: " affichée(s) sur _MAX_ ligne(s)",
+                sZeroRecords: "Aucuns résultats",
+                sInfoEmpty: "Aucunes lignes"
+            }
+        });
+        $('#histo').DataTable({
+            "columnDefs": [
+            {
+                "targets": [4],
+                "orderable": false,
+                "searchable": false
+            }],
+            
+            "language": {
+                search: "_INPUT_",
+                searchPlaceholder: "Recherche...",
+                "sLengthMenu": "Afficher _MENU_ lignes",
+                "paginate": {
+                    "previous": "Précédent",
+                    "next": "Suivant"
+                },
+                sInfo: "_TOTAL_ lignes",
+                sInfoFiltered: " affichée(s) sur _MAX_ ligne(s)",
+                sZeroRecords: "Aucuns résultats",
+                sInfoEmpty: "Aucunes lignes"
+            }
+        });
     });
 </script>
 </body>

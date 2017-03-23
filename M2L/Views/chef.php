@@ -19,7 +19,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                     <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="propose" class="table table-hover">
                             <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -41,9 +41,7 @@
                                     </button>  
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                 </form>';
-                        echo('
-                            <tbody>
-                                <tr>
+                        echo('<tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>
@@ -69,12 +67,11 @@
                                     </div>
                                    </td>
                                     <td>'.$Suivre.'</td>
-                                </tr>
-                            </tbody>');
+                                </tr>');
                 }
                             }
                             else{
-                                echo('<tbody><tr><td>Aucune formation</td></tr></tbody>');
+                                echo('<tr><td>Aucune formation</td></tr>');
 
                             }
                             ?>
@@ -98,7 +95,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                     <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="attente" class="table table-hover">
                             <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -114,9 +111,7 @@
                                foreach ($FormAtt as $key => $value)
                                 {
 
-                            echo('
-                            <tbody>
-                                <tr>
+                            echo('<tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>
@@ -142,13 +137,9 @@
                                     </div>
                                    </td>
                                     <td><span class="label label-warning">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span></td>
-                                </tr>
-                            </tbody>');
+                                </tr>');
                 } }
-                else{
-                    echo('<tbody><tr><td>Aucune formation en attente</td></tr></tbody>');
-
-                }
+                
                             ?>
                         </table>
                     </div>
@@ -169,7 +160,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                   <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="histo" class="table table-hover">
                             <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -188,9 +179,7 @@
                                     } elseif ($value['etat'] == "Refusé") {
                                         $etat = '<span class="label label-danger">' . $value['etat'] . ' <i class="glyphicon glyphicon-remove"></i></span>';
                                     }
-                                    echo('
-                            <tbody>
-                                <tr>
+                                    echo('<tr>
                                    <td>' . $value["libelle"] . '</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>
@@ -216,15 +205,9 @@
                                     </div>
                                    </td>
                                     <td>' . $etat . '</td>
-                                </tr>
-                            </tbody>');
+                                </tr>');
 
                                 }
-                            }
-
-                            else{
-                                echo('<tbody><tr><td>Aucune formation antérieure</td></tr></tbody>');
-
                             }
                 ?>
                         </table>
