@@ -21,6 +21,7 @@ if($_SESSION['auth']['level']== 2)
             header("Location:".BASE_URL."/chef");   
         }
 
+
     require "Views/chef.php";
 }
 else

@@ -19,7 +19,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                     <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="propose" class="table table-hover">
                             <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -42,7 +42,7 @@
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                 </form>';
                         echo('
-                            <tbody>
+                            
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
@@ -70,7 +70,7 @@
                                    </td>
                                     <td>'.$Suivre.'</td>
                                 </tr>
-                            </tbody>');
+                            ');
                 }
                             }
                             else{
@@ -98,7 +98,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                     <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="attente" class="table table-hover">
                             <thead>
                                       <tr>
                                         <th>Formations</th>
@@ -115,7 +115,6 @@
                                 {
 
                             echo('
-                            <tbody>
                                 <tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
@@ -143,7 +142,7 @@
                                    </td>
                                     <td><span class="label label-warning">'.$value['etat'].' <i class="glyphicon glyphicon-time"></i></span></td>
                                 </tr>
-                            </tbody>');
+                            ');
                 } }
                 else{
                     echo('<tbody><tr><td>Aucune formation en attente</td></tr></tbody>');
@@ -263,12 +262,21 @@
                             <td>' . $value['nom'] . '</td>
                             <td>' . $value['prenom'] . '</td>
                             <td>' . $value['mail'] . '</td>
-                            <td><a href="' . BASE_URL . '/formationUser?id=' . $value['id_s'] . '" class="glyphicon glyphicon-list"></a></td>
+                            <td>
+                            <form method="post" action="' . BASE_URL . '/formationUser">
+                                    <button type="submit" class="btn btn-xs" name="formUser" >
+                                        <span><i class="glyphicon glyphicon-list"></i></span>
+                                    </button>  
+                                    <input name="idUser" type="hidden" value="'.$value['id_s'].'" >
+                                </form>
+                            </td>
                             </tr>
                             </tbody>';
                                 }
                             }
+                            //<a href="' . BASE_URL . '/formationUser?id=' . $value['id_s'] . '" class="glyphicon glyphicon-list"></a>
                             ?>
+
                         </table>
                     </div>
                     <!-- /.box-body -->
@@ -292,7 +300,7 @@
               </div>
               <div class="modal-body">
                     <div class="table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table id="histo" class="table table-hover">
                             <tr>
                                 <th>Nom</th>
                                 <th>Prenom</th>
@@ -308,7 +316,7 @@
                                 foreach ($Dmd as $key => $value)
                                 {
                                     echo
-                                        '<tbody>
+                                        '
                             <tr>
                             <td>' . $value['nom'] . '</td>
                             <td>' . $value['prenom'] . '</td>
@@ -318,7 +326,7 @@
                             <td>'.$value['NbJour'].'</td>
                             <td>TODO</td>
                             </tr>
-                            </tbody>';
+                            ';
                                 }
                             }
                             ?>

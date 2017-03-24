@@ -112,9 +112,9 @@
                         {
                             echo('<li><a href="' . BASE_URL . '/chef"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
                         }
-                        echo('<li><a href="' . BASE_URL . '/gestionUser"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Utilisateur</span></a></li>
-                        <li><a href="' . BASE_URL . '/gestionPrestataire"><i class="glyphicon glyphicon-user"></i><span>Ajouter un Prestataire</span></a></li>
-				        <li><a href="' . BASE_URL . '/gestionFormation"><i class="glyphicon glyphicon-user"></i><span>Ajouter une Formation</span></a></li>');
+                        echo('<li><a href="' . BASE_URL . '/gestionUser"><i class="fa fa-user-plus"></i><span>Ajouter un Utilisateur</span></a></li>
+                        <li><a href="' . BASE_URL . '/gestionPrestataire"><i class="fa fa-user-plus"></i><span>Ajouter un Prestataire</span></a></li>
+				        <li><a href="' . BASE_URL . '/gestionFormation"><i class="glyphicon glyphicon-plus"></i><span>Ajouter une Formation</span></a></li>');
                     }
                     else
                     {

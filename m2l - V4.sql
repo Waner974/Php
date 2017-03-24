@@ -143,7 +143,7 @@ CREATE TABLE `salarie` (
   `mail` varchar(25) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `NbJour` int(11) DEFAULT NULL,
-  `credits` int(3) DEFAULT NULL,
+  `credits` int(4) DEFAULT NULL,
   `level` int(1) NOT NULL,
   `id_a` int(11) DEFAULT NULL,
   `id_s_1` int(11) DEFAULT NULL

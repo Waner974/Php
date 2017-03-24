@@ -57,6 +57,7 @@ function getFormationsUser($id)
 			where salarie.id_s = suivre.id_s 
 			and formation.id_f = suivre.id_f 
 			and salarie.id_s =:id
+            and suivre.etat = "En attente"
 			AND formation.id_a = adresse.id_a');
         $reponse->bindValue(':id', $id,PDO::PARAM_STR);
         $reponse->execute();

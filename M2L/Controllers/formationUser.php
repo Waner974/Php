@@ -4,26 +4,27 @@ if($_SESSION['auth']['level']== 2)
     require "Models/admin.php";
     require "Models/formationUser.php";
 
-    $id_s = $_GET['id'];
-
-    $listeFormation = getFormationsUser($id_s);
+    if (isset($_POST['formUser']))
+    {
+    $_SESSION['test'] = $_POST['idUser'];
+    }
+    $listeFormation = getFormationsUser($_SESSION['test']);
 
     $_GET['p'] = 'chef';
 
     if (isset($_POST['Valide']))
 	{
 		$id_f = $_POST['idForm'];
-
         $nbjourformation = getnbjourformation($id_f);
         $creditsformation = getcreditsformation($id_f);
-        $nbjoursalarie = getnbjoursalarie($id_s);
-        $creditssalarie = getcreditssalarie($id_s);
+        $nbjoursalarie = getnbjoursalarie($_SESSION['test']);
+        $creditssalarie = getcreditssalarie($_SESSION['test']);
 
         if (($nbjoursalarie >= $nbjourformation) && ($creditssalarie >= $creditsformation))
         {
-            valide($id_f,$id_s);
-            usenbjourcredits($nbjourformation,$creditsformation,$id_s);
-            header("Location:".BASE_URL."/formationUser?id=".$id_s."");
+            valide($id_f,$_SESSION['test']);
+            usenbjourcredits($nbjourformation,$creditsformation,$_SESSION['test']);
+            header("Location:".BASE_URL."/formationUser");
         }
         else
         {
@@ -40,9 +41,9 @@ if($_SESSION['auth']['level']== 2)
 	{
 		$id_f = $_POST['idForm'];
 
-		refuse($id_f,$id_s);
+		refuse($id_f,$_SESSION['test']);
 
-		header("Location:".BASE_URL."/formationUser?id=".$id_s."");
+		header("Location:".BASE_URL."/formationUser");
 	}
 
     require "Views/formationUser.php";

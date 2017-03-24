@@ -22,6 +22,7 @@
                                         <th>Coût</th>
                                         <th>Plus d'info</th>
                                         <th>Suivre</th>
+                                        <th>Fiche</th>
                                       </tr>
                                     </thead>
                 <?php
@@ -29,11 +30,21 @@
                 foreach ($Form as $key => $value) 
                 {
                     
-                            $Suivre = '<form method="post">
+                            $form = '<form method="post">
+                                    <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
+                                  <td>
                                     <button type="submit" class="btn btn-xs" name="Suivre" >
                                         <span><i class="fa fa-mail-forward"></i></span>
                                     </button>  
+                                    </td>
+                                    </form>
+                                    <form method="post" action="' . BASE_URL . '/fiche">
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
+                                    <td>
+                                    <button type="submit" class="btn btn-xs" name="Export" >
+                                      <span><i class="fa fa-file-o"></i></span>
+                                    </button> 
+                                    </td>
                                 </form>';
                         echo('
                             
@@ -62,7 +73,7 @@
                                         </div>
                                     </div>
                                    </td>
-                                    <td>'.$Suivre.'</td>
+                                    '.$form.'
                                 </tr>
                             ');
                 } 
