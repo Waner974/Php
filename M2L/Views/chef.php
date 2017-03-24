@@ -41,9 +41,7 @@
                                     </button>  
                                     <input name="idForm" type="hidden" value="'.$value['id_f'].'" >
                                 </form>';
-                        echo('
-                            
-                                <tr>
+                        echo('<tr>
                                    <td>'.$value["libelle"].'</td>
                                    <td>'.$value['date_d'].' - '.$value['date_f'].'</td>
                                    <td>'.$value['NbJour'].' Jour(s)</td>

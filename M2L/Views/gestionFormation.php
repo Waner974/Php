@@ -81,11 +81,6 @@
                                 <input type="text" id="code postale" name="code postale" class="form-control" placeholder="Code Postale" required/>
                             </div>
 
-                            <div class="form-group">
-                                <label for="raison_s">Raison sociale :</label>
-                                <input type="text" id="raison_s" name="raison_s" class="form-control" placeholder="Raison sociale"/>
-                            </div>
-
                             <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>
                         </div>
                     </div>

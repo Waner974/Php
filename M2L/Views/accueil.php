@@ -16,7 +16,7 @@
                         <table id="propose" class="table table-hover">
                                     <thead>
                                       <tr>
-                                        <th>Formations</th>
+                                        <th id="Formations">Formations</th>
                                         <th>Date</th>
                                         <th>Durée</th>
                                         <th>Coût</th>
