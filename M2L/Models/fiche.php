@@ -10,7 +10,7 @@ function getFiche($id_f)
 	WHERE f.id_f = :id_f and f.id_p = p.id_p and f.id_a = a.id_a and p.id_a = aa.id_a');
     $requete->bindParam(':id_f', $id_f);
     $requete->execute();
-    while ($data = $requete->fetch())
+    while ($data = $requete->fetchAll())
     {
         return $data;
     }
