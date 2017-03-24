@@ -19,14 +19,15 @@
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/plugins/fullcalendar/fullcalendar.print.css" media="print">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/style.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/dataTables.bootstrap.min.css">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
-
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
     <header class="main-header">
 
         <!-- Logo -->
@@ -175,7 +176,6 @@
 <!-- ChartJS 1.0.1 -->
 <script src="<?= BASE_URL; ?>/Views/plugins/chartjs/Chart.min.js"></script>
 <script src="<?= BASE_URL; ?>/Views/plugins/fullcalendar/fullcalendar.js"></script>
-<script src="<?= BASE_URL; ?>/Views/plugins/fullcalendar/locale-all.js"></script>
 <!-- DataTables -->
 <script src="<?= BASE_URL; ?>/Views/plugins/datatables/jquery.dataTables.js"></script>
 <script src="<?= BASE_URL; ?>/Views/plugins/datatables/dataTables.bootstrap.js"></script>
