@@ -2,6 +2,7 @@
 if($_SESSION['auth']['level']== 2)
 {
     include 'Core/statsAdmin.class.php';
+    include 'Core/tabsFormations.class.php';
     require "Models/chef.php";
     require "Models/accueil.php";
 

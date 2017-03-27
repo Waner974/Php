@@ -11,7 +11,9 @@
               <li class="pull-left header"><i class="fa fa-university"></i>Formations</li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane" id="tab_1-1">
+                <?= tabsFormations::Historic($FormHisto,"1-1","histo")?>
+                <?= tabsFormations::Propose($Form,"3-2","propose")?>
+              <!--<div class="tab-pane" id="tab_1-1">
                                     <div class="table-responsive no-padding">
                                 <table id="histo" class="table table-hover">
                                     <thead>
@@ -25,7 +27,7 @@
                                       </tr>
                                     </thead><i></i>
                 <?php
-
+/*
                 if (isset($FormHisto)) {
                     foreach ($FormHisto as $key => $value) 
                 {
@@ -69,10 +71,10 @@
                             ');
                     }
                 }
-                ?>
+                */?>
                 </table>
  </div>
-              </div>
+              </div>-->
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_2-2">
                                     <div class="table-responsive no-padding">
@@ -130,7 +132,7 @@
             </div> 
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane active" id="tab_3-2">
+              <!--<div class="tab-pane active" id="tab_3-2">
                                     <div class="table-responsive no-padding">
                         <table id="propose" class="table table-hover">
                                     <thead>
@@ -145,7 +147,7 @@
                                       </tr>
                                     </thead>
                 <?php
-                    
+/*
                 foreach ($Form as $key => $value) 
                 {
                     
@@ -198,10 +200,10 @@
                 } 
 
 
-                ?>
+                */?>
                         </table>
                     </div>
-              </div>
+              </div>-->
               <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->

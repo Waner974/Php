@@ -3,6 +3,7 @@
 if($_SESSION['auth']['level'] == 3)
 {
     require "Models/accueil.php";
+    include 'Core/tabsFormations.class.php';
 
     $_GET['p'] = 'accueil';
     $id_s = $_SESSION['auth']['id_s'];
