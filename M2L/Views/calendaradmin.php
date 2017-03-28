@@ -35,12 +35,14 @@
     $(document).ready(function() {
 
         var zone = "05:30";  //Change this to your timezone
+        var id_s = <?= $_SESSION['auth']['id_s'] ?>
 
         $.ajax({
             url: 'Models/calendar.php',
             type: 'POST', // Send post data
+            data: 'type=fetchchef&id_s='+id_s,
 //            data: 'type=fetchchef',
-            data: 'type=fetch',
+//            data: 'type=fetch',
             async: false,
             success: function(s){
                 json_events = s;
