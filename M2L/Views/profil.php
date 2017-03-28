@@ -11,10 +11,10 @@
 
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <b>Jours de Formations</b> <p class="pull-right"><?= $user['NbJour'] ?></p>
+                            <b>Jours de Formations</b><p class="pull-right"><?= $user['NbJour'] ?></p>
                         </li>
                         <li class="list-group-item">
-                            <b>Crédits</b> <p class="pull-right"><?= $user['credits'] ?></p>
+                            <b>Crédits</b><p class="pull-right"><?= $user['credits'] ?></p>
                         </li>
                         <?php if($user['level']== 3)
                         echo "<li class='list-group-item'>

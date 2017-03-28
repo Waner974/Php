@@ -10,7 +10,7 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/form-elements.css">
         <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/loginStyle.css">
@@ -85,8 +85,8 @@
        
 
         <!-- Javascript -->
-        <script src="<?= BASE_URL; ?>/Views/js/jquery.min.js"></script>
-        <script src="<?= BASE_URL; ?>/Views/js/bootstrap.min.js"></script>
+        <script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="<?= BASE_URL; ?>/Views/bootstrap/js/bootstrap.js"></script>
         <script src="<?= BASE_URL; ?>/Views/js/jquery.backstretch.min.js"></script>
         <script src="<?= BASE_URL; ?>/Views/js/loginScripts.js"></script>
         

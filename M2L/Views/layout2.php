@@ -7,7 +7,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/plugins/fullcalendar/fullcalendar.print.css" media="print">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/AdminLTE.css">
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/css/style.css">
+<!--    <link rel="stylesheet" href="--><?//= BASE_URL; ?><!--/Views/css/style.css">-->
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= BASE_URL; ?>/Views/dist/css/skins/_all-skins.min.css">
@@ -159,7 +159,7 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= BASE_URL; ?>/Views/plugins/jQueryUI/jquery-ui.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="<?= BASE_URL; ?>/Views/js/bootstrap.min.js"></script>
+<script src="<?= BASE_URL; ?>/Views/bootstrap/js/bootstrap.js"></script>
 <!-- Momentjs -->
 <script src="<?= BASE_URL; ?>/Views/plugins/moment/moment.min.js"></script>
 <!-- FastClick -->
