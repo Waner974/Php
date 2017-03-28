@@ -2,156 +2,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-                <?= statsAdmin::stats("red","$nbAdmin","Administrateurs","person-stalker","admin") ?>
-                <?= statsAdmin::stats("green","$nbChef","Chefs de formations","person-stalker","chef") ?>
-                <?= statsAdmin::stats("orange","$nbUser","Utilisateurs","person-stalker","user") ?>
-                <?= statsAdmin::stats("purple","$nbPresta","Prestataires","person-stalker","presta") ?>
-                <?= statsAdmin::stats("blue","$nbForm","Formations","university","form") ?>
+            <?= statsAdmin::stats("red","$nbAdmin","Administrateurs","person-stalker","admin") ?>
+            <?= statsAdmin::stats("green","$nbChef","Chefs de formations","person-stalker","chef") ?>
+            <?= statsAdmin::stats("orange","$nbUser","Utilisateurs","person-stalker","user") ?>
+            <?= statsAdmin::stats("purple","$nbPresta","Prestataires","person-stalker","presta") ?>
+            <?= statsAdmin::stats("blue","$nbForm","Formations","university","form") ?>
         </div>
 
-    <div class="example-modal">
-        <div class="modal" id="admin">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Liste des administrateurs</h4>
-              </div>
-              <div class="modal-body">
-                 <table class="table table-hover">
-                 <thead>
-                 <tr>
-                 <th>Nom</th>
-                 <th>Prénom</th>
-                 <th>Mail</th>
-                 <th>Nb Jour</th>
-                 <th>Crédits</th>
-                 </tr>
-                 </thead>
-                 <?php 
-                 foreach ($listAdmin as $key => $value) {
-                        echo '<tbody>
-                        			<tr>
-                                         <td>'.$value['nom'].'</td>
-                                         <td>'.$value['prenom'].'</td>
-                                         <td>'.$value['mail'].'</td>
-                                         <td>'.$value['NbJour'].'</td>
-                                         <td>'.$value['credits'].'</td>
-                                    </tr>
-                               </tbody>';
-                                               	}
-                 ?>
-                   </table>  
-            </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-      </div>
-      <!-- /.example-modal -->
-                
-    <div class="example-modal">
-        <div class="modal" id="chef">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Liste chefs</h4>
-              </div>
-              <div class="modal-body">
-                 <table class="table table-hover">
-                 <thead>
-                 <tr>
-                 <th>Nom</th>
-                 <th>Prénom</th>
-                 <th>Mail</th>
-                 <th>Nb Jour</th>
-                 <th>Crédits</th>
-                 </tr>
-                 </thead>
-                 <?php 
-                 foreach ($listChef as $key => $value) {
-                        echo '<tbody>
-                                    <tr>
-                                         <td>'.$value['nom'].'</td>
-                                         <td>'.$value['prenom'].'</td>
-                                         <td>'.$value['mail'].'</td>
-                                         <td>'.$value['NbJour'].'</td>
-                                         <td>'.$value['credits'].'</td>
-                                    </tr>
-                               </tbody>';
-                                                }
-                 ?>
-                   </table>  
-            </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-      </div>
-      <!-- /.example-modal --> 
-                
-    <div class="example-modal">
-        <div class="modal" id="user">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Liste des utilisateurs</h4>
-              </div>
-              <div class="modal-body">
-                 <table class="table table-hover">
-                 <thead>
-                 <tr>
-                 <th>Nom</th>
-                 <th>Prénom</th>
-                 <th>Mail</th>
-                 <th>Nb Jours</th>
-                 <th>Crédits</th>
-                 </tr>
-                 </thead>
-                 <?php 
-                 foreach ($listUser as $key => $value) {
-                        echo '<tbody>
-                                    <tr>
-                                         <td>'.$value['nom'].'</td>
-                                         <td>'.$value['prenom'].'</td>
-                                         <td>'.$value['mail'].'</td>
-                                         <td>'.$value['NbJour'].'</td>
-                                         <td>'.$value['credits'].'</td>
-                                    </tr>
-                               </tbody>';
-                                                }
-                 ?>
-                   </table>  
-            </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-      </div>
-      <!-- /.example-modal -->
+        <?= statsAdmin::modalList("admin",$listAdmin) ?>
+        <?= statsAdmin::modalList("chef",$listChef) ?>
+        <?= statsAdmin::modalList("user",$listUser) ?>
                 
     <div class="example-modal">
         <div class="modal" id="presta">
