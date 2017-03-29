@@ -57,7 +57,7 @@ if($type == 'remove')
         echo json_encode(array('status'=>'failed'));
 }
 
-if($type == 'fetch')
+if($type == 'fetchadmin')
 {
     $events = array();
     $query = $bdd->query("SELECT id_f AS id, libelle AS title, date_d AS start, date_f AS end FROM formation");
@@ -91,7 +91,6 @@ if($type == 'fetchchef')
     $id_s = $_POST['id_s'];
     $events = array();
     $query = $bdd->query("
-    
         SELECT 
         f.id_f as id, 
         f.libelle as title, 
@@ -105,15 +104,12 @@ if($type == 'fetchchef')
         FROM formation f
         WHERE f.id_f NOT IN 
             (
-
                 SELECT 
                 f.id_f as id
-
                 FROM suivre, salarie s, formation f
                 WHERE s.id_s = suivre.id_s
                 and f.id_f = suivre.id_f
                 and s.id_s ='$id_s'
-
             )
             
         UNION
@@ -131,9 +127,7 @@ if($type == 'fetchchef')
         FROM suivre, salarie s, formation f
         WHERE s.id_s = suivre.id_s
         and f.id_f = suivre.id_f
-        and s.id_s ='$id_s'
-    
-    ");
+        and s.id_s ='$id_s'");
 
     foreach($query->fetchAll() as $row)
     {

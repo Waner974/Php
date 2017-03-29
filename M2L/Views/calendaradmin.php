@@ -7,6 +7,7 @@
                 </div>
                 <div class="box-body" id="trash">
                     <ul>
+                        <li><span class="text-blue"><i class="fa fa-square"></i></span> Formation Disponible</li>
                         <li><span class="text-green"><i class="fa fa-square"></i></span> Formation Validé</li>
                         <li><span class="text-orange"><i class="fa fa-square"></i></span> Formation En attente</li>
                         <li><span class="text-red"><i class="fa fa-square"></i></span> Formation Refusé</li>
@@ -41,8 +42,6 @@
             url: 'Models/calendar.php',
             type: 'POST', // Send post data
             data: 'type=fetchchef&id_s='+id_s,
-//            data: 'type=fetchchef',
-//            data: 'type=fetch',
             async: false,
             success: function(s){
                 json_events = s;
