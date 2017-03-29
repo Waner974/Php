@@ -90,13 +90,50 @@ if($type == 'fetchchef')
 {
     $id_s = $_POST['id_s'];
     $events = array();
-    $query = $bdd->query("SELECT f.id_f AS id, f.libelle AS title, f.date_d AS start, f.date_f AS end, f.contenu, f.NbJour, f.credits, f.id_a FROM formation f
-            UNION
-            SELECT ff.id_f AS id, ff.libelle AS title, ff.date_d AS start, ff.date_f AS end, salarie.id_s, salarie.nom, salarie.prenom, suivre.etat
-			from suivre, salarie, formation ff
-			where salarie.id_s = suivre.id_s
-			and ff.id_f = suivre.id_f
-			and salarie.id_s ='$id_s'");
+    $query = $bdd->query("
+    
+        SELECT 
+        f.id_f as id, 
+        f.libelle as title, 
+        f.date_d as start, 
+        f.date_f as end,
+        null as id_s,
+        '' as nom,
+        '' as prenom,
+        '' as etat
+
+        FROM formation f
+        WHERE f.id_f NOT IN 
+            (
+
+                SELECT 
+                f.id_f as id
+
+                FROM suivre, salarie s, formation f
+                WHERE s.id_s = suivre.id_s
+                and f.id_f = suivre.id_f
+                and s.id_s ='$id_s'
+
+            )
+            
+        UNION
+
+        SELECT 
+        f.id_f as id, 
+        f.libelle as title, 
+        f.date_d as start, 
+        f.date_f as end, 
+        s.id_s as id_s, 
+        s.nom as nom, 
+        s.prenom as prenom, 
+        suivre.etat as etat
+
+        FROM suivre, salarie s, formation f
+        WHERE s.id_s = suivre.id_s
+        and f.id_f = suivre.id_f
+        and s.id_s ='$id_s'
+    
+    ");
 
     foreach($query->fetchAll() as $row)
     {
