@@ -57,7 +57,7 @@ function updateProfilPassword($id_s,$password)
     global $bdd;
     $req = $bdd->prepare('UPDATE salarie SET password = :password WHERE id_s = :id_s');
     $req->bindParam(':id_s', $id_s);
-    $req->bindParam(':password', $password);
+    $req->bindParam(':password', sha1($password));
     $req->execute();
 }
 
