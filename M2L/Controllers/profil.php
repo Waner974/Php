@@ -13,8 +13,8 @@ if(isset($_POST['submit']))
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $mail = $_POST['mail'];
-    $password = $_POST['mdp'];
-    $confirmpassword = $_POST['mdpconfirm'];
+    $password = sha1($_POST['mdp']);
+    $confirmpassword = sha1($_POST['mdpconfirm']);
 
     if(isset($nom) AND !empty($nom) AND $nom != $user['nom'])
     {
@@ -25,13 +25,13 @@ if(isset($_POST['submit']))
     if(isset($prenom) AND !empty($prenom) AND $prenom != $user['prenom'])
     {
         updateProfilPrenom($id_s,$prenom);
+        header("Location:".BASE_URL."/profil");
         echo "<div class='box-body'>
                 <div class='alert alert-success alert-dismissible'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                 Votre prénom a bien été modifié.
                 </div>
                 </div>";
-        header("Location:".BASE_URL."/profil");
     }
 
     if(isset($mail) AND !empty($mail) AND $mail != $user['mail'])
@@ -40,7 +40,7 @@ if(isset($_POST['submit']))
         header("Location:".BASE_URL."/profil");
     }
 
-    if(isset($password) AND !empty($password) AND isset($confirmpassword) AND !empty($confirmpassword))
+    if(isset($password) AND !empty($password))
     {
         if($password == $confirmpassword)
         {

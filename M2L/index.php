@@ -1,8 +1,10 @@
 <?php
 session_start();
+
 require "Models/connect.php";
 
-define('BASE_URL',dirname($_SERVER['SCRIPT_NAME']));
+define('BASE_URL','http://'.$_SERVER['SERVER_NAME'].preg_replace('/index.php$/', '', $_SERVER['PHP_SELF']));
+
 if(!isset($_SESSION['auth']))
 {
     require "Controllers/login.php";

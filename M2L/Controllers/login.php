@@ -16,11 +16,11 @@ if(isset($_COOKIE['auth']) && !isset($_SESSION['auth']))
         setcookie('auth',$user['id_s'].'_____'.sha1($user['mail'].$user['password'].$_SERVER['REMOTE_ADDR']),time()+(3600*24*3),'/','localhost');
         
         if($user['level'] == 1)
-        header("Location:".BASE_URL."/admin");
+        header("Location:".BASE_URL."admin");
         elseif($user['level'] == 2)
-        header("Location:".BASE_URL."/chef");
+        header("Location:".BASE_URL."chef");
         else
-        header("Location:".BASE_URL."/accueil");
+        header("Location:".BASE_URL."accueil");
     }
     else
     {
@@ -40,11 +40,11 @@ if(isset($_POST['submit']))
             setcookie('auth',$user['id_s'].'_____'.sha1($user['mail'].$user['password'].$_SERVER['REMOTE_ADDR']),time()+(3600*24*3),'/','localhost');
         }
         if($user['level'] == 1)
-        header("Location:".BASE_URL."/admin");
+        header("Location:".BASE_URL."admin");
     	elseif($user['level'] == 2)
-        header("Location:".BASE_URL."/chef");
+        header("Location:".BASE_URL."chef");
     	else
-        header("Location:".BASE_URL."/accueil");
+        header("Location:".BASE_URL."accueil");
     	
                    
      }

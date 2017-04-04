@@ -30,7 +30,7 @@
     <!-- /.row -->
 
 <!-- jQuery -->
-<script src="<?= BASE_URL; ?>/Views/plugins/jQuery/jquery-3.2.0.js"></script>
+<script src="<?= BASE_URL; ?>Views/plugins/jQuery/jquery-3.2.0.js"></script>
 <script>
 
     $(document).ready(function() {
