@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 require "Models/connect.php";
 
 define('BASE_URL','http://'.$_SERVER['SERVER_NAME'].preg_replace('/index.php$/', '', $_SERVER['PHP_SELF']));
