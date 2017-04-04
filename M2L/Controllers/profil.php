@@ -13,8 +13,8 @@ if(isset($_POST['submit']))
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $mail = $_POST['mail'];
-    $password = sha1($_POST['mdp']);
-    $confirmpassword = sha1($_POST['mdpconfirm']);
+    $password = $_POST['mdp'];
+    $confirmpassword = $_POST['mdpconfirm'];
 
     if(isset($nom) AND !empty($nom) AND $nom != $user['nom'])
     {
@@ -40,7 +40,7 @@ if(isset($_POST['submit']))
         header("Location:".BASE_URL."/profil");
     }
 
-    if(isset($password) AND !empty($password))
+    if(isset($password) AND !empty($password)  AND isset($confirmpassword) AND !empty($confirmpassword))
     {
         if($password == $confirmpassword)
         {
