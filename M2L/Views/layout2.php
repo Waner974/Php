@@ -1,3 +1,4 @@
+<?php include 'Core/helper.class.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,25 +63,10 @@
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-btc"></i>
-                            <span class="label label-success"><?= $_SESSION['auth']['credits'] ?></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">Vous disposez de <?= $_SESSION['auth']['credits'] ?> Crédits</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-calendar"></i>
-                            <span class="label label-danger"><?= $_SESSION['auth']['NbJour'] ?></span>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li class="header">Vous disposez de <?= $_SESSION['auth']['NbJour'] ?> Jours de formation</li>
-                        </ul>
-                    </li>
+                    <?php
+                    echo helper::dropdown('fa fa-btc','success',$_SESSION['auth']['credits'],'Crédits');
+                    echo helper::dropdown('fa fa-calendar','danger',$_SESSION['auth']['NbJour'],'Jours de formation');
+                    ?>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="user user-menu">
                         <a href="<?= BASE_URL; ?>/profil">
@@ -107,23 +93,23 @@
                     {
                         if ($_SESSION['auth']['level'] == 1)
                         {
-                            echo('<li><a href="' . BASE_URL . '/admin"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
+                            echo helper::menu('admin','fa fa-home','Accueil');
                         }
                         elseif ($_SESSION['auth']['level'] == 2)
                         {
-                            echo('<li><a href="' . BASE_URL . '/chef"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
+                            echo helper::menu('chef','fa fa-home','Accueil');
                         }
-                        echo('<li><a href="' . BASE_URL . '/gestionUser"><i class="fa fa-user-plus"></i><span>Ajouter un Utilisateur</span></a></li>
-                        <li><a href="' . BASE_URL . '/gestionPrestataire"><i class="fa fa-user-plus"></i><span>Ajouter un Prestataire</span></a></li>
-				        <li><a href="' . BASE_URL . '/gestionFormation"><i class="glyphicon glyphicon-plus"></i><span>Ajouter une Formation</span></a></li>');
+                        echo helper::menu('gestionUser','fa fa-user-plus','Ajouter un Utilisateur');
+                        echo helper::menu('gestionPrestataire', 'fa fa-user-plus','Ajouter un Prestataire');
+                        echo helper::menu('gestionFormation','glyphicon glyphicon-plus','Ajouter une Formation');
                     }
                     else
                     {
-                        echo('<li><a href="'.BASE_URL.'/accueil"><i class="fa fa-home"></i><span>Accueil</span></a></li>');
+                        echo helper::menu('accueil','fa fa-home','Accueil');
                     }
-                    echo ('<li><a href="'.BASE_URL.'/calendar"><i class="fa fa-calendar"></i><span>Calendrier</span></a></li>
-                    <li class="header">GESTION DU COMPTE</li>   
-                    <li><a href="'.BASE_URL.'/disconnect"><i class="glyphicon glyphicon-log-out"></i><span>Déconnexion</span></a></a></li>');
+                    echo helper::menu('calendar','fa fa-calendar','Calendrier');
+                    echo '<li class="header">GESTION DU COMPTE</li>';
+                    echo helper::menu('disconnect','glyphicon glyphicon-log-out','Déconnexion');
                     ?>
                 </li>
             </ul>
