@@ -8,7 +8,7 @@
 
             $header="MIME-Version: 1.0\r\n";
             $header.='From:"M2L-Formation.com"<support@m2lformation.com>'."\n";
-            $header.='Content-Type:text/html; charset="uft-8"'."\n";
+            $header.='Content-Type: text/plain; charset="iso-8859-1"'."\n";
             $header.='Content-Transfer-Encoding: 8bit';
 
             $nom = $_POST['nom'];
@@ -36,7 +36,7 @@
             </html>
             ';
             mail($mail, "Inscription M2L formation", $message, $header);
-            
+
         }
         $_GET['p'] = 'admin';
         require "Views/gestionUser.php";
@@ -50,7 +50,7 @@
 
             $header="MIME-Version: 1.0\r\n";
             $header.='From:"M2L-Formation.com"<support@m2lformation.com>'."\n";
-            $header.='Content-Type:text/html; charset="uft-8"'."\n";
+            $header.='Content-Type: text/plain; charset="iso-8859-1"'."\n";
             $header.='Content-Transfer-Encoding: 8bit';
 
             $nom = $_POST['nom'];
