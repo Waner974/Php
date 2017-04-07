@@ -21,6 +21,13 @@ if($_SESSION['auth']['level']== 2)
             suivreForm($id_s,$id_f);
             header("Location:".BASE_URL."/chef");   
         }
+    
+        if(isset($_POST['Supprimer']))
+        {
+            $id_s = $_POST['idUser'];
+            deleteSalarie($id_s);
+            header("Location:".BASE_URL."/chef");
+        }
 
 
     require "Views/chef.php";

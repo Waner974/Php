@@ -18,7 +18,7 @@
                             <input type="text" id="commune" name="commune" class="form-control" placeholder="Ville"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="code postale" name="code postale" class="form-control" placeholder="Code Postale"/>
+                            <input type="text" id="code_postale" name="code_postale" class="form-control" placeholder="Code Postale"/>
                         </div>
 
                         <div class="form-group">

@@ -50,5 +50,17 @@ from suivre s, formation f,salarie sal where s.etat = 'En attente' and s.id_f = 
 	}
 }
 
+function deleteSalarie($id_s)
+{
+    global $bdd;
+    $req = $bdd->prepare('DELETE FROM suivre WHERE id_s= :id_s');
+    $req->bindParam(':id_s', $id_s);
+    $req->execute();
+    
+    $req = $bdd->prepare('DELETE FROM salarie WHERE id_s= :id_s');
+    $req->bindParam(':id_s', $id_s);
+    $req->execute();
+}
+
 ?>
 

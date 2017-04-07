@@ -39,7 +39,7 @@
                             <th>Prenom</th>
                             <th>Mail</th>
                             <th>Formations</th>
-                            <th>Edition</th>
+                            <th>Supprimer</th>
                         </tr>
                         <?php
                         if ($nbUser > 0) {
@@ -56,15 +56,15 @@
                                         <span><i class="glyphicon glyphicon-list"></i></span>
                                     </button>  
                                     <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
-                                </form>
+                            </form>
                             </td>
                             <td>
-                            <form method="post" action="' . BASE_URL . '/deleteUser">
-                                    <button type="submit" class="btn btn-xs" name="deleteUser" >
+                            <form method="post" action="' . BASE_URL . '/chef">
+                                    <button type="submit" class="btn btn-xs" name="Supprimer" >
                                         <span><i class="glyphicon glyphicon-remove"></i></span>
-                                    </button>
+                                    </button>  
                                     <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
-                                </form>
+                            </form>
                             </td>
                             </tr>
                             </tbody>';
