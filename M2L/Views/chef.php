@@ -39,6 +39,7 @@
                             <th>Prenom</th>
                             <th>Mail</th>
                             <th>Formations</th>
+                            <th>Edition</th>
                         </tr>
                         <?php
                         if ($nbUser > 0) {
@@ -54,6 +55,14 @@
                                     <button type="submit" class="btn btn-xs" name="formUser" >
                                         <span><i class="glyphicon glyphicon-list"></i></span>
                                     </button>  
+                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                                </form>
+                            </td>
+                            <td>
+                            <form method="post" action="' . BASE_URL . '/deleteUser">
+                                    <button type="submit" class="btn btn-xs" name="deleteUser" >
+                                        <span><i class="glyphicon glyphicon-remove"></i></span>
+                                    </button>
                                     <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
                                 </form>
                             </td>
