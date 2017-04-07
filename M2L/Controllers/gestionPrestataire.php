@@ -16,7 +16,7 @@ if($_SESSION['auth']['level']== 1 ||$_SESSION['auth']['level']== 2 )
                        if(preg_match("#^[a-zA-Z -ÀÉÈËÊÔÂÜÄÌïî]{1,30}$#", $_POST['raison_s']))
                         {
                             addPresta();
-                            echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';
+                            echo '<div class="col-md-8 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';
                         }
 
                         else
