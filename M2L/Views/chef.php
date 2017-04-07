@@ -39,11 +39,13 @@
                             <th>Prenom</th>
                             <th>Mail</th>
                             <th>Formations</th>
+                            <th>Supprimer</th>
                         </tr>
                         <?php
                         if ($nbUser > 0) {
                             foreach ($user as $key => $value) {
-                                echo
+                            
+                            echo
                                     '<tbody>
                             <tr>
                             <td>' . $value['nom'] . '</td>
@@ -55,7 +57,15 @@
                                         <span><i class="glyphicon glyphicon-list"></i></span>
                                     </button>  
                                     <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
-                                </form>
+                            </form>
+                            </td>
+                            <td>
+                            <form method="post" action="' . BASE_URL . '/chef">
+                                    <button type="submit" class="btn btn-xs" name="Supprimer" >
+                                        <span><i class="glyphicon glyphicon-remove"></i></span>
+                                    </button>  
+                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                            </form>
                             </td>
                             </tr>
                             </tbody>';
