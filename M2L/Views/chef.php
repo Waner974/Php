@@ -44,8 +44,7 @@
                         <?php
                         if ($nbUser > 0) {
                             foreach ($user as $key => $value) {
-                            
-                            echo
+                                echo
                                     '<tbody>
                             <tr>
                             <td>' . $value['nom'] . '</td>
