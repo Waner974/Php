@@ -25,7 +25,7 @@
                   $i++;
                   $alerte .= "Votre mot de passe est vide ou non conforme<br/>";
               }
-              if(!isset($code_postale) || !preg_match ( "#^[0-9]{5,5}|[2A]|[2B]$#", $code_postale))
+              if(!isset($code_postale) || !preg_match ( "#^[0-9]{5}|[2A]|[2B]$#", $code_postale))
               {
                $i++;
                   $alerte .= "Votre code postal est vide ou non conforme<br/>";
@@ -66,7 +66,7 @@
                 </div>" ;
              
               } 
-              elseif($i == 0) 
+              else
               {
              
                 if($_SESSION['auth']['level']== 1)

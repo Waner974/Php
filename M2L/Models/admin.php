@@ -15,13 +15,11 @@ function getList($type)
 {
         //Pas réussi à faire fonctionné --'
         global $bdd;
-        $sql = ('SELECT * FROM salarie WHERE level= :type');
-        $rep = $bdd->prepare('SELECT count(*) as nb FROM salarie WHERE level= :type');
+      
+        $rep = $bdd->prepare('SELECT * FROM salarie WHERE level= :type');
         $rep->bindParam(':type', $type, PDO::PARAM_INT);
         $rep->execute();
-        while ($data = $rep->fetchAll()){
-            return $data;
-        }
+       return $rep->fetchAll();
 }
 
 function listAdmin()
