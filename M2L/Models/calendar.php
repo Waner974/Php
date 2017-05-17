@@ -1,5 +1,7 @@
 <?php
 
+include('../Models/connect.php');
+
 function getFormations()
 {
     global $bdd;
