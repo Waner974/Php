@@ -9,7 +9,7 @@
               $i = 0;
               $alerte = "";
 
-              if (!isset($nom) || !preg_match("#[A-Z-\s]+#", $nom)) {
+              if (!isset($nom) || !preg_match("#[A-Za-z-\s]+#", $nom)) {
                   $i++;
                   $alerte .= "Votre nom est vide ou non conforme<br/>";
               }
@@ -37,11 +37,11 @@
                   $alerte .= "Votre numero d'adresse est vide ou non conforme<br/>";
               }
 
-              if (!isset($rue) || !preg_match("#[A-Z-\s]+#", $rue)) {
+              if (!isset($rue) || !preg_match("#[A-Za-z-\s]+#", $rue)) {
                   $i++;
                   $alerte .= "La rue de votre adresse est vide ou non conforme<br/>";
               }
-               if (!isset($commune) || !preg_match("#[A-Z-\s]+#", $commune)) {
+               if (!isset($commune) || !preg_match("#[A-Za-z-\s]+#", $commune)) {
                   $i++;
                   $alerte .= "La ville de votre adresse est vide ou non conforme<br/>";
               }
