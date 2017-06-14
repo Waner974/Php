@@ -3,7 +3,14 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"> Demandes de formation de: </h3>
+                    <h3 class="box-title"> Demandes de formation</h3><hr>
+                    <?php
+                    echo '
+                    <h4><b>'.$nom.' '.$prenom.'</b></h4>
+                         <p><b>Nombre de jour :</b> '.$joursSal.'</p>
+                         <i class="fa fa-btc"></i>'.$credSal.'</p>';
+                    ?>
+
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -18,10 +25,7 @@
                             <th><i class="glyphicon glyphicon-cog"></th>
                         </tr>
                         <?php
-
-
                         if (sizeof($listeFormation) > 0) {
-                            echo('<h4><i class="glyphicon glyphicon-user"></i> ' . " " . $listeFormation[0]['nom'] . " " . $listeFormation[0]['prenom'] . '</h4>');
                             foreach ($listeFormation as $key => $value) {
                                 $form = "";
                                 

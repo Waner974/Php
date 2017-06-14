@@ -39,12 +39,12 @@
                             <th>Prenom</th>
                             <th>Mail</th>
                             <th>Formations</th>
-                            <th>Supprimer</th>
                         </tr>
                         <?php
                         if ($nbUser > 0) {
                             foreach ($user as $key => $value) {
-                                echo
+
+                            echo
                                     '<tbody>
                             <tr>
                             <td>' . $value['nom'] . '</td>
@@ -54,16 +54,8 @@
                             <form method="post" action="' . BASE_URL . '/formationUser">
                                     <button type="submit" class="btn btn-xs" name="formUser" >
                                         <span><i class="glyphicon glyphicon-list"></i></span>
-                                    </button>  
-                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
-                            </form>
-                            </td>
-                            <td>
-                            <form method="post" action="' . BASE_URL . '/chef">
-                                    <button type="submit" class="btn btn-xs" name="Supprimer" >
-                                        <span><i class="glyphicon glyphicon-remove"></i></span>
-                                    </button>  
-                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" ></button>
+                                    
                             </form>
                             </td>
                             </tr>
@@ -103,7 +95,6 @@
                             <th>Date</th>
                             <th>Durée</th>
                             <th>Jour restant</th>
-                            <th><i class="glyphicon glyphicon-cog"></th>
                         </tr>
                         <?php
                         if ($nbDmd > 0) {
@@ -117,7 +108,6 @@
                             <td>' . $value['date_f'] . '</td>
                             <td>' . $value['durée'] . '</td>
                             <td>' . $value['NbJour'] . '</td>
-                            <td>TODO</td>
                             </tr>
                             ';
                             }
@@ -135,4 +125,3 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-

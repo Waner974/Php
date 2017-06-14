@@ -7,8 +7,8 @@ if($_SESSION['auth']['level']== 2)
     require "Models/accueil.php";
 
     $id_s= $_SESSION['auth']['id_s'];
-	$nbUser = getNbUser($id_s);
-	$user = getUser($id_s);
+	  $nbUser = getNbUser($id_s);
+	  $user = getUser($id_s);
     $Form = getForm($id_s);
     $FormAtt = getFormAtt($id_s);
     $FormHisto = getHisto($id_s);
@@ -19,16 +19,10 @@ if($_SESSION['auth']['level']== 2)
         {
             $id_f = $_POST['idForm'];
             suivreForm($id_s,$id_f);
-            header("Location:".BASE_URL."/chef");   
-        }
-    
-        if(isset($_POST['Supprimer']))
-        {
-            $id_s = $_POST['idUser'];
-            deleteSalarie($id_s);
             header("Location:".BASE_URL."/chef");
         }
 
+      
 
     require "Views/chef.php";
 }

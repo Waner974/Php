@@ -2,7 +2,7 @@
     function addUser()
     {
         global $bdd;
-        
+
         $sql = "INSERT INTO adresse (numero, rue, commune, code_postale) VALUES (:numero,:rue,:commune,:code_postale)";
         $requete = $bdd->prepare($sql);
         $requete->bindParam(':numero', $_POST['numero']);
@@ -25,14 +25,14 @@
         $requete->bindParam(':id_s_1', $_SESSION['auth']['id_s']);
         $requete->execute();
         $id_s = $bdd->lastInsertId();
-        
-        
+
+
     }
 
     function addUserPourChef()
     {
         global $bdd;
-        
+
         $sql = "INSERT INTO adresse (numero, rue, commune, code_postale) VALUES (:numero,:rue,:commune,:code_postale)";
         $requete = $bdd->prepare($sql);
         $requete->bindParam(':numero', $_POST['numero']);
@@ -55,7 +55,43 @@
         $requete->bindParam(':id_a', $id_a);
         $requete->bindParam(':id_s_1',$_SESSION['auth']['id_s']);
         $requete->execute();
-        
+
         $id_s = $bdd->lastInsertId();
-        
+
     }
+
+    function deleteSalarie($id_s)
+    {
+        global $bdd;
+        $req = $bdd->prepare('DELETE FROM suivre WHERE id_s= :id_s');
+        $req->bindParam(':id_s', $id_s);
+        $req->execute();
+
+        $req = $bdd->prepare('DELETE FROM salarie WHERE id_s= :id_s');
+        $req->bindParam(':id_s', $id_s);
+        $req->execute();
+    }
+function getUserChef($id)
+{
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT id_s,nom,prenom,mail,NbJour,credits FROM salarie WHERE salarie.id_s_1=:id");
+    $req->bindValue(':id',$id,PDO::PARAM_INT);
+    $req->execute();
+    while($data = $req->fetchAll())
+    {
+        return $data;
+    }
+}
+
+function getUserAdmin()
+{
+
+    global $bdd;
+    $req = $bdd->prepare("SELECT * FROM salarie");
+    $req->execute();
+    while($data = $req->fetchAll())
+    {
+        return $data;
+    }
+}

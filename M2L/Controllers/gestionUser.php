@@ -2,14 +2,31 @@
     if($_SESSION['auth']['level']== 1 || $_SESSION['auth']['level']== 2)
     {
         require "Models/gestionUser.php";
-        if(isset($_POST['submit']))
+
+        $id_s= $_SESSION['auth']['id_s'];
+
+        if($_SESSION['auth']['level']== 2)
+        $user = getUserChef($id_s);
+        elseif ($_SESSION['auth']['level']== 1) {
+          $user = getUserAdmin($id_s);
+        }
+
+        if(isset($_POST['Supprimer']))
+        {
+            $id_s = $_POST['idUser'];
+            deleteSalarie($id_s);
+            header("Location:".BASE_URL."/gestionUser");
+        }
+
+
+        if(isset($_POST['valider']))
         {
 
              extract($_POST);
               $i = 0;
               $alerte = "";
 
-              if (!isset($nom) || !preg_match("#[A-Za-z-\s]+#", $nom)) {
+              if (!isset($nom) || !preg_match("#[A-Z-\s]+#", $nom)) {
                   $i++;
                   $alerte .= "Votre nom est vide ou non conforme<br/>";
               }
@@ -37,11 +54,11 @@
                   $alerte .= "Votre numero d'adresse est vide ou non conforme<br/>";
               }
 
-              if (!isset($rue) || !preg_match("#[A-Za-z-\s]+#", $rue)) {
+              if (!isset($rue) || !preg_match("#[A-Z-\s]+#", $rue)) {
                   $i++;
                   $alerte .= "La rue de votre adresse est vide ou non conforme<br/>";
               }
-               if (!isset($commune) || !preg_match("#[A-Za-z-\s]+#", $commune)) {
+               if (!isset($commune) || !preg_match("#[A-Z-\s]+#", $commune)) {
                   $i++;
                   $alerte .= "La ville de votre adresse est vide ou non conforme<br/>";
               }
@@ -55,7 +72,7 @@
                   $alerte .= "Le nombre de crédit de formation ne doit pas être > 5000 & < 0 <br/>";
               }
 
-              if ($i > 0) 
+              if ($i > 0)
               {
                   echo "<div class='box-body'>
                 <div class='alert alert-danger alert-dismissible'>
@@ -64,26 +81,26 @@
                 ".$alerte."
                 </div>
                 </div>" ;
-             
-              } 
+
+              }
               else
               {
-             
+
                 if($_SESSION['auth']['level']== 1)
                 {
                     addUser();
                     $referent = 'Administrateur';
                     $_GET['p'] = 'admin';
-                    echo '<div class="col-md-8 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';
+                    header("Location:".BASE_URL."/gestionUser");
                 }
                 elseif($_SESSION['auth']['level']== 2)
                 {
                     addUserPourChef();
                     $referent = 'Chef d\'equipe';
                     $_GET['p'] = 'chef';
-                    echo '<div class="col-md-8 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';
+                    header("Location:".BASE_URL."/gestionUser");                    
                 }
-            
+
             $header="MIME-Version: 1.0\r\n";
             $header.='From:"M2L-Formation.com"<support@m2lformation.com>'."\n";
             $header.='Content-Type: text/plain; charset="iso-8859-1"'."\n";
@@ -106,7 +123,7 @@
                 </body>
             </html>
             ';
-            
+
             //mail($mail, "Inscription M2L formation", $message, $header);
 
         }

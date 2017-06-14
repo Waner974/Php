@@ -3,8 +3,8 @@
     {
        $bdd = new PDO("mysql:host=localhost;dbname=m2l;charset=utf8","root",""); // connection bdd
     }
-    catch(PDOException $e)
+    catch(Exception $e)
     {
-        die("erreur de connexion"); //erreur
+        echo("<div class='alert alert-danger'><i class='glyphicon glyphicon-remove-sign'></i><strong>Erreur de connexion !</strong></div>"); //erreur
     }
 ?>
