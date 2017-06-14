@@ -14,14 +14,14 @@ function getNbUser($id)
 
 function getUser($id)
 {
-	
+
 	global $bdd;
-	$req = $bdd->prepare("SELECT id_s,nom,prenom,mail FROM salarie WHERE salarie.id_s_1=:id");
+	$req = $bdd->prepare("SELECT id_s,nom,prenom,mail,NbJour,credits FROM salarie WHERE salarie.id_s_1=:id");
 	$req->bindValue(':id',$id,PDO::PARAM_INT);
 	$req->execute();
 	while($data = $req->fetchAll())
 	{
-		return $data;	
+		return $data;
 	}
 }
 
@@ -46,21 +46,10 @@ from suivre s, formation f,salarie sal where s.etat = 'En attente' and s.id_f = 
 	$req->execute();
 	while($data = $req->fetchAll())
 	{
-		return $data;	
+		return $data;
 	}
 }
 
-function deleteSalarie($id_s)
-{
-    global $bdd;
-    $req = $bdd->prepare('DELETE FROM suivre WHERE id_s= :id_s');
-    $req->bindParam(':id_s', $id_s);
-    $req->execute();
-    
-    $req = $bdd->prepare('DELETE FROM salarie WHERE id_s= :id_s');
-    $req->bindParam(':id_s', $id_s);
-    $req->execute();
-}
+
 
 ?>
-

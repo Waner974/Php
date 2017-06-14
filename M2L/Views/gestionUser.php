@@ -1,14 +1,17 @@
-<?php $title = 'Ajouter un Utilisateur'?>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Ajouter une utilisateur</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
+<?php $title = ' '?>
+<div class="nav-tabs-custom">
+            <ul class="nav nav-tabs pull-right">
+                <li><a href="#tab_1-1" data-toggle="tab"><i class="fa fa-plus"></i> Ajout</a></li>
+                <li class="active"><a href="#tab_2-2" data-toggle="tab">Modification/Suppression</a></li>
+
+                <li class="pull-left header"><i class="fa fa-users"></i>Gestion utilisateurs</li>
+            </ul>
+            <div class="tab-content">
+
+                <div class="tab-pane " id="tab_1-1">
+                <div class="box-body">
+                <div class="col-md-8 col-md-offset-2">
                 <form role="form" action="<?= BASE_URL; ?>/gestionUser" method="post">
-                    <div class="box-body">
                         <div class="form-group">
                             <label for="nom">Nom</label>
                             <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom"/>
@@ -57,16 +60,115 @@
                     ';
                             }
                             ?>
+                            
                         </div>
-
+                        <div class="box-footer">
+                        <button type="submit" name="valider" class="btn btn-primary pull-right">Valider</button>
+                        </div>
+                  </form>
                     </div>
-                    <!-- /.box-body -->
+                </div>
+                </div>
+              
 
-                    <div class="box-footer">
-                        <button type="submit" name="submit" class="btn btn-primary">Valider</button>
-                    </div>
-                </form>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
+               <div class="tab-pane active" id="tab_2-2">
+                <div class="table-responsive no-padding">
+                 <table class="table table-hover" id="listUser">
+                  <?php
+                if($_SESSION['auth']['level']== 2)
+                    {
+                      echo'                  
+                      <thead>
+                  <tr>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Mail</th>
+                  <th>Nb Jour</th>
+                  <th>Crédits</th>
+                  <th>Supprimer</th>
+                  <th>Modifier</th>
+                  </tr>
+                  </thead>';
+                    }
+                    elseif ($_SESSION['auth']['level']== 1) {
+                      echo'                  <thead>
+                  <tr>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Mail</th>
+                  <th>Nb Jour</th>
+                  <th>Crédits</th>
+                  <th>Niveau</th>
+                  <th>Supprimer</th>
+                  <th>Modifier</th>
+                  </tr>
+                  </thead>';
+                    }
+                ?>
+
+                  <?php
+                  foreach ($user as $key => $value)
+                  {
+                    if($_SESSION['auth']['level']== 2)
+                    {
+                      echo '<tbody>
+                                     <tr>
+                                          <td>'.$value['nom'].'</td>
+                                          <td>'.$value['prenom'].'</td>
+                                          <td>'.$value['mail'].'</td>
+                                            <td>'.$value['NbJour'].'</td>
+                                            <td>'.$value['credits'].'</td>
+                                            <td>
+                                            <form method="post" action="' . BASE_URL . '/gestionUser">
+                                                    <button type="submit" class="btn btn-xs" name="Supprimer" >
+                                                        <span><i class="glyphicon glyphicon-trash"></i></span>
+                                                    </button>
+                                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                                            </form>
+                                            </td>
+                                            <td>
+                                            <form method="post" action="' . BASE_URL . '/userUpdate">
+                                                    <button type="submit" class="btn btn-xs" name="Modifier" >
+                                                        <span><i class="glyphicon glyphicon-pencil"></i></span>
+                                                    </button>
+                                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                                            </form>
+                                            </td>
+                                     </tr>
+                                </tbody>';
+                    }
+                    elseif ($_SESSION['auth']['level']== 1) {
+                      echo '<tbody>
+                                     <tr>
+                                          <td>'.$value['nom'].'</td>
+                                          <td>'.$value['prenom'].'</td>
+                                          <td>'.$value['mail'].'</td>
+                                            <td>'.$value['NbJour'].'</td>
+                                            <td>'.$value['credits'].'</td>
+                                            <td>'.$value['level'].'</td>
+                                            <td>
+                                            <form method="post" action="' . BASE_URL . '/gestionUser">
+                                                    <button type="submit" class="btn btn-xs" name="Supprimer" >
+                                                        <span><i class="glyphicon glyphicon-trash"></i></span>
+                                                    </button>
+                                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                                            </form>
+                                            </td>
+                                            <td>
+                                            <form method="post" action="' . BASE_URL . '/userUpdate">
+                                                    <button type="submit" class="btn btn-xs" name="Modifier" >
+                                                        <span><i class="glyphicon glyphicon-pencil"></i></span>
+                                                    </button>
+                                                    <input name="idUser" type="hidden" value="' . $value['id_s'] . '" >
+                                            </form>
+                                            </td>
+                                     </tr>
+                                </tbody>';
+                    }
+                    }
+                ?>
+                </table>
+                 </div>
+                </div>
+ </div>
+   

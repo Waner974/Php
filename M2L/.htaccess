@@ -1,7 +1,8 @@
+Options +FollowSymLinks
 RewriteEngine On
+RewriteBase "/m2lForm/"
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([a-zA-Z0-9]*)$ index.php?p=$1 [QSA]
 RewriteRule ^([a-zA-Z0-9]*)\/([0-9]{1-4})$ index.php?p=$1&id=$2 [QSA,L]
-
-ErrorDocument 404 /M2L/index.php?p=404
+ErrorDocument 404 index.php?p=404

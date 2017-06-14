@@ -12,6 +12,7 @@ function getnbjourformation($id_f)
     }
 }
 
+
 function getcreditsformation($id_f)
 {
     global $bdd;
@@ -48,6 +49,29 @@ function getcreditssalarie($id_s)
     }
 }
 
+function getNom($id_s)
+{
+    global $bdd;
+    $requete = $bdd->prepare('SELECT nom FROM salarie WHERE id_s = :id_s ');
+    $requete->bindParam(':id_s', $id_s);
+    $requete->execute();
+    while ($data = $requete->fetch())
+    {
+        return $datanbjoursalarie = $data['nom'];
+    }
+}
+
+function getPrenom($id_s)
+{
+    global $bdd;
+    $requete = $bdd->prepare('SELECT prenom FROM salarie WHERE id_s = :id_s ');
+    $requete->bindParam(':id_s', $id_s);
+    $requete->execute();
+    while ($data = $requete->fetch())
+    {
+        return $datanbjoursalarie = $data['prenom'];
+    }
+}
 
 function getFormationsUser($id)
 {

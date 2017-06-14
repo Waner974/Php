@@ -5,48 +5,49 @@ if($_SESSION['auth']['level']== 1 ||$_SESSION['auth']['level']== 2 )
     require "Models/gestionPrestataire.php";
     if(isset($_POST['submit']))
     {
-        if (preg_match("#^[0-9]$#", $_POST['numero']))
+        $i = 0;
+        $alerte = "";
+
+        if (!preg_match("#^[0-9]$#", $_POST['numero']))
         {
-            if(preg_match("#^[a-zA-Z -ÀÉÈËÊÔÂÜÄÌïî]{1,30}$#", $_POST['rue']))
-            {
-                if(preg_match("#^[a-zA-Z -ÀÉÈËÊÔÂÜÄÌïî]{1,30}$#", $_POST['commune']))
-                {
-                    if(preg_match("#^[0-9]{5}|2A|2B$#", $_POST['code_postale']))
-                    {
-                       if(preg_match("#^[a-zA-Z -ÀÉÈËÊÔÂÜÄÌïî]{1,30}$#", $_POST['raison_s']))
-                        {
-                            addPresta();
-                            echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';
-                        }
-
-                        else
-                        {
-                            echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-danger">la raison sociale est incorrect</div></div>';
-                        }     
-                    }
-
-                    else
-                    {
-                        echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-danger">le code postale est incorrect</div></div>';
-                    }
-                }
-
-                else
-                {
-                    echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-danger">la ville est incorrect</div></div>';
-                }
-            }
-                   
-            else
-            {
-                echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-danger">la rue est incorrect</div></div>';
-            }
+            $i++;
+            $alerte.= 'Le numéro de rue est incorrect</br>';
         }
-            
+        if(!preg_match("#^[a-zA-ZÀÉÈËÊÔÂÜÄÌïîáäéèëêôüìîï]{1,30}$#", $_POST['rue']))
+        {
+            $i++;
+            $alerte.= 'La rue est incorrect</br>';
+        }
+        if(!preg_match("#^[a-zA-ZÀÉÈËÊÔÂÜÄÌïîáäéèëêôüìîï]{1,30}$#", $_POST['commune']))
+        {
+            $i++;
+            $alerte.= 'La ville est incorrect</br>';
+        }
+        if(!preg_match("#^[0-9]{5}|2A|2B$#", $_POST['code_postale']))
+        {
+            $i++;
+            $alerte.= 'Le code postale est incorrect</br>';
+        }
+       if(!preg_match("#^[a-zA-ZÀÉÈËÊÔÂÜÄÌïîáäéèëêôüìîï]{1,30}$#", $_POST['raison_s']))
+        {
+            $i++;
+            $alerte.= 'La raison sociale est incorrect</br>';
+        }
+        if ($i > 0)
+        {
+            echo "<div class='box-body'>
+                <div class='alert alert-danger alert-dismissible'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                <h4><i class='icon fa fa-ban'></i> Erreur !</h4>
+                ".$alerte."
+                </div>
+                </div>" ;
+        }
         else
         {
-                echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-danger">numéro de rue incorrect</div></div>';
-        }    
+            addPresta();
+            echo '<div class="col-md-10 col-md-offset-2"><div class="alert alert-info">Ajout réussie!</div></div>';
+        }
     }
         
     if($_SESSION['auth']['level']== 1)

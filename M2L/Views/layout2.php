@@ -99,7 +99,7 @@
                         {
                             echo helper::menu('chef','fa fa-home','Accueil');
                         }
-                        echo helper::menu('gestionUser','fa fa-user-plus','Ajouter un Utilisateur');
+                        echo helper::menu('gestionUser','fa fa-user-plus','Gestion utilisateurs');
                         echo helper::menu('gestionPrestataire', 'fa fa-user-plus','Ajouter un Prestataire');
                         echo helper::menu('gestionFormation','glyphicon glyphicon-plus','Ajouter une Formation');
                     }
@@ -123,6 +123,7 @@
         <section class="content-header">
             <h1>
                 <?= $title ?>
+                <hr>
             </h1>
         </section>
         <section class="content">
@@ -176,7 +177,7 @@
                 "orderable": false,
                 "searchable": false
             }],
-            
+
             "language": {
                 search: "_INPUT_",
                 searchPlaceholder: "Recherche...",
@@ -198,7 +199,7 @@
                 "orderable": false,
                 "searchable": false
             }],
-            
+
             "language": {
                 search: "_INPUT_",
                 searchPlaceholder: "Recherche...",
@@ -220,7 +221,7 @@
                 "orderable": false,
                 "searchable": false
             }],
-            
+
             "language": {
                 search: "_INPUT_",
                 searchPlaceholder: "Recherche...",

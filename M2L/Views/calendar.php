@@ -39,7 +39,7 @@
         var id_s = <?= $_SESSION['auth']['id_s'] ?>
 
         $.ajax({
-            url: 'Models/calendar.php',
+            url: '../Models/calendar.php',
             type: 'POST', // Send post data
             data: 'type=fetchchef&id_s='+id_s,
             async: false,

@@ -12,6 +12,10 @@ if($_SESSION['auth']['level']== 2)
 
     $_GET['p'] = 'chef';
 
+    $joursSal =getnbjoursalarie($_SESSION['test']);
+    $credSal = getcreditssalarie($_SESSION['test']);
+    $nom = getNom($_SESSION['test']);
+    $prenom = getPrenom($_SESSION['test']);
     if (isset($_POST['Valide']))
 	{
 		$id_f = $_POST['idForm'];
