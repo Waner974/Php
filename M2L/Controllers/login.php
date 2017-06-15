@@ -28,12 +28,15 @@ if(isset($_COOKIE['auth']) && !isset($_SESSION['auth']))
     }
 }
 
+
 if(isset($_POST['submit']))
 {
     $user = get_user($_POST);
+    $user_mail = get_user_mail($_POST);
             
     if($user)
     {
+        $_SESSION['i'] = 0;
         $_SESSION['auth'] = $user; //connection user
         if(isset($_POST['remember']))
         {
@@ -49,8 +52,28 @@ if(isset($_POST['submit']))
                    
      }
      else
-     {
-         echo'<div class="alert alert-warning">Mauvais identifiants !</div>';
+     {   
+         if($user_mail)
+         {
+             $_SESSION['i'] = $_SESSION['i'] + 1;
+             if($_SESSION['i'] < 3)
+             {
+                echo'<div class="alert alert-warning">Mauvais identifiants ! '.$_SESSION['i'].' tentative(s)</div>';
+             }
+             
+             elseif($_SESSION['i'] >= 3)
+             {
+                setErreur($user_mail['id_s'],$user_mail['erreur']);
+                 
+                echo'<div class="alert alert-warning">3 tentatives de connexions erronées - Echec enregistré !</div>';
+                 
+                $_SESSION['i'] = 0;
+             }
+         }
+         else
+         {
+             echo '<div class="alert alert-warning">Cette utilisateur n\'existe pas !</div>';
+         }
      }
 }
 

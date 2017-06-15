@@ -5,6 +5,10 @@ require "Models/connect.php";
 define('BASE_URL',dirname($_SERVER['SCRIPT_NAME']));
 if(!isset($_SESSION['auth']))
 {
+    if(!isset($_SESSION['i']))
+    {
+        $_SESSION['i'] = 0;
+    }
     require "Controllers/login.php";
 }
 else

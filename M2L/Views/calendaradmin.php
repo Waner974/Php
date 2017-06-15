@@ -39,7 +39,7 @@
         var id_s = <?= $_SESSION['auth']['id_s'] ?>
 
         $.ajax({
-            url: '../Models/calendar.php',
+            url: 'Models/calendar.php',
             type: 'POST', // Send post data
             data: 'type=fetchchef&id_s='+id_s,
             async: false,
@@ -77,7 +77,7 @@
                 var title = event.title;
                 var start = event.start.format("YYYY-MM-DD[T]HH:mm:SS");
                 $.ajax({
-                    url: '../Models/calendar.php',
+                    url: 'Models/calendar.php',
                     data: 'type=new&title='+title+'&startdate='+start+'&zone='+zone,
                     type: 'POST',
                     dataType: 'json',
@@ -98,7 +98,7 @@
                 var start = event.start.format();
                 var end = (event.end == null) ? start : event.end.format();
                 $.ajax({
-                    url: '../Models/calendar.php',
+                    url: 'Models/calendar.php',
                     data: 'type=resetdate&title='+title+'&start='+start+'&end='+end+'&eventid='+event.id,
                     type: 'POST',
                     dataType: 'json',
@@ -119,7 +119,7 @@
                     event.title = title;
                     console.log('type=changetitle&title='+title+'&eventid='+event.id);
                     $.ajax({
-                        url: '../Models/calendar.php',
+                        url: 'Models/calendar.php',
                         data: 'type=changetitle&title='+title+'&eventid='+event.id,
                         type: 'POST',
                         dataType: 'json',
@@ -139,7 +139,7 @@
                 var end = event.end.format();
                 var start = event.start.format();
                 $.ajax({
-                    url: '../Models/calendar.php',
+                    url: 'Models/calendar.php',
                     data: 'type=resetdate&title='+title+'&start='+start+'&end='+end+'&eventid='+event.id,
                     type: 'POST',
                     dataType: 'json',
@@ -158,7 +158,7 @@
                     var con = confirm('Are you sure to delete this event permanently?');
                     if(con == true) {
                         $.ajax({
-                            url: '../Models/calendar.php',
+                            url: 'Models/calendar.php',
                             data: 'type=remove&eventid='+event.id,
                             type: 'POST',
                             dataType: 'json',
@@ -198,7 +198,7 @@
 
         function getFreshEvents(){
             $.ajax({
-                url: '../Models/calendar.php',
+                url: 'Models/calendar.php',
                 type: 'POST', // Send post data
                 data: 'type=fetch',
                 async: false,

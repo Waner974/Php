@@ -20,6 +20,26 @@
         return $user->fetch();
     }
 
+    function get_user_mail($params)
+    {
+        global $bdd;
+        
+        $user = $bdd->prepare("SELECT * FROM salarie WHERE mail=:mail");
+        $user->bindValue(':mail', $params['mail'],PDO::PARAM_STR);
+        $user->execute();
+        return $user->fetch();
+    }
+
+    function setErreur($id_s, $erreur)
+    {
+        global $bdd;
+        $erreur = $erreur + 1;
+        $req = $bdd->prepare('UPDATE salarie SET erreur = :erreur WHERE id_s = :id_s');
+        $req->bindParam(':id_s', $id_s);
+        $req->bindParam(':erreur', $erreur);
+        $req->execute();
+    }
+
 
 
 
